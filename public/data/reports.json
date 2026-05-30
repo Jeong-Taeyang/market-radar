@@ -1,0 +1,52 @@
+{
+  "updated_at": "2026-05-30 22:59 KST",
+  "total": 1,
+  "reports": [
+    {
+      "date": "2026-05-30",
+      "title": "주요뉴스",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,580.1",
+          "change": "+0.22%"
+        },
+        "kospi": {
+          "value": "8,476.15",
+          "change": "+3.55%"
+        },
+        "usd_krw": {
+          "value": "1,507.1",
+          "change": "+0.79%"
+        },
+        "wti": {
+          "value": "87.36",
+          "change": "-1.73%"
+        },
+        "gold": {
+          "value": "4,560.5",
+          "change": "+1.36%"
+        },
+        "vix": {
+          "value": "15.32",
+          "change": "-2.67%"
+        },
+        "dxy": {
+          "value": "98.91",
+          "change": "-0.11%"
+        },
+        "eurusd": {
+          "value": "1.1659",
+          "change": "+0.05%"
+        },
+        "usdjpy": {
+          "value": "159.26",
+          "change": "-0.01%"
+        }
+      }
+    }
+  ]
+}
