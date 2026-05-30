@@ -140,30 +140,37 @@ def scrape_kcif() -> dict:
         if not target:
             return _kcif_fallback()
 
+        # 링크 텍스트에서 제목 추출 (가장 신뢰할 수 있는 소스)
+        raw_text = target.get_text(separator=" ", strip=True)
+        # 날짜 접미사 제거, 카테고리 태그 제거
+        link_title = re.sub(r'\s*\d{1,2}\.\d{2}\s*$', '', raw_text)
+        link_title = re.sub(r'^\s*\|[^|]+\|\s*', '', link_title).strip()
+
         href = target.get("href", "")
         url = href if href.startswith("http") else KCIF_BASE + href
-        return _fetch_detail(url)
+        return _fetch_detail(url, prefill_title=link_title)
 
     except Exception as e:
         print(f"  KCIF 목록 스크래핑 실패: {e}")
         return _kcif_fallback()
 
 
-def _fetch_detail(url: str) -> dict:
+def _fetch_detail(url: str, prefill_title: str = "") -> dict:
     try:
         resp = requests.get(url, headers=HEADERS, verify=False, timeout=20)
         resp.encoding = "utf-8"
         soup = BeautifulSoup(resp.content, "lxml")
 
-        # 제목 추출
-        title = ""
-        for sel in ["h1.tit", "h2.tit", ".view_tit", ".subject", "h1", "h2"]:
-            el = soup.select_one(sel)
-            if el:
-                t = el.get_text(strip=True)
-                if len(t) > 10:
-                    title = t
-                    break
+        # 제목: 링크 텍스트에서 미리 추출한 값 우선 사용
+        title = prefill_title
+        if not title:
+            for sel in ["h1.tit", "h2.tit", ".view_tit", ".subject", "h1", "h2"]:
+                el = soup.select_one(sel)
+                if el:
+                    t = el.get_text(strip=True)
+                    if len(t) > 10 and "주요뉴스" not in t:
+                        title = t
+                        break
 
         # 본문 추출
         body = ""
@@ -219,33 +226,74 @@ def _kcif_fallback() -> dict:
 # 2. 시세 수집 + historical JSON 업데이트
 # ════════════════════════════════════════════════════════════════
 
-def _fetch_quote(sym: str) -> dict | None:
-    try:
-        hist = yf.Ticker(sym).history(period="5d", interval="1d")
-        if len(hist) < 2:
-            return None
-        prev = float(hist["Close"].iloc[-2])
-        last = float(hist["Close"].iloc[-1])
-        pct  = (last - prev) / prev * 100 if prev else 0
-        return {"value": last, "pct": pct}
-    except Exception:
-        return None
+def _yahoo_quote(sym: str) -> dict | None:
+    """Yahoo Finance Chart API를 requests(verify=False)로 직접 호출."""
+    import time as _time
+    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}"
+    params = {"interval": "1d", "range": "5d"}
+    for attempt in range(2):
+        try:
+            resp = requests.get(url, params=params, headers=HEADERS,
+                                verify=False, timeout=15)
+            data = resp.json()
+            closes = data["chart"]["result"][0]["indicators"]["quote"][0]["close"]
+            closes = [c for c in closes if c is not None]
+            if len(closes) < 2:
+                return None
+            prev = closes[-2]
+            last = closes[-1]
+            pct  = (last - prev) / prev * 100 if prev else 0
+            return {"value": last, "pct": pct}
+        except Exception:
+            if attempt == 0:
+                _time.sleep(1)
+    return None
+
+
+def _yahoo_history(sym: str, period: str = "5y") -> list[dict]:
+    """Yahoo Finance Chart API로 히스토리컬 데이터 수집."""
+    import time as _time
+    range_map = {"5y": "5y", "10y": "10y", "max": "max"}
+    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}"
+    params = {"interval": "1d", "range": range_map.get(period, "5y")}
+    for attempt in range(2):
+        try:
+            resp = requests.get(url, params=params, headers=HEADERS,
+                                verify=False, timeout=30)
+            data = resp.json()
+            result = data["chart"]["result"][0]
+            timestamps = result["timestamp"]
+            closes     = result["indicators"]["quote"][0]["close"]
+            rows = []
+            for ts, c in zip(timestamps, closes):
+                if c is None:
+                    continue
+                from datetime import date as _date
+                d = _date.fromtimestamp(ts).isoformat()
+                rows.append({"d": d, "v": c})
+            return rows
+        except Exception:
+            if attempt == 0:
+                _time.sleep(1)
+    return []
 
 
 def fetch_market_data() -> dict:
-    print("  시세 수집 중...")
+    print("  Yahoo Finance API 직접 호출 중...")
+    import time as _time
     quotes = {}
     for key, cfg in TICKERS.items():
-        q = _fetch_quote(cfg["sym"])
+        q = _yahoo_quote(cfg["sym"])
         if q:
-            sign = "+" if q["pct"] >= 0 else ""
             d    = cfg["decimals"]
+            sign = "+" if q["pct"] >= 0 else ""
             quotes[key] = {
-                "value":   f"{q['value']:,.{d}f}",
-                "change":  f"{sign}{q['pct']:.2f}%",
-                "_raw":    q["value"],
-                "_pct":    q["pct"],
+                "value":  f"{q['value']:,.{d}f}",
+                "change": f"{sign}{q['pct']:.2f}%",
+                "_raw":   q["value"],
+                "_pct":   q["pct"],
             }
+        _time.sleep(0.3)   # rate limit 방지
     return quotes
 
 
@@ -256,14 +304,12 @@ def _init_historical(key: str, cfg: dict) -> dict:
         "prefix": cfg["prefix"], "decimals": cfg["decimals"],
         "updated": "", "data": [],
     }
-    try:
-        hist = yf.Ticker(cfg["sym"]).history(period="5y", interval="1d")
-        data["data"] = [
-            {"d": str(idx.date()), "v": round(float(row["Close"]), cfg["decimals"])}
-            for idx, row in hist.iterrows()
-        ]
-    except Exception as e:
-        print(f"    {key} 초기화 실패: {e}")
+    rows = _yahoo_history(cfg["sym"], "5y")
+    if rows:
+        data["data"] = [{"d": r["d"], "v": round(r["v"], cfg["decimals"])} for r in rows]
+        print(f"    {key}: {len(data['data'])}일치 수집 완료")
+    else:
+        print(f"    {key} 초기화 실패")
     return data
 
 
