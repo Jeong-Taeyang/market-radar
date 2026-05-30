@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#F2F4F6">
+  <title>마켓레이더 — 글로벌 시장 브리핑</title>
+  <meta name="description" content="매일 업데이트되는 AI 기반 글로벌 시장 브리핑 — 강세론자·약세론자·퀀트·워런 버핏 관점">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="logo">마켓<span>레이더</span></h1>
+      <p class="subtitle">매일 업데이트되는 글로벌 시장 브리핑</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ── 목록 뷰 ── -->
+    <div id="list-view">
+      <div id="report-list">
+        <!-- 스켈레톤 로더 (JS로 교체됨) -->
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+      <div id="empty-state" class="empty-state hidden">
+        <p>📭 아직 브리핑 데이터가 없습니다.</p>
+      </div>
+    </div>
+
+    <!-- ── 상세 뷰 ── -->
+    <div id="detail-view" class="hidden">
+      <button class="back-btn" id="back-btn">← 목록으로</button>
+      <div class="detail-header">
+        <span class="date-badge" id="detail-date"></span>
+        <h2 id="detail-title"></h2>
+        <a class="source-link" id="detail-source" href="#" target="_blank" rel="noopener">
+          KCIF 원문 보기 →
+        </a>
+      </div>
+      <div class="market-grid" id="market-grid"></div>
+      <div class="content-card">
+        <div class="persona-tabs" id="persona-tabs"></div>
+        <div class="persona-content" id="persona-content">
+          <div class="skeleton-text"></div>
+          <div class="skeleton-text short"></div>
+          <div class="skeleton-text"></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── 바텀시트 ── -->
+  <div id="sheet-overlay" class="sheet-overlay"></div>
+  <div id="sheet" class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title-row">
+      <span class="sheet-label" id="sheet-label"></span>
+      <span class="sheet-value" id="sheet-value"></span>
+      <span class="sheet-change" id="sheet-change"></span>
+    </div>
+    <div class="sheet-dots" id="sheet-dots"></div>
+    <div class="sheet-period-tabs" id="sheet-period-tabs">
+      <button class="period-tab" data-p="1M">1M</button>
+      <button class="period-tab" data-p="YTD">YTD</button>
+      <button class="period-tab active" data-p="1Y">1Y</button>
+      <button class="period-tab" data-p="5Y">5Y</button>
+      <button class="period-tab" data-p="ALL">전체</button>
+    </div>
+    <div class="chart-wrap">
+      <canvas id="sheet-chart"></canvas>
+    </div>
+    <div class="sheet-stats" id="sheet-stats"></div>
+  </div>
+
+  <footer class="footer">
+    <p>
+      <a href="https://www.kcif.or.kr" target="_blank" rel="noopener">국제금융센터(KCIF)</a>
+      국제금융속보 기반 AI 분석
+    </p>
+    <p class="disclaimer">본 자료는 참고용이며, 투자 판단의 근거로 사용하지 마세요.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script src="chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
