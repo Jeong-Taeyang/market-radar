@@ -2,9 +2,12 @@
 마켓레이더 - 글로벌 시장 브리핑 웹사이트 데이터 생성 & Vercel 자동 배포
 매일 07:30 Windows 작업 스케줄러에 의해 실행됨
 
+사이트 URL : https://market-radar-phi.vercel.app/
+GitHub    : https://github.com/Jeong-Taeyang/market-radar
+
 파이프라인:
   1. KCIF 국제금융속보 스크래핑
-  2. yfinance 시세 수집 + historical JSON 누적
+  2. Yahoo Finance API 시세 수집 + historical JSON 누적
   3. Claude API 4 페르소나 분석 생성 (강세론자/약세론자/퀀트/버핏)
   4. public/data/ JSON 파일 저장
   5. git add/commit/push → Vercel 자동 배포
