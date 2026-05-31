@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-05-31 07:31 KST",
-  "total": 2,
+  "updated_at": "2026-06-01 07:31 KST",
+  "total": 3,
   "reports": [
+    {
+      "date": "2026-06-01",
+      "title": "주간 이슈(6.1) : 미국-이란 합의 여부, 미국 고용지표, OECD 경제전망, 유로존 CPI에 주목",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,580.1",
+          "change": "+0.22%"
+        },
+        "kospi": {
+          "value": "8,476.15",
+          "change": "+3.55%"
+        },
+        "usd_krw": {
+          "value": "1,507.4",
+          "change": "+0.81%"
+        },
+        "wti": {
+          "value": "89.69",
+          "change": "+2.67%"
+        },
+        "gold": {
+          "value": "4,566.4",
+          "change": "+0.13%"
+        },
+        "vix": {
+          "value": "15.32",
+          "change": "-2.67%"
+        },
+        "dxy": {
+          "value": "99.00",
+          "change": "+0.09%"
+        },
+        "us10y": {
+          "value": "4.453",
+          "change": "-0.04%"
+        },
+        "eurusd": {
+          "value": "1.1658",
+          "change": "+0.04%"
+        },
+        "usdjpy": {
+          "value": "159.39",
+          "change": "+0.08%"
+        }
+      }
+    },
     {
       "date": "2026-05-31",
       "title": "[5.30] 트럼프, 이란과의 종전 협상안 최종결정 지연. 이란은 트럼프 비난 지속 등",
