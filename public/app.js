@@ -22,6 +22,7 @@ const MARKET_KEYS = [
   { key: "sp500",   label: "S&P 500" },
   { key: "kospi",   label: "KOSPI" },
   { key: "usd_krw", label: "원/달러" },
+  { key: "us10y",   label: "미국 10년물" },
   { key: "wti",     label: "WTI" },
   { key: "gold",    label: "금" },
   { key: "vix",     label: "VIX" },
@@ -30,8 +31,8 @@ const MARKET_KEYS = [
   { key: "usdjpy",  label: "USD/JPY" },
 ];
 
-// 바텀시트 인디케이터 (historical 있는 7개)
-const SHEET_INDICATORS = ["sp500", "kospi", "usd_krw", "wti", "gold", "vix", "dxy"];
+// 바텀시트 인디케이터 (historical 있는 8개)
+const SHEET_INDICATORS = ["sp500", "kospi", "usd_krw", "us10y", "wti", "gold", "vix", "dxy"];
 
 // ── 현재 상태 ──
 let currentReport = null;
@@ -229,7 +230,7 @@ function openSheet(key, label, date) {
   // 도트 렌더
   const dots = document.getElementById("sheet-dots");
   dots.innerHTML = SHEET_INDICATORS.map(k => {
-    const labels = { sp500:"S&P 500", kospi:"KOSPI", usd_krw:"원/달러", wti:"WTI", gold:"금", vix:"VIX", dxy:"DXY" };
+    const labels = { sp500:"S&P 500", kospi:"KOSPI", usd_krw:"원/달러", us10y:"미국 10년물", wti:"WTI", gold:"금", vix:"VIX", dxy:"DXY" };
     return `<span class="sdot ${k === key ? "active" : ""}"
                   onclick="switchSheetIndicator('${k}', '${labels[k]}')"
                   data-key="${k}">${labels[k]}</span>`;

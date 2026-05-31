@@ -1,16 +1,16 @@
 """
 매일 아침 글로벌 시장 요약 발송 스크립트
-발송 우선순위: 텔레그램 → 슬랙 → Gmail
+발송 우선순위: 텔레그램 → Discord → 슬랙 → Gmail
 Windows 작업 스케줄러에 등록하여 자동 실행
 """
 
 import os
 import sys
 import ssl
+import html
 import smtplib
 import requests
 import urllib3
-import yfinance as yf
 from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -23,13 +23,16 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 load_dotenv()
 
-BOT_TOKEN     = os.getenv("TELEGRAM_BOT_TOKEN", "")
-CHAT_ID       = os.getenv("TELEGRAM_CHAT_ID", "")
-API_KEY       = os.getenv("ANTHROPIC_API_KEY", "")
-SLACK_WEBHOOK = os.getenv("SLACK_WEBHOOK_URL", "")
-GMAIL_USER    = os.getenv("GMAIL_USER", "")
-GMAIL_PASS    = os.getenv("GMAIL_APP_PASSWORD", "")
-GMAIL_TO      = os.getenv("GMAIL_TO", GMAIL_USER)
+BOT_TOKEN       = os.getenv("TELEGRAM_BOT_TOKEN", "")
+CHAT_ID         = os.getenv("TELEGRAM_CHAT_ID", "")
+API_KEY         = os.getenv("ANTHROPIC_API_KEY", "")
+SLACK_WEBHOOK   = os.getenv("SLACK_WEBHOOK_URL", "")
+DISCORD_WEBHOOK = os.getenv("DISCORD_WEBHOOK_URL", "")
+GMAIL_USER      = os.getenv("GMAIL_USER", "")
+GMAIL_PASS      = os.getenv("GMAIL_APP_PASSWORD", "")
+GMAIL_TO        = os.getenv("GMAIL_TO", GMAIL_USER)
+
+HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 # ── 시세 수집 대상 ───────────────────────────────────────────
 WATCHLIST = {
@@ -62,41 +65,32 @@ BLOCKED_ERRORS = (
 )
 
 
-def fetch_quote(ticker: str) -> dict | None:
+def fetch_quote(sym: str) -> dict | None:
     try:
-        hist = yf.Ticker(ticker).history(period="5d", interval="1d")
-        if len(hist) < 2:
+        url = f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}"
+        resp = requests.get(url, params={"interval": "1d", "range": "5d"},
+                            headers=HEADERS, verify=False, timeout=15)
+        result = resp.json()["chart"]["result"][0]
+        closes = [c for c in result["indicators"]["quote"][0]["close"] if c is not None]
+        if len(closes) < 2:
             return None
-        prev = float(hist["Close"].iloc[-2])
-        last = float(hist["Close"].iloc[-1])
-        chg  = last - prev
-        pct  = (chg / prev) * 100 if prev else 0
+        prev, last = closes[-2], closes[-1]
+        chg = last - prev
+        pct = (chg / prev) * 100 if prev else 0
         return {"price": last, "change": chg, "pct": pct}
     except Exception:
         return None
 
 
 def fetch_news(limit: int = 8) -> list[str]:
-    headlines, seen = [], set()
-    for sym in NEWS_SOURCES:
-        try:
-            for n in (yf.Ticker(sym).news or [])[:5]:
-                title = n.get("title", "")
-                if title and title not in seen:
-                    seen.add(title)
-                    headlines.append(title)
-                    if len(headlines) >= limit:
-                        return headlines
-        except Exception:
-            continue
-    return headlines
+    return []
 
 
 def arrow(pct: float) -> str:
     return "▲" if pct > 0 else ("▼" if pct < 0 else "━")
 
 
-def format_market_block(quotes: dict) -> str:
+def format_market_block(quotes: dict, mode: str = "telegram") -> str:
     lines = []
     for market, tickers in WATCHLIST.items():
         lines.append(f"\n{market}")
@@ -105,9 +99,12 @@ def format_market_block(quotes: dict) -> str:
             if not q:
                 continue
             sign = "+" if q["pct"] >= 0 else ""
-            lines.append(
-                f"  {arrow(q['pct'])} {name}: `{q['price']:,.2f}` ({sign}{q['pct']:.2f}%)"
-            )
+            price = f"{q['price']:,.2f}"
+            pct   = f"{sign}{q['pct']:.2f}%"
+            if mode == "telegram":
+                lines.append(f"  {arrow(q['pct'])} {name}: <code>{price}</code> ({pct})")
+            else:
+                lines.append(f"  {arrow(q['pct'])} {name}: `{price}` ({pct})")
     return "\n".join(lines)
 
 
@@ -164,7 +161,7 @@ def send_telegram(text: str) -> bool:
             resp = requests.post(url, json={
                 "chat_id":    CHAT_ID,
                 "text":       chunk,
-                "parse_mode": "Markdown",
+                "parse_mode": "HTML",
             }, timeout=10, verify=False)
             if not resp.ok:
                 print(f"  텔레그램 응답 오류: {resp.text[:100]}")
@@ -172,6 +169,24 @@ def send_telegram(text: str) -> bool:
         return True
     except BLOCKED_ERRORS as e:
         print(f"  텔레그램 차단/연결 실패: {type(e).__name__}")
+        return False
+
+
+def send_discord(text: str) -> bool:
+    if not DISCORD_WEBHOOK:
+        return False
+    # Discord 마크다운: *bold* 미지원 → **bold**, ` ` 코드는 동일
+    discord_text = text.replace("*", "**")
+    try:
+        for chunk in [discord_text[i:i+1900] for i in range(0, len(discord_text), 1900)]:
+            resp = requests.post(DISCORD_WEBHOOK, json={"content": chunk},
+                                 timeout=10, verify=False)
+            if not resp.ok:
+                print(f"  Discord 응답 오류: {resp.text[:100]}")
+                return False
+        return True
+    except BLOCKED_ERRORS as e:
+        print(f"  Discord 차단/연결 실패: {type(e).__name__}")
         return False
 
 
@@ -234,24 +249,41 @@ def main():
     print("AI 요약 생성 중...")
     summary = get_ai_summary(snapshot_text, headlines)
 
-    market_block = format_market_block(quotes)
-    news_block   = "\n".join(f"• {h}" for h in headlines[:6])
+    tg_market  = format_market_block(quotes, mode="telegram")
+    raw_market = format_market_block(quotes, mode="plain")
+    news_block = "\n".join(f"• {h}" for h in headlines[:6])
+    sep        = "─" * 28
 
+    # 텔레그램 전용 (HTML)
+    tg_message = (
+        f"📈 <b>글로벌 시장 모닝 브리핑</b>\n"
+        f"<i>{now}</i>\n"
+        f"{sep}\n"
+        f"{tg_market}\n\n"
+        f"{sep}\n"
+        f"🤖 <b>AI 분석</b>\n{html.escape(summary)}\n\n"
+        f"{sep}\n"
+        f"📰 <b>주요 뉴스</b>\n{html.escape(news_block)}\n\n"
+        f"<i>⚠️ 투자 참고용이며 투자 권유가 아닙니다.</i>"
+    )
+
+    # 그 외 채널 (Markdown/plain)
     message = (
-        f"📈 *글로벌 시장 모닝 브리핑*\n"
-        f"_{now}_\n"
-        f"{'─' * 28}\n"
-        f"{market_block}\n\n"
-        f"{'─' * 28}\n"
-        f"🤖 *AI 분석*\n{summary}\n\n"
-        f"{'─' * 28}\n"
-        f"📰 *주요 뉴스*\n{news_block}\n\n"
-        f"_⚠️ 투자 참고용이며 투자 권유가 아닙니다._"
+        f"📈 **글로벌 시장 모닝 브리핑**\n"
+        f"{now}\n"
+        f"{sep}\n"
+        f"{raw_market}\n\n"
+        f"{sep}\n"
+        f"🤖 **AI 분석**\n{summary}\n\n"
+        f"{sep}\n"
+        f"📰 **주요 뉴스**\n{news_block}\n\n"
+        f"⚠️ 투자 참고용이며 투자 권유가 아닙니다."
     )
     subject = f"📈 글로벌 시장 모닝 브리핑 — {now}"
 
     channels = [
-        ("텔레그램", lambda: send_telegram(message)),
+        ("텔레그램", lambda: send_telegram(tg_message)),
+        ("Discord",  lambda: send_discord(message)),
         ("슬랙",     lambda: send_slack(message)),
         ("Gmail",    lambda: send_gmail(subject, message)),
     ]

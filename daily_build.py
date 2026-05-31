@@ -59,6 +59,7 @@ TICKERS = {
     "gold":    {"sym": "GC=F",     "label": "금",           "prefix": "$", "decimals": 1},
     "vix":     {"sym": "^VIX",     "label": "VIX",         "prefix": "",  "decimals": 2},
     "dxy":     {"sym": "DX-Y.NYB", "label": "달러인덱스",  "prefix": "",  "decimals": 2},
+    "us10y":   {"sym": "^TNX",     "label": "미국 10년물",  "prefix": "",  "decimals": 3},
     "eurusd":  {"sym": "EURUSD=X", "label": "EUR/USD",     "prefix": "",  "decimals": 4},
     "usdjpy":  {"sym": "USDJPY=X", "label": "USD/JPY",     "prefix": "",  "decimals": 2},
 }
