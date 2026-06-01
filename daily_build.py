@@ -489,6 +489,12 @@ def main():
     print(f"마켓레이더 빌드 시작: {now.strftime('%Y-%m-%d %H:%M')}")
     print(f"{'='*50}\n")
 
+    # 토·일 = 한국·미국 시장 모두 휴장 → 건너뜀
+    if now.weekday() >= 5:
+        day_name = "토요일" if now.weekday() == 5 else "일요일"
+        print(f"  {day_name} — 한국·미국 시장 모두 휴장, 빌드를 건너뜁니다.")
+        sys.exit(0)
+
     # 1. KCIF 스크래핑
     print("[1/5] KCIF 국제금융속보 수집...")
     news = scrape_kcif()
