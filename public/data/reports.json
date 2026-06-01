@@ -61,36 +61,36 @@
       "has_buffett": true,
       "market_data": {
         "sp500": {
-          "value": "7,575.4",
-          "change": "-0.06%"
+          "value": "7,577.9",
+          "change": "-0.03%"
         },
         "kospi": {
           "value": "8,476.15",
-          "change": "+3.55%"
+          "change": "0.00%"
         },
         "usd_krw": {
-          "value": "1,511.6",
-          "change": "+1.09%"
+          "value": "1,509.4",
+          "change": "+0.94%"
         },
         "wti": {
-          "value": "94.59",
-          "change": "+8.28%"
+          "value": "94.24",
+          "change": "+7.88%"
         },
         "gold": {
-          "value": "4,488.0",
-          "change": "-1.59%"
+          "value": "4,490.6",
+          "change": "-1.53%"
         },
         "vix": {
-          "value": "16.16",
-          "change": "+5.48%"
+          "value": "16.14",
+          "change": "+5.35%"
         },
         "dxy": {
-          "value": "99.29",
-          "change": "+0.39%"
+          "value": "99.28",
+          "change": "+0.38%"
         },
         "us10y": {
-          "value": "4.512",
-          "change": "+1.32%"
+          "value": "4.516",
+          "change": "+1.41%"
         },
         "eurusd": {
           "value": "1.1621",
@@ -98,7 +98,7 @@
         },
         "usdjpy": {
           "value": "159.66",
-          "change": "+0.25%"
+          "change": "+0.24%"
         }
       }
     },
