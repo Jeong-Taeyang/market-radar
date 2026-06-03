@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-06-02 00:01 KST",
-  "total": 3,
+  "updated_at": "2026-06-04 07:31 KST",
+  "total": 4,
   "reports": [
+    {
+      "date": "2026-06-04",
+      "title": "[26.4월] 국제금융 INSIGHT",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,553.7",
+          "change": "-0.74%"
+        },
+        "kospi": {
+          "value": "8,801.49",
+          "change": "+0.15%"
+        },
+        "usd_krw": {
+          "value": "1,532.2",
+          "change": "+1.03%"
+        },
+        "wti": {
+          "value": "95.71",
+          "change": "+2.08%"
+        },
+        "gold": {
+          "value": "4,452.9",
+          "change": "-0.81%"
+        },
+        "vix": {
+          "value": "16.06",
+          "change": "+1.84%"
+        },
+        "dxy": {
+          "value": "99.55",
+          "change": "+0.33%"
+        },
+        "us10y": {
+          "value": "4.491",
+          "change": "+0.81%"
+        },
+        "eurusd": {
+          "value": "1.1601",
+          "change": "-0.18%"
+        },
+        "usdjpy": {
+          "value": "160.02",
+          "change": "+0.03%"
+        }
+      }
+    },
     {
       "date": "2026-06-02",
       "title": "중동 전쟁 및 국제유가 동향(6.1)",
