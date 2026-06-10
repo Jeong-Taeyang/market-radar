@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-06-10 07:31 KST",
-  "total": 6,
+  "updated_at": "2026-06-11 07:31 KST",
+  "total": 7,
   "reports": [
+    {
+      "date": "2026-06-11",
+      "title": "중동 전쟁 및 국제유가 동향(6.10)",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,267.0",
+          "change": "-1.62%"
+        },
+        "kospi": {
+          "value": "8,096.93",
+          "change": "+8.18%"
+        },
+        "usd_krw": {
+          "value": "1,520.5",
+          "change": "-0.35%"
+        },
+        "wti": {
+          "value": "92.20",
+          "change": "+4.54%"
+        },
+        "gold": {
+          "value": "4,068.2",
+          "change": "-4.50%"
+        },
+        "vix": {
+          "value": "22.22",
+          "change": "+11.83%"
+        },
+        "dxy": {
+          "value": "100.08",
+          "change": "+0.17%"
+        },
+        "us10y": {
+          "value": "4.542",
+          "change": "+0.31%"
+        },
+        "eurusd": {
+          "value": "1.1534",
+          "change": "-0.01%"
+        },
+        "usdjpy": {
+          "value": "160.53",
+          "change": "+0.09%"
+        }
+      }
+    },
     {
       "date": "2026-06-10",
       "title": "[6.9] 이란·이스라엘, 트럼프 요청대로 상호 공격 중단. 일부 불안 요인도 존재 등",
