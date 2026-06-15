@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-06-12 07:31 KST",
-  "total": 8,
+  "updated_at": "2026-06-16 07:31 KST",
+  "total": 9,
   "reports": [
+    {
+      "date": "2026-06-16",
+      "title": "중동 전쟁 및 국제유가 동향(6.15)",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,554.3",
+          "change": "+1.65%"
+        },
+        "kospi": {
+          "value": "8,123.62",
+          "change": "+4.63%"
+        },
+        "usd_krw": {
+          "value": "1,514.0",
+          "change": "+0.30%"
+        },
+        "wti": {
+          "value": "81.17",
+          "change": "-4.37%"
+        },
+        "gold": {
+          "value": "4,332.3",
+          "change": "+2.78%"
+        },
+        "vix": {
+          "value": "16.20",
+          "change": "-8.37%"
+        },
+        "dxy": {
+          "value": "99.66",
+          "change": "-0.09%"
+        },
+        "us10y": {
+          "value": "4.469",
+          "change": "-0.40%"
+        },
+        "eurusd": {
+          "value": "1.1590",
+          "change": "-0.11%"
+        },
+        "usdjpy": {
+          "value": "160.32",
+          "change": "+0.23%"
+        }
+      }
+    },
     {
       "date": "2026-06-12",
       "title": "[6.11] 미국 트럼프, 對이란 보복 공습 단행. 추가 공격도 가능하다며 경고 등",
