@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-06-16 07:31 KST",
-  "total": 9,
+  "updated_at": "2026-06-17 07:31 KST",
+  "total": 10,
   "reports": [
+    {
+      "date": "2026-06-17",
+      "title": "[6.16] 미국과 이란, 종전 양해각서에 서명. 60일 동안 호르무즈 해협 통행료 없이 개방 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,511.4",
+          "change": "-0.57%"
+        },
+        "kospi": {
+          "value": "8,545.98",
+          "change": "+5.20%"
+        },
+        "usd_krw": {
+          "value": "1,512.9",
+          "change": "-0.03%"
+        },
+        "wti": {
+          "value": "75.98",
+          "change": "-5.91%"
+        },
+        "gold": {
+          "value": "4,351.2",
+          "change": "+0.54%"
+        },
+        "vix": {
+          "value": "16.41",
+          "change": "+1.30%"
+        },
+        "dxy": {
+          "value": "99.54",
+          "change": "-0.09%"
+        },
+        "us10y": {
+          "value": "4.428",
+          "change": "-1.31%"
+        },
+        "eurusd": {
+          "value": "1.1614",
+          "change": "+0.17%"
+        },
+        "usdjpy": {
+          "value": "160.41",
+          "change": "+0.11%"
+        }
+      }
+    },
     {
       "date": "2026-06-16",
       "title": "중동 전쟁 및 국제유가 동향(6.15)",
