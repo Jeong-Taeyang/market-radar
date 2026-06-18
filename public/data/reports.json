@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-06-17 07:31 KST",
-  "total": 10,
+  "updated_at": "2026-06-19 07:30 KST",
+  "total": 11,
   "reports": [
+    {
+      "date": "2026-06-19",
+      "title": "[6.18] 6월 FOMC, 금리 동결. 다만 금년 금리전망 상향 등으로 매파적 기조 강화 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,500.6",
+          "change": "+1.08%"
+        },
+        "kospi": {
+          "value": "8,864.24",
+          "change": "+1.58%"
+        },
+        "usd_krw": {
+          "value": "1,536.4",
+          "change": "+0.72%"
+        },
+        "wti": {
+          "value": "75.59",
+          "change": "-1.56%"
+        },
+        "gold": {
+          "value": "4,223.5",
+          "change": "-3.11%"
+        },
+        "vix": {
+          "value": "16.40",
+          "change": "-11.06%"
+        },
+        "dxy": {
+          "value": "100.81",
+          "change": "+0.72%"
+        },
+        "us10y": {
+          "value": "4.451",
+          "change": "-0.80%"
+        },
+        "eurusd": {
+          "value": "1.1464",
+          "change": "-0.38%"
+        },
+        "usdjpy": {
+          "value": "161.34",
+          "change": "+0.46%"
+        }
+      }
+    },
     {
       "date": "2026-06-17",
       "title": "[6.16] 미국과 이란, 종전 양해각서에 서명. 60일 동안 호르무즈 해협 통행료 없이 개방 등",
