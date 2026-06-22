@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-06-19 07:30 KST",
-  "total": 11,
+  "updated_at": "2026-06-23 07:31 KST",
+  "total": 12,
   "reports": [
+    {
+      "date": "2026-06-23",
+      "title": "[6.22] 미국과 이란, 협상 일시 중단 이후 재개. 헤즈볼라 문제 등 불안 요인 여전 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,472.8",
+          "change": "-0.37%"
+        },
+        "kospi": {
+          "value": "9,052.42",
+          "change": "-0.13%"
+        },
+        "usd_krw": {
+          "value": "1,536.1",
+          "change": "+0.31%"
+        },
+        "wti": {
+          "value": "74.20",
+          "change": "-3.13%"
+        },
+        "gold": {
+          "value": "4,210.4",
+          "change": "-0.32%"
+        },
+        "vix": {
+          "value": "17.28",
+          "change": "+5.37%"
+        },
+        "dxy": {
+          "value": "101.00",
+          "change": "+0.14%"
+        },
+        "us10y": {
+          "value": "4.509",
+          "change": "+1.30%"
+        },
+        "eurusd": {
+          "value": "1.1430",
+          "change": "-0.29%"
+        },
+        "usdjpy": {
+          "value": "161.60",
+          "change": "+0.11%"
+        }
+      }
+    },
     {
       "date": "2026-06-19",
       "title": "[6.18] 6월 FOMC, 금리 동결. 다만 금년 금리전망 상향 등으로 매파적 기조 강화 등",
