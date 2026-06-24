@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-06-23 07:31 KST",
-  "total": 12,
+  "updated_at": "2026-06-25 07:31 KST",
+  "total": 13,
   "reports": [
+    {
+      "date": "2026-06-25",
+      "title": "[6.24] 미국과 이란, 이견 불구 호르무즈 통과 선박 증가. 美 증시는 기술주 우려 증폭 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,358.2",
+          "change": "-0.10%"
+        },
+        "kospi": {
+          "value": "8,203.84",
+          "change": "-9.99%"
+        },
+        "usd_krw": {
+          "value": "1,539.6",
+          "change": "+0.29%"
+        },
+        "wti": {
+          "value": "69.85",
+          "change": "-4.59%"
+        },
+        "gold": {
+          "value": "4,016.8",
+          "change": "-2.74%"
+        },
+        "vix": {
+          "value": "18.63",
+          "change": "-4.41%"
+        },
+        "dxy": {
+          "value": "101.58",
+          "change": "+0.17%"
+        },
+        "us10y": {
+          "value": "4.402",
+          "change": "-1.10%"
+        },
+        "eurusd": {
+          "value": "1.1360",
+          "change": "-0.17%"
+        },
+        "usdjpy": {
+          "value": "161.74",
+          "change": "+0.09%"
+        }
+      }
+    },
     {
       "date": "2026-06-23",
       "title": "[6.22] 미국과 이란, 협상 일시 중단 이후 재개. 헤즈볼라 문제 등 불안 요인 여전 등",
