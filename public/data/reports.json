@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-06-25 07:31 KST",
-  "total": 13,
+  "updated_at": "2026-06-26 07:31 KST",
+  "total": 14,
   "reports": [
+    {
+      "date": "2026-06-26",
+      "title": "[6.25] 미국 트럼프, 이란 크게 양보했다며 압박. Micron Technology 실적은 예상 상회 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,357.5",
+          "change": "-0.01%"
+        },
+        "kospi": {
+          "value": "8,471.02",
+          "change": "+3.26%"
+        },
+        "usd_krw": {
+          "value": "1,544.2",
+          "change": "+0.09%"
+        },
+        "wti": {
+          "value": "71.45",
+          "change": "+1.58%"
+        },
+        "gold": {
+          "value": "4,037.7",
+          "change": "+1.19%"
+        },
+        "vix": {
+          "value": "18.89",
+          "change": "+1.40%"
+        },
+        "dxy": {
+          "value": "101.44",
+          "change": "-0.17%"
+        },
+        "us10y": {
+          "value": "4.392",
+          "change": "-1.33%"
+        },
+        "eurusd": {
+          "value": "1.1373",
+          "change": "+0.16%"
+        },
+        "usdjpy": {
+          "value": "161.76",
+          "change": "+0.00%"
+        }
+      }
+    },
     {
       "date": "2026-06-25",
       "title": "[6.24] 미국과 이란, 이견 불구 호르무즈 통과 선박 증가. 美 증시는 기술주 우려 증폭 등",
