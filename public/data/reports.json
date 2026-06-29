@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-06-26 07:31 KST",
-  "total": 14,
+  "updated_at": "2026-06-30 07:31 KST",
+  "total": 15,
   "reports": [
+    {
+      "date": "2026-06-30",
+      "title": "[6.29] 미국과 이란, 서로에 대한 공격 중단 합의. 분쟁 해결을 위한 대화도 예정 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,440.4",
+          "change": "+1.18%"
+        },
+        "kospi": {
+          "value": "8,411.21",
+          "change": "-5.81%"
+        },
+        "usd_krw": {
+          "value": "1,542.0",
+          "change": "+0.44%"
+        },
+        "wti": {
+          "value": "70.39",
+          "change": "+1.68%"
+        },
+        "gold": {
+          "value": "4,034.0",
+          "change": "-1.10%"
+        },
+        "vix": {
+          "value": "17.65",
+          "change": "-4.13%"
+        },
+        "dxy": {
+          "value": "101.11",
+          "change": "-0.25%"
+        },
+        "us10y": {
+          "value": "4.374",
+          "change": "+0.05%"
+        },
+        "eurusd": {
+          "value": "1.1427",
+          "change": "+0.37%"
+        },
+        "usdjpy": {
+          "value": "161.92",
+          "change": "+0.08%"
+        }
+      }
+    },
     {
       "date": "2026-06-26",
       "title": "[6.25] 미국 트럼프, 이란 크게 양보했다며 압박. Micron Technology 실적은 예상 상회 등",
