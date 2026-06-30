@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-06-30 07:31 KST",
-  "total": 15,
+  "updated_at": "2026-07-01 07:31 KST",
+  "total": 16,
   "reports": [
+    {
+      "date": "2026-07-01",
+      "title": "[6.30]  미국 트럼프, 이란과 회담 개최 예정. 이란은 참석 부인하고 호르무즈 통제 강조 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,499.4",
+          "change": "+0.79%"
+        },
+        "kospi": {
+          "value": "8,394.65",
+          "change": "-0.20%"
+        },
+        "usd_krw": {
+          "value": "1,545.7",
+          "change": "+0.26%"
+        },
+        "wti": {
+          "value": "69.95",
+          "change": "-1.13%"
+        },
+        "gold": {
+          "value": "4,027.9",
+          "change": "+0.14%"
+        },
+        "vix": {
+          "value": "16.45",
+          "change": "-6.80%"
+        },
+        "dxy": {
+          "value": "101.17",
+          "change": "+0.06%"
+        },
+        "us10y": {
+          "value": "4.418",
+          "change": "+1.05%"
+        },
+        "eurusd": {
+          "value": "1.1425",
+          "change": "+0.02%"
+        },
+        "usdjpy": {
+          "value": "162.61",
+          "change": "+0.42%"
+        }
+      }
+    },
     {
       "date": "2026-06-30",
       "title": "[6.29] 미국과 이란, 서로에 대한 공격 중단 합의. 분쟁 해결을 위한 대화도 예정 등",
