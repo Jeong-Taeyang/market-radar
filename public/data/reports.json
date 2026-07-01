@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-07-01 07:31 KST",
-  "total": 16,
+  "updated_at": "2026-07-02 07:31 KST",
+  "total": 17,
   "reports": [
+    {
+      "date": "2026-07-02",
+      "title": "[7.1] 이란, 양해각서 이행 내용 평가 후 대화 여부 결정. 호르무즈 통항량은 증가 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,483.2",
+          "change": "-0.22%"
+        },
+        "kospi": {
+          "value": "8,476.48",
+          "change": "+0.97%"
+        },
+        "usd_krw": {
+          "value": "1,552.6",
+          "change": "+0.26%"
+        },
+        "wti": {
+          "value": "68.02",
+          "change": "-2.13%"
+        },
+        "gold": {
+          "value": "4,049.0",
+          "change": "+0.65%"
+        },
+        "vix": {
+          "value": "16.59",
+          "change": "+0.85%"
+        },
+        "dxy": {
+          "value": "101.41",
+          "change": "+0.22%"
+        },
+        "us10y": {
+          "value": "4.475",
+          "change": "+2.36%"
+        },
+        "eurusd": {
+          "value": "1.1382",
+          "change": "-0.28%"
+        },
+        "usdjpy": {
+          "value": "162.54",
+          "change": "-0.05%"
+        }
+      }
+    },
     {
       "date": "2026-07-01",
       "title": "[6.30]  미국 트럼프, 이란과 회담 개최 예정. 이란은 참석 부인하고 호르무즈 통제 강조 등",
