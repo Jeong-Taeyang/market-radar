@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-07-02 07:31 KST",
-  "total": 17,
+  "updated_at": "2026-07-07 07:31 KST",
+  "total": 18,
   "reports": [
+    {
+      "date": "2026-07-07",
+      "title": "[7.6] 미국과 이란, 11일 협상 재개 예상. 이란 핵 프로그램 논의도 가능할 전망 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,537.4",
+          "change": "+0.72%"
+        },
+        "kospi": {
+          "value": "8,088.34",
+          "change": "+5.76%"
+        },
+        "usd_krw": {
+          "value": "1,529.8",
+          "change": "-0.08%"
+        },
+        "wti": {
+          "value": "68.67",
+          "change": "-0.03%"
+        },
+        "gold": {
+          "value": "4,178.6",
+          "change": "+1.60%"
+        },
+        "vix": {
+          "value": "15.57",
+          "change": "-3.59%"
+        },
+        "dxy": {
+          "value": "100.86",
+          "change": "-0.00%"
+        },
+        "us10y": {
+          "value": "4.479",
+          "change": "-0.13%"
+        },
+        "eurusd": {
+          "value": "1.1447",
+          "change": "+0.08%"
+        },
+        "usdjpy": {
+          "value": "162.07",
+          "change": "+0.38%"
+        }
+      }
+    },
     {
       "date": "2026-07-02",
       "title": "[7.1] 이란, 양해각서 이행 내용 평가 후 대화 여부 결정. 호르무즈 통항량은 증가 등",
