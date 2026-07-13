@@ -1,0 +1,51 @@
+{
+  "date": "2026-07-14",
+  "title": "[7.13] 이란, 호르무즈 봉쇄. 미국과 이란의 강대강 대치 지속되며 중동 불확실성 증폭 등",
+  "source_url": "https://www.kcif.or.kr/annual/reportView?rpt_no=37299&mn=001002",
+  "market_data": {
+    "sp500": {
+      "value": "7,515.3",
+      "change": "-0.79%"
+    },
+    "kospi": {
+      "value": "7,475.94",
+      "change": "+2.52%"
+    },
+    "usd_krw": {
+      "value": "1,497.0",
+      "change": "-0.10%"
+    },
+    "wti": {
+      "value": "77.92",
+      "change": "+9.12%"
+    },
+    "gold": {
+      "value": "4,012.0",
+      "change": "-2.24%"
+    },
+    "vix": {
+      "value": "17.16",
+      "change": "+14.17%"
+    },
+    "dxy": {
+      "value": "101.28",
+      "change": "+0.30%"
+    },
+    "us10y": {
+      "value": "4.609",
+      "change": "+0.88%"
+    },
+    "eurusd": {
+      "value": "1.1387",
+      "change": "-0.15%"
+    },
+    "usdjpy": {
+      "value": "162.42",
+      "change": "+0.33%"
+    }
+  },
+  "bull": "⚠️ 분석 생성 실패: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011Cczr9P5ePtQEf14RgRMtk'}",
+  "bear": "⚠️ 분석 생성 실패: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011Cczr9Q89f8VzeN6JUZQDX'}",
+  "quant": "⚠️ 분석 생성 실패: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011Cczr9RFceeM9QvFN3rKWr'}",
+  "buffett": "⚠️ 분석 생성 실패: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011Cczr9SQZxH5kS6hjeKyFs'}"
+}

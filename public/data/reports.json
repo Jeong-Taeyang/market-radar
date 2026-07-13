@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-07-08 07:31 KST",
-  "total": 19,
+  "updated_at": "2026-07-14 07:30 KST",
+  "total": 20,
   "reports": [
+    {
+      "date": "2026-07-14",
+      "title": "[7.13] 이란, 호르무즈 봉쇄. 미국과 이란의 강대강 대치 지속되며 중동 불확실성 증폭 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,515.3",
+          "change": "-0.79%"
+        },
+        "kospi": {
+          "value": "7,475.94",
+          "change": "+2.52%"
+        },
+        "usd_krw": {
+          "value": "1,497.0",
+          "change": "-0.10%"
+        },
+        "wti": {
+          "value": "77.92",
+          "change": "+9.12%"
+        },
+        "gold": {
+          "value": "4,012.0",
+          "change": "-2.24%"
+        },
+        "vix": {
+          "value": "17.16",
+          "change": "+14.17%"
+        },
+        "dxy": {
+          "value": "101.28",
+          "change": "+0.30%"
+        },
+        "us10y": {
+          "value": "4.609",
+          "change": "+0.88%"
+        },
+        "eurusd": {
+          "value": "1.1387",
+          "change": "-0.15%"
+        },
+        "usdjpy": {
+          "value": "162.42",
+          "change": "+0.33%"
+        }
+      }
+    },
     {
       "date": "2026-07-08",
       "title": "[7.7] 미국 6월 ISM 서비스업 PMI, 전월비 소폭 하락. 트럼프는 이란에 합의 압박 등",
