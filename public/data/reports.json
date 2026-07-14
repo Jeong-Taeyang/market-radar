@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-07-14 07:30 KST",
-  "total": 20,
+  "updated_at": "2026-07-15 07:30 KST",
+  "total": 21,
   "reports": [
+    {
+      "date": "2026-07-15",
+      "title": "[7.14] 미국, 對이란 해상봉쇄 재개. 호르무즈 통과 화물에는 수수료 20% 부과 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,543.6",
+          "change": "+0.38%"
+        },
+        "kospi": {
+          "value": "6,806.93",
+          "change": "-8.95%"
+        },
+        "usd_krw": {
+          "value": "1,488.4",
+          "change": "-0.62%"
+        },
+        "wti": {
+          "value": "79.97",
+          "change": "+2.34%"
+        },
+        "gold": {
+          "value": "4,056.9",
+          "change": "+1.50%"
+        },
+        "vix": {
+          "value": "16.50",
+          "change": "-3.85%"
+        },
+        "dxy": {
+          "value": "100.94",
+          "change": "-0.33%"
+        },
+        "us10y": {
+          "value": "4.585",
+          "change": "-0.52%"
+        },
+        "eurusd": {
+          "value": "1.1423",
+          "change": "+0.34%"
+        },
+        "usdjpy": {
+          "value": "162.21",
+          "change": "-0.13%"
+        }
+      }
+    },
     {
       "date": "2026-07-14",
       "title": "[7.13] 이란, 호르무즈 봉쇄. 미국과 이란의 강대강 대치 지속되며 중동 불확실성 증폭 등",

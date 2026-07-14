@@ -1,0 +1,51 @@
+{
+  "date": "2026-07-15",
+  "title": "[7.14] 미국, 對이란 해상봉쇄 재개. 호르무즈 통과 화물에는 수수료 20% 부과 등",
+  "source_url": "https://www.kcif.or.kr/annual/reportView?rpt_no=37305&mn=001002",
+  "market_data": {
+    "sp500": {
+      "value": "7,543.6",
+      "change": "+0.38%"
+    },
+    "kospi": {
+      "value": "6,806.93",
+      "change": "-8.95%"
+    },
+    "usd_krw": {
+      "value": "1,488.4",
+      "change": "-0.62%"
+    },
+    "wti": {
+      "value": "79.97",
+      "change": "+2.34%"
+    },
+    "gold": {
+      "value": "4,056.9",
+      "change": "+1.50%"
+    },
+    "vix": {
+      "value": "16.50",
+      "change": "-3.85%"
+    },
+    "dxy": {
+      "value": "100.94",
+      "change": "-0.33%"
+    },
+    "us10y": {
+      "value": "4.585",
+      "change": "-0.52%"
+    },
+    "eurusd": {
+      "value": "1.1423",
+      "change": "+0.34%"
+    },
+    "usdjpy": {
+      "value": "162.21",
+      "change": "-0.13%"
+    }
+  },
+  "bull": "⚠️ 분석 생성 실패: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011Cd2jwx7UnhuCvJGCQ3obi'}",
+  "bear": "⚠️ 분석 생성 실패: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",
+  "quant": "⚠️ 분석 생성 실패: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011Cd2jwz44RkUUXtEj9isN6'}",
+  "buffett": "⚠️ 분석 생성 실패: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011Cd2jx1Bmg2r3Ya3dA1Xii'}"
+}
