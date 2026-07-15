@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-07-15 07:30 KST",
-  "total": 21,
+  "updated_at": "2026-07-16 07:30 KST",
+  "total": 22,
   "reports": [
+    {
+      "date": "2026-07-16",
+      "title": "[7.15] 미국 6월 소비자물가 상승률, 예상치 하회. 연준 워시 의장은 물가안정 강조 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,572.4",
+          "change": "+0.38%"
+        },
+        "kospi": {
+          "value": "6,856.83",
+          "change": "+0.73%"
+        },
+        "usd_krw": {
+          "value": "1,486.7",
+          "change": "-0.08%"
+        },
+        "wti": {
+          "value": "80.26",
+          "change": "+1.16%"
+        },
+        "gold": {
+          "value": "4,068.5",
+          "change": "+0.18%"
+        },
+        "vix": {
+          "value": "15.67",
+          "change": "-5.03%"
+        },
+        "dxy": {
+          "value": "100.50",
+          "change": "-0.44%"
+        },
+        "us10y": {
+          "value": "4.545",
+          "change": "-0.87%"
+        },
+        "eurusd": {
+          "value": "1.1471",
+          "change": "+0.40%"
+        },
+        "usdjpy": {
+          "value": "162.09",
+          "change": "-0.06%"
+        }
+      }
+    },
     {
       "date": "2026-07-15",
       "title": "[7.14] 미국, 對이란 해상봉쇄 재개. 호르무즈 통과 화물에는 수수료 20% 부과 등",
