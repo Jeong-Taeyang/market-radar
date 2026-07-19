@@ -1,0 +1,51 @@
+{
+  "date": "2026-07-20",
+  "title": "주간 이슈(7.20) : 중동상황, 트럼프 관세, ECB, 영국 총리 취임, 중국 AI 모델 여파에 주목",
+  "source_url": "https://www.kcif.or.kr/annual/reportView?rpt_no=37320&mn=001003&pe=003002",
+  "market_data": {
+    "sp500": {
+      "value": "7,457.7",
+      "change": "-1.01%"
+    },
+    "kospi": {
+      "value": "6,820.60",
+      "change": "-6.37%"
+    },
+    "usd_krw": {
+      "value": "1,486.7",
+      "change": "+0.53%"
+    },
+    "wti": {
+      "value": "84.10",
+      "change": "+1.95%"
+    },
+    "gold": {
+      "value": "4,002.4",
+      "change": "-0.26%"
+    },
+    "vix": {
+      "value": "18.77",
+      "change": "+12.19%"
+    },
+    "dxy": {
+      "value": "100.83",
+      "change": "+0.08%"
+    },
+    "us10y": {
+      "value": "4.541",
+      "change": "-0.61%"
+    },
+    "eurusd": {
+      "value": "1.1431",
+      "change": "-0.12%"
+    },
+    "usdjpy": {
+      "value": "162.52",
+      "change": "+0.09%"
+    }
+  },
+  "bull": "⚠️ 분석 생성 실패: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",
+  "bear": "⚠️ 분석 생성 실패: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",
+  "quant": "⚠️ 분석 생성 실패: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",
+  "buffett": "⚠️ 분석 생성 실패: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}"
+}
