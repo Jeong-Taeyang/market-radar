@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-07-21 07:30 KST",
-  "total": 24,
+  "updated_at": "2026-07-22 07:30 KST",
+  "total": 25,
   "reports": [
+    {
+      "date": "2026-07-22",
+      "title": "[7.21] 미국 트럼프, 이란에 보복 경고. 이란은 미국과의 외교적 접촉 진행 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,509.2",
+          "change": "+0.89%"
+        },
+        "kospi": {
+          "value": "6,516.27",
+          "change": "-4.46%"
+        },
+        "usd_krw": {
+          "value": "1,480.6",
+          "change": "+0.38%"
+        },
+        "wti": {
+          "value": "84.61",
+          "change": "+1.66%"
+        },
+        "gold": {
+          "value": "4,084.9",
+          "change": "+1.86%"
+        },
+        "vix": {
+          "value": "17.05",
+          "change": "-8.58%"
+        },
+        "dxy": {
+          "value": "101.19",
+          "change": "+0.20%"
+        },
+        "us10y": {
+          "value": "4.628",
+          "change": "+0.65%"
+        },
+        "eurusd": {
+          "value": "1.1404",
+          "change": "-0.13%"
+        },
+        "usdjpy": {
+          "value": "163.18",
+          "change": "+0.43%"
+        }
+      }
+    },
     {
       "date": "2026-07-21",
       "title": "[7.20] 미국, 對이란 공격 지속. 이란 최고지도자는 전면적 공격으로의 전환 위협 등",
