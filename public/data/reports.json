@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-07-24 07:30 KST",
-  "total": 26,
+  "updated_at": "2026-07-27 07:30 KST",
+  "total": 27,
   "reports": [
+    {
+      "date": "2026-07-27",
+      "title": "주간 이슈(7.27) : FOMC 회의, 중동상황, 미국 및 유로존 2Q GDP, 빅테크 실적에 주목",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,412.0",
+          "change": "+0.05%"
+        },
+        "kospi": {
+          "value": "6,690.62",
+          "change": "-5.72%"
+        },
+        "usd_krw": {
+          "value": "1,459.4",
+          "change": "-0.99%"
+        },
+        "wti": {
+          "value": "83.93",
+          "change": "-6.02%"
+        },
+        "gold": {
+          "value": "4,090.9",
+          "change": "+0.57%"
+        },
+        "vix": {
+          "value": "18.58",
+          "change": "-0.64%"
+        },
+        "dxy": {
+          "value": "101.29",
+          "change": "-0.18%"
+        },
+        "us10y": {
+          "value": "4.679",
+          "change": "-0.51%"
+        },
+        "eurusd": {
+          "value": "1.1395",
+          "change": "+0.16%"
+        },
+        "usdjpy": {
+          "value": "163.69",
+          "change": "-0.08%"
+        }
+      }
+    },
     {
       "date": "2026-07-24",
       "title": "[7.23] 미국 트럼프, 對이란 공격 확대 경고. 이란과의 협상 복귀 기대는 점차 감소 등",
