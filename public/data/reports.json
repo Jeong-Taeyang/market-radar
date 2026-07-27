@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-07-27 07:30 KST",
-  "total": 27,
+  "updated_at": "2026-07-28 07:30 KST",
+  "total": 28,
   "reports": [
+    {
+      "date": "2026-07-28",
+      "title": "[7.27] 미국과 이란, 상호 간 공격 일시 중단. 외교적 해결 가능 여부는 불투명 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,413.2",
+          "change": "+0.02%"
+        },
+        "kospi": {
+          "value": "6,690.62",
+          "change": "-5.72%"
+        },
+        "usd_krw": {
+          "value": "1,464.9",
+          "change": "+0.47%"
+        },
+        "wti": {
+          "value": "81.95",
+          "change": "-8.24%"
+        },
+        "gold": {
+          "value": "4,077.7",
+          "change": "+0.25%"
+        },
+        "vix": {
+          "value": "18.67",
+          "change": "+0.48%"
+        },
+        "dxy": {
+          "value": "101.51",
+          "change": "+0.04%"
+        },
+        "us10y": {
+          "value": "4.641",
+          "change": "-0.81%"
+        },
+        "eurusd": {
+          "value": "1.1373",
+          "change": "-0.20%"
+        },
+        "usdjpy": {
+          "value": "163.74",
+          "change": "+0.08%"
+        }
+      }
+    },
     {
       "date": "2026-07-27",
       "title": "주간 이슈(7.27) : FOMC 회의, 중동상황, 미국 및 유로존 2Q GDP, 빅테크 실적에 주목",
