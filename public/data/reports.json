@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-07-28 07:30 KST",
-  "total": 28,
+  "updated_at": "2026-07-30 07:30 KST",
+  "total": 29,
   "reports": [
+    {
+      "date": "2026-07-30",
+      "title": "[7.29] 미국 트럼프, 이란과의 핵협상 순조롭게 진행. 결렬 시 이란 기반시설 공격 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,316.1",
+          "change": "-1.52%"
+        },
+        "kospi": {
+          "value": "6,023.66",
+          "change": "-10.84%"
+        },
+        "usd_krw": {
+          "value": "1,443.8",
+          "change": "-0.64%"
+        },
+        "wti": {
+          "value": "84.25",
+          "change": "+6.30%"
+        },
+        "gold": {
+          "value": "4,132.2",
+          "change": "+2.38%"
+        },
+        "vix": {
+          "value": "20.66",
+          "change": "+13.45%"
+        },
+        "dxy": {
+          "value": "100.80",
+          "change": "-0.57%"
+        },
+        "us10y": {
+          "value": "4.622",
+          "change": "+0.39%"
+        },
+        "eurusd": {
+          "value": "1.1471",
+          "change": "+0.74%"
+        },
+        "usdjpy": {
+          "value": "163.43",
+          "change": "-0.26%"
+        }
+      }
+    },
     {
       "date": "2026-07-28",
       "title": "[7.27] 미국과 이란, 상호 간 공격 일시 중단. 외교적 해결 가능 여부는 불투명 등",
