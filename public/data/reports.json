@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-07-30 07:30 KST",
-  "total": 29,
+  "updated_at": "2026-07-31 07:30 KST",
+  "total": 30,
   "reports": [
+    {
+      "date": "2026-07-31",
+      "title": "[7.30] 7월 FOMC, 금리 동결 속 인플레이션 목표 달성 강조. 3명은 인상 의견 제시 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,437.6",
+          "change": "+1.66%"
+        },
+        "kospi": {
+          "value": "5,663.24",
+          "change": "-5.98%"
+        },
+        "usd_krw": {
+          "value": "1,421.4",
+          "change": "-1.45%"
+        },
+        "wti": {
+          "value": "84.22",
+          "change": "-0.28%"
+        },
+        "gold": {
+          "value": "4,166.7",
+          "change": "+3.27%"
+        },
+        "vix": {
+          "value": "17.09",
+          "change": "-17.28%"
+        },
+        "dxy": {
+          "value": "99.97",
+          "change": "-0.82%"
+        },
+        "us10y": {
+          "value": "4.663",
+          "change": "+0.89%"
+        },
+        "eurusd": {
+          "value": "1.1530",
+          "change": "+0.55%"
+        },
+        "usdjpy": {
+          "value": "159.71",
+          "change": "-2.20%"
+        }
+      }
+    },
     {
       "date": "2026-07-30",
       "title": "[7.29] 미국 트럼프, 이란과의 핵협상 순조롭게 진행. 결렬 시 이란 기반시설 공격 등",
