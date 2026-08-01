@@ -238,9 +238,8 @@ def send_gmail(subject: str, body: str) -> bool:
 
 def main():
     today_kst = datetime.now(KST)
-    if today_kst.weekday() >= 5:
-        print("  토·일요일 — 발송을 건너뜁니다.")
-        sys.exit(0)
+    is_weekend = today_kst.weekday() >= 5
+    day_name = ["월", "화", "수", "목", "금", "토", "일"][today_kst.weekday()]
 
     now = today_kst.strftime("%Y년 %m월 %d일 %H:%M")
     print(f"[{now}] 시장 데이터 수집 중...")
@@ -252,43 +251,72 @@ def main():
             if q:
                 quotes[sym] = q
 
-    headlines     = fetch_news()
-    snapshot_text = build_snapshot_text(quotes)
-
-    print("AI 요약 생성 중...")
-    summary = get_ai_summary(snapshot_text, headlines)
-
     tg_market  = format_market_block(quotes, mode="telegram")
     raw_market = format_market_block(quotes, mode="plain")
-    news_block = "\n".join(f"• {h}" for h in headlines[:6])
     sep        = "─" * 28
 
-    # 텔레그램 전용 (HTML)
-    tg_message = (
-        f"📈 <b>글로벌 시장 모닝 브리핑</b>\n"
-        f"<i>{now}</i>\n"
-        f"{sep}\n"
-        f"{tg_market}\n\n"
-        f"{sep}\n"
-        f"🤖 <b>AI 분석</b>\n{html.escape(summary)}\n\n"
-        f"{sep}\n"
-        f"📰 <b>주요 뉴스</b>\n{html.escape(news_block)}\n\n"
-        f"<i>⚠️ 투자 참고용이며 투자 권유가 아닙니다.</i>"
-    )
+    if is_weekend:
+        # 주말: 휴장 안내 + 직전 거래일(금요일) 종가 기준 간단 요약만.
+        # AI 분석·뉴스 수집은 생략 (휴장일이라 갱신될 정보가 없어 API 비용만 낭비됨).
+        print(f"  {day_name}요일 — 휴장 안내 + 간단 요약만 발송합니다.")
+        notice = f"🌙 오늘은 {day_name}요일, 한국·미국 시장 모두 휴장입니다."
 
-    # 그 외 채널 (Markdown/plain)
-    message = (
-        f"📈 **글로벌 시장 모닝 브리핑**\n"
-        f"{now}\n"
-        f"{sep}\n"
-        f"{raw_market}\n\n"
-        f"{sep}\n"
-        f"🤖 **AI 분석**\n{summary}\n\n"
-        f"{sep}\n"
-        f"📰 **주요 뉴스**\n{news_block}\n\n"
-        f"⚠️ 투자 참고용이며 투자 권유가 아닙니다."
-    )
-    subject = f"📈 글로벌 시장 모닝 브리핑 — {now}"
+        tg_message = (
+            f"📈 <b>글로벌 시장 모닝 브리핑</b>\n"
+            f"<i>{now}</i>\n"
+            f"{sep}\n"
+            f"{notice}\n"
+            f"(아래는 직전 거래일 종가 기준입니다)\n\n"
+            f"{tg_market}\n\n"
+            f"{sep}\n"
+            f"<i>⚠️ 투자 참고용이며 투자 권유가 아닙니다.</i>"
+        )
+        message = (
+            f"📈 **글로벌 시장 모닝 브리핑**\n"
+            f"{now}\n"
+            f"{sep}\n"
+            f"{notice}\n"
+            f"(아래는 직전 거래일 종가 기준입니다)\n\n"
+            f"{raw_market}\n\n"
+            f"{sep}\n"
+            f"⚠️ 투자 참고용이며 투자 권유가 아닙니다."
+        )
+        subject = f"🌙 휴장 안내 — {now}"
+    else:
+        headlines     = fetch_news()
+        snapshot_text = build_snapshot_text(quotes)
+
+        print("AI 요약 생성 중...")
+        summary = get_ai_summary(snapshot_text, headlines)
+
+        news_block = "\n".join(f"• {h}" for h in headlines[:6])
+
+        # 텔레그램 전용 (HTML)
+        tg_message = (
+            f"📈 <b>글로벌 시장 모닝 브리핑</b>\n"
+            f"<i>{now}</i>\n"
+            f"{sep}\n"
+            f"{tg_market}\n\n"
+            f"{sep}\n"
+            f"🤖 <b>AI 분석</b>\n{html.escape(summary)}\n\n"
+            f"{sep}\n"
+            f"📰 <b>주요 뉴스</b>\n{html.escape(news_block)}\n\n"
+            f"<i>⚠️ 투자 참고용이며 투자 권유가 아닙니다.</i>"
+        )
+
+        # 그 외 채널 (Markdown/plain)
+        message = (
+            f"📈 **글로벌 시장 모닝 브리핑**\n"
+            f"{now}\n"
+            f"{sep}\n"
+            f"{raw_market}\n\n"
+            f"{sep}\n"
+            f"🤖 **AI 분석**\n{summary}\n\n"
+            f"{sep}\n"
+            f"📰 **주요 뉴스**\n{news_block}\n\n"
+            f"⚠️ 투자 참고용이며 투자 권유가 아닙니다."
+        )
+        subject = f"📈 글로벌 시장 모닝 브리핑 — {now}"
 
     channels = [
         ("텔레그램", lambda: send_telegram(tg_message)),
