@@ -27,6 +27,7 @@ import requests
 import yfinance as yf
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
+from zoneinfo import ZoneInfo
 import anthropic
 
 # ── 초기화 ────────────────────────────────────────────────────────
@@ -34,6 +35,13 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 ssl._create_default_https_context = ssl._create_unverified_context
 
 load_dotenv()
+
+# GitHub Actions 등 클라우드 러너는 기본 시간대가 UTC라, 반드시 한국시간(KST)을
+# 명시해야 주말 스킵/날짜 스탬프가 로컬 PC(KST)에서 돌릴 때와 동일하게 동작함.
+KST = ZoneInfo("Asia/Seoul")
+
+def now_kst() -> datetime:
+    return datetime.now(KST)
 
 PROJECT_ROOT = Path(__file__).parent
 DATA_DIR     = PROJECT_ROOT / "public" / "data"
@@ -111,7 +119,7 @@ KCIF_BASE = "https://www.kcif.or.kr"
 
 
 def scrape_kcif() -> dict:
-    today = datetime.now()
+    today = now_kst()
     date_patterns = [
         f"[{today.month}.{today.day:02d}]",
         f"[{today.month}.{today.day}]",
@@ -219,7 +227,7 @@ def _fetch_detail(url: str, prefill_title: str = "") -> dict:
 
 def _kcif_fallback() -> dict:
     return {
-        "title": datetime.now().strftime("%Y년 %m월 %d일 글로벌 시장 브리핑"),
+        "title": now_kst().strftime("%Y년 %m월 %d일 글로벌 시장 브리핑"),
         "body": "",
         "url": KCIF_LIST,
         "success": False,
@@ -446,7 +454,7 @@ def update_reports_json(date: str, title: str, quotes: dict, analyses: dict):
         data["reports"].insert(0, entry)
 
     data["reports"]  = data["reports"][:100]
-    data["updated_at"] = datetime.now().strftime("%Y-%m-%d %H:%M KST")
+    data["updated_at"] = now_kst().strftime("%Y-%m-%d %H:%M KST")
     data["total"]    = len(data["reports"])
 
     with open(path, "w", encoding="utf-8") as f:
@@ -483,7 +491,7 @@ def git_deploy(date: str) -> bool:
 # ════════════════════════════════════════════════════════════════
 
 def main():
-    now  = datetime.now()
+    now  = now_kst()
     date = now.strftime("%Y-%m-%d")
     print(f"\n{'='*50}")
     print(f"마켓레이더 빌드 시작: {now.strftime('%Y-%m-%d %H:%M')}")

@@ -12,10 +12,14 @@ import smtplib
 import requests
 import urllib3
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from dotenv import load_dotenv
 import anthropic
+
+# GitHub Actions 등 클라우드 러너는 기본 시간대가 UTC이므로 한국시간을 명시.
+KST = ZoneInfo("Asia/Seoul")
 
 # 회사 네트워크 자체서명 인증서 우회
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -233,7 +237,12 @@ def send_gmail(subject: str, body: str) -> bool:
 # ── 메인 ────────────────────────────────────────────────────
 
 def main():
-    now = datetime.now().strftime("%Y년 %m월 %d일 %H:%M")
+    today_kst = datetime.now(KST)
+    if today_kst.weekday() >= 5:
+        print("  토·일요일 — 발송을 건너뜁니다.")
+        sys.exit(0)
+
+    now = today_kst.strftime("%Y년 %m월 %d일 %H:%M")
     print(f"[{now}] 시장 데이터 수집 중...")
 
     quotes: dict[str, dict] = {}
