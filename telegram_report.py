@@ -44,18 +44,26 @@ GMAIL_TO        = os.getenv("GMAIL_TO", GMAIL_USER)
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 # ── 시세 수집 대상 ───────────────────────────────────────────
+# 원/엔(100엔)은 별도 시세원이 없어 원/달러 ÷ USD/JPY로 파생 계산한다
+# (daily_build.py의 _compute_jpy_krw와 동일한 방식). fetch_quote 대상이 아닌
+# 가짜 심볼이며, main()에서 조회 루프를 건너뛰고 별도로 채워넣는다.
+JPY_KRW_SYM = "JPYKRW_DERIVED"
+
 WATCHLIST = {
     "🇺🇸 미국": {
-        "S&P 500":   "^GSPC",
-        "나스닥":     "^IXIC",
-        "다우존스":   "^DJI",
-        "VIX":       "^VIX",
-        "달러인덱스": "DX-Y.NYB",
+        "S&P 500":     "^GSPC",
+        "나스닥":       "^IXIC",
+        "다우존스":     "^DJI",
+        "VIX":         "^VIX",
+        "달러인덱스":   "DX-Y.NYB",
+        "미국 10년물":  "^TNX",
+        "USD/JPY":     "USDJPY=X",
     },
     "🇰🇷 한국": {
-        "KOSPI":   "^KS11",
-        "KOSDAQ":  "^KQ11",
-        "원/달러": "USDKRW=X",
+        "KOSPI":       "^KS11",
+        "KOSDAQ":      "^KQ11",
+        "원/달러":     "USDKRW=X",
+        "원/엔(100엔)": JPY_KRW_SYM,
     },
     "🏦 자산": {
         "금":       "GC=F",
@@ -155,6 +163,32 @@ def _fetch_naver(item_code: str) -> dict | None:
         return None
 
 
+def compute_jpy_krw(quotes: dict) -> dict | None:
+    """원/엔(100엔)은 원/달러 ÷ USD/JPY로 파생 계산 (daily_build.py와 동일 방식).
+    등락률은 historical/jpy_krw.json(daily_build.py가 관리)의 마지막 저장값 대비로 산출한다."""
+    krw = quotes.get("USDKRW=X")
+    jpy = quotes.get("USDJPY=X")
+    if not krw or not jpy or jpy["price"] == 0:
+        return None
+
+    raw = krw["price"] / jpy["price"] * 100
+    path = HIST_DIR / "jpy_krw.json"
+    prev_val = None
+    if path.exists():
+        try:
+            with open(path, encoding="utf-8") as f:
+                data = json.load(f)["data"]
+            if data:
+                prev_val = data[-1]["v"]
+        except Exception:
+            prev_val = None
+
+    pct = ((raw - prev_val) / prev_val * 100) if prev_val else 0.0
+    chg = raw - prev_val if prev_val else 0.0
+    suspect = bool(krw.get("suspect") or jpy.get("suspect")) or (prev_val is not None and abs(pct) > 5)
+    return {"price": raw, "change": chg, "pct": pct, "suspect": suspect}
+
+
 def fetch_news(limit: int = 8) -> list[str]:
     return []
 
@@ -252,8 +286,9 @@ PREMIUM_PERSONA_KEYS = ["bear", "quant", "buffett"]
 
 # 텔레그램 watchlist 심볼 -> daily_build.py가 쌓아온 historical/*.json 파일 키
 HIST_KEY_MAP = {
-    "^GSPC": "sp500", "^KS11": "kospi", "USDKRW=X": "usd_krw",
+    "^GSPC": "sp500", "^KS11": "kospi", "^KQ11": "kosdaq", "USDKRW=X": "usd_krw",
     "GC=F": "gold", "CL=F": "wti", "^VIX": "vix", "DX-Y.NYB": "dxy",
+    "^TNX": "us10y", "USDJPY=X": "usdjpy", JPY_KRW_SYM: "jpy_krw",
 }
 HIST_DIR = Path(__file__).parent / "public" / "data" / "historical"
 
@@ -540,9 +575,14 @@ def main():
     quotes: dict[str, dict] = {}
     for tickers in WATCHLIST.values():
         for sym in tickers.values():
+            if sym == JPY_KRW_SYM:
+                continue   # 파생 종목 — 아래에서 별도 계산
             q = fetch_quote(sym)
             if q:
                 quotes[sym] = q
+    jpy_krw_q = compute_jpy_krw(quotes)
+    if jpy_krw_q:
+        quotes[JPY_KRW_SYM] = jpy_krw_q
 
     tg_market  = format_market_block(quotes, mode="telegram")
     raw_market = format_market_block(quotes, mode="plain")
@@ -637,9 +677,14 @@ def preview_premium():
     quotes: dict[str, dict] = {}
     for tickers in WATCHLIST.values():
         for sym in tickers.values():
+            if sym == JPY_KRW_SYM:
+                continue
             q = fetch_quote(sym)
             if q:
                 quotes[sym] = q
+    jpy_krw_q = compute_jpy_krw(quotes)
+    if jpy_krw_q:
+        quotes[JPY_KRW_SYM] = jpy_krw_q
 
     headlines = fetch_news()
     print("[프리미엄 미리보기] 4-페르소나 + 종합 결론 생성 중 (AI 호출 5회, 시간이 조금 걸립니다)...")

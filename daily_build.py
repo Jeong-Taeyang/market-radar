@@ -62,6 +62,7 @@ HEADERS = {
 TICKERS = {
     "sp500":   {"sym": "^GSPC",    "label": "S&P 500",    "prefix": "",  "decimals": 1},
     "kospi":   {"sym": "^KS11",    "label": "KOSPI",       "prefix": "",  "decimals": 2},
+    "kosdaq":  {"sym": "^KQ11",    "label": "KOSDAQ",      "prefix": "",  "decimals": 2},
     "usd_krw": {"sym": "USDKRW=X", "label": "원/달러",    "prefix": "₩", "decimals": 1},
     "wti":     {"sym": "CL=F",     "label": "WTI",         "prefix": "$", "decimals": 2},
     "gold":    {"sym": "GC=F",     "label": "금",           "prefix": "$", "decimals": 1},
@@ -70,6 +71,9 @@ TICKERS = {
     "us10y":   {"sym": "^TNX",     "label": "미국 10년물",  "prefix": "",  "decimals": 3},
     "eurusd":  {"sym": "EURUSD=X", "label": "EUR/USD",     "prefix": "",  "decimals": 4},
     "usdjpy":  {"sym": "USDJPY=X", "label": "USD/JPY",     "prefix": "",  "decimals": 2},
+    # sym=None: 야후·네이버에서 직접 시세를 받지 않고 usd_krw/usdjpy로부터
+    # 파생 계산한다(아래 _compute_jpy_krw 참고). 100엔당 원화 기준(통상적인 한국 표기).
+    "jpy_krw": {"sym": None,       "label": "원/엔(100엔)", "prefix": "₩", "decimals": 1},
 }
 
 # ── 데이터 안전장치 ───────────────────────────────────────────────
@@ -79,15 +83,15 @@ TICKERS = {
 #  나중에 -10% 안팎으로 몰아서 튀는 현상이 실제로 발견됨. 미국 지수는
 #  동일 기간 정상 범위였음 — 한국 지수 데이터 소스 자체의 지연/재사용 이슈로 추정)
 SANITY_MAX_PCT = {
-    "sp500": 7, "kospi": 8, "usd_krw": 5, "wti": 12, "gold": 8,
-    "vix": 50, "dxy": 3, "us10y": 15, "eurusd": 4, "usdjpy": 4,
+    "sp500": 7, "kospi": 8, "kosdaq": 10, "usd_krw": 5, "wti": 12, "gold": 8,
+    "vix": 50, "dxy": 3, "us10y": 15, "eurusd": 4, "usdjpy": 4, "jpy_krw": 5,
 }
 DEFAULT_MAX_PCT = 10
 
-# 한국 지수는 야후(^KS11)보다 네이버금융 실시간 API가 더 신뢰도가 높음
+# 한국 지수는 야후(^KS11/^KQ11)보다 네이버금융 실시간 API가 더 신뢰도가 높음
 # (야후에서 전일과 완전히 동일한 값이 반복되다 나중에 몰아서 튀는
 # 현상이 실제 발견됨 — 네이버는 거래소 실시간 시세를 직접 반영)
-NAVER_INDEX_MAP = {"kospi": "KOSPI"}
+NAVER_INDEX_MAP = {"kospi": "KOSPI", "kosdaq": "KOSDAQ"}
 
 # ── AI 페르소나 ───────────────────────────────────────────────────
 PERSONAS = {
@@ -335,11 +339,68 @@ def _yahoo_history(sym: str, period: str = "5y") -> list[dict]:
     return []
 
 
+def _compute_jpy_krw(quotes: dict) -> dict | None:
+    """원/엔(100엔당)은 별도 시세원이 없어 usd_krw ÷ usdjpy × 100 으로 파생 계산한다.
+    등락률은 historical/jpy_krw.json의 직전 저장값 대비로 산출하며, 해당 파일이
+    없으면 이미 쌓여있는 usd_krw·usdjpy 히스토리를 교차 계산해 최초 생성한다."""
+    krw = quotes.get("usd_krw")
+    jpy = quotes.get("usdjpy")
+    if not krw or not jpy or jpy["_raw"] == 0:
+        return None
+
+    raw = krw["_raw"] / jpy["_raw"] * 100
+    cfg = TICKERS["jpy_krw"]
+
+    path = HIST_DIR / "jpy_krw.json"
+    if not path.exists():
+        krw_hist_path = HIST_DIR / "usd_krw.json"
+        jpy_hist_path = HIST_DIR / "usdjpy.json"
+        rows = []
+        if krw_hist_path.exists() and jpy_hist_path.exists():
+            with open(krw_hist_path, encoding="utf-8") as f:
+                krw_hist = {r["d"]: r["v"] for r in json.load(f)["data"]}
+            with open(jpy_hist_path, encoding="utf-8") as f:
+                jpy_hist = {r["d"]: r["v"] for r in json.load(f)["data"]}
+            for d in sorted(set(krw_hist) & set(jpy_hist)):
+                if jpy_hist[d] == 0:
+                    continue
+                rows.append({"d": d, "v": round(krw_hist[d] / jpy_hist[d] * 100, cfg["decimals"])})
+        HIST_DIR.mkdir(parents=True, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump({
+                "key": "jpy_krw", "label": cfg["label"], "prefix": cfg["prefix"],
+                "decimals": cfg["decimals"], "updated": "", "data": rows,
+            }, f, ensure_ascii=False, separators=(",", ":"))
+
+    with open(path, encoding="utf-8") as f:
+        hist = json.load(f)
+    prev_val = hist["data"][-1]["v"] if hist["data"] else None
+    pct = ((raw - prev_val) / prev_val * 100) if prev_val else 0.0
+    sign = "+" if pct >= 0 else ""
+
+    suspect = bool(krw.get("_suspect") or jpy.get("_suspect"))
+    if not suspect:
+        limit = SANITY_MAX_PCT.get("jpy_krw", DEFAULT_MAX_PCT)
+        if abs(pct) > limit:
+            suspect = True
+            print(f"  ⚠️ 데이터 이상 감지: jpy_krw 등락률 {sign}{pct:.2f}% (기준 ±{limit}% 초과)")
+
+    return {
+        "value": f"{raw:,.{cfg['decimals']}f}",
+        "change": f"{sign}{pct:.2f}%",
+        "_raw": raw,
+        "_pct": pct,
+        "_suspect": suspect,
+    }
+
+
 def fetch_market_data() -> dict:
-    print("  시세 수집 중 (KOSPI: 네이버금융 / 그 외: Yahoo Finance 직접 호출)...")
+    print("  시세 수집 중 (KOSPI/KOSDAQ: 네이버금융 / 그 외: Yahoo Finance 직접 호출)...")
     import time as _time
     quotes = {}
     for key, cfg in TICKERS.items():
+        if cfg["sym"] is None:
+            continue   # 파생 종목(원/엔)은 아래에서 별도 계산
         if key in NAVER_INDEX_MAP:
             q = _naver_index_quote(NAVER_INDEX_MAP[key])
         else:
@@ -365,6 +426,11 @@ def fetch_market_data() -> dict:
                 "_suspect": suspect,
             }
         _time.sleep(0.3)   # rate limit 방지
+
+    jpy_krw_q = _compute_jpy_krw(quotes)
+    if jpy_krw_q:
+        quotes["jpy_krw"] = jpy_krw_q
+
     return quotes
 
 
