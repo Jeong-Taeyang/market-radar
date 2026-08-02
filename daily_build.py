@@ -463,7 +463,7 @@ def generate_analyses(quotes: dict, kcif_title: str, kcif_body: str) -> dict:
         try:
             msg = client.messages.create(
                 model="claude-sonnet-4-6",
-                max_tokens=700,
+                max_tokens=1200,
                 system=persona["system"],
                 messages=[{
                     "role": "user",
@@ -474,7 +474,9 @@ def generate_analyses(quotes: dict, kcif_title: str, kcif_body: str) -> dict:
                         "각 항목은 2~3문장으로 간결하게.\n\n"
                         "1️⃣ 오늘의 핵심 판단\n"
                         "2️⃣ 시장 분석\n"
-                        "3️⃣ 주목할 포인트"
+                        "3️⃣ 주목할 포인트\n\n"
+                        "반드시 3️⃣ 항목까지 전부 작성하고 완결된 문장으로 마무리하세요 — "
+                        "문장이나 항목이 중간에 끊기지 않도록 하세요."
                     ),
                 }],
             )
