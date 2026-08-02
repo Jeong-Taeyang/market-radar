@@ -1,7 +1,57 @@
 {
-  "updated_at": "2026-07-31 07:30 KST",
-  "total": 30,
+  "updated_at": "2026-08-02 16:21 KST",
+  "total": 31,
   "reports": [
+    {
+      "date": "2026-08-01",
+      "title": "[8.1] 연준 금리인상 소수의견 위원 3인, 고물가 고착화 방지 위한 조기 인상 촉구",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,489.7",
+          "change": "+0.70%"
+        },
+        "kospi": {
+          "value": "6,595.45",
+          "change": "+17.91%"
+        },
+        "usd_krw": {
+          "value": "1,436.6",
+          "change": "+1.13%"
+        },
+        "wti": {
+          "value": "84.67",
+          "change": "+1.29%"
+        },
+        "gold": {
+          "value": "4,107.0",
+          "change": "+0.17%"
+        },
+        "vix": {
+          "value": "15.99",
+          "change": "-6.44%"
+        },
+        "dxy": {
+          "value": "99.80",
+          "change": "-0.21%"
+        },
+        "us10y": {
+          "value": "4.745",
+          "change": "+1.76%"
+        },
+        "eurusd": {
+          "value": "1.1527",
+          "change": "+0.03%"
+        },
+        "usdjpy": {
+          "value": "157.40",
+          "change": "-1.74%"
+        }
+      }
+    },
     {
       "date": "2026-07-31",
       "title": "[7.30] 7월 FOMC, 금리 동결 속 인플레이션 목표 달성 강조. 3명은 인상 의견 제시 등",
