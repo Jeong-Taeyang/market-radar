@@ -339,12 +339,18 @@ def fetch_market_data() -> dict:
         else:
             q = _yahoo_quote(cfg["sym"])
         if q:
-            d       = cfg["decimals"]
-            sign    = "+" if q["pct"] >= 0 else ""
-            limit   = SANITY_MAX_PCT.get(key, DEFAULT_MAX_PCT)
-            suspect = abs(q["pct"]) > limit
-            if suspect:
-                print(f"  ⚠️ 데이터 이상 감지: {key} 등락률 {sign}{q['pct']:.2f}% (기준 ±{limit}% 초과)")
+            d    = cfg["decimals"]
+            sign = "+" if q["pct"] >= 0 else ""
+            if key in NAVER_INDEX_MAP:
+                # 네이버(KOSPI)는 거래소 실시간 시세 직접 반영이라 등락폭이 커도
+                # 실제 시세일 수 있음 — 값 자체 유효성만 체크. "전일과 완전히
+                # 동일한 값" 검증은 아래 update_historical()에서 별도로 수행.
+                suspect = q["value"] <= 0
+            else:
+                limit   = SANITY_MAX_PCT.get(key, DEFAULT_MAX_PCT)
+                suspect = abs(q["pct"]) > limit
+                if suspect:
+                    print(f"  ⚠️ 데이터 이상 감지: {key} 등락률 {sign}{q['pct']:.2f}% (기준 ±{limit}% 초과)")
             quotes[key] = {
                 "value":   f"{q['value']:,.{d}f}",
                 "change":  f"{sign}{q['pct']:.2f}%",

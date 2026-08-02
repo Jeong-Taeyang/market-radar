@@ -90,14 +90,23 @@ NAVER_INDEX_MAP = {"^KS11": "KOSPI", "^KQ11": "KOSDAQ"}
 
 
 def fetch_quote(sym: str) -> dict | None:
-    q = _fetch_naver(NAVER_INDEX_MAP[sym]) if sym in NAVER_INDEX_MAP else _fetch_yahoo(sym)
+    is_naver = sym in NAVER_INDEX_MAP
+    q = _fetch_naver(NAVER_INDEX_MAP[sym]) if is_naver else _fetch_yahoo(sym)
     if q is None:
         return None
 
-    limit = SANITY_MAX_PCT.get(sym, DEFAULT_MAX_PCT)
-    suspect = abs(q["pct"]) > limit
-    if suspect:
-        print(f"  ⚠️ 데이터 이상 감지: {sym} 등락률 {q['pct']:+.2f}% (기준 ±{limit}% 초과) — 발송에서 확인필요 처리")
+    if is_naver:
+        # 네이버(KOSPI/KOSDAQ)는 거래소 실시간 시세를 직접 받아오므로, 야후에서
+        # 발견됐던 "전일과 동일한 값 반복" 같은 소스 자체의 결함이 구조적으로
+        # 발생하지 않는다. 등락폭이 커도 실제 시세일 수 있으므로(예: 2026-08-01
+        # 전후 급변동 시 야후·네이버 양쪽 모두 동일 수치로 교차 확인됨) 등락폭
+        # 기준으로 걸러내지 않고, 값 자체가 비정상(0 이하 등)인 경우만 검증한다.
+        suspect = q["price"] <= 0
+    else:
+        limit = SANITY_MAX_PCT.get(sym, DEFAULT_MAX_PCT)
+        suspect = abs(q["pct"]) > limit
+        if suspect:
+            print(f"  ⚠️ 데이터 이상 감지: {sym} 등락률 {q['pct']:+.2f}% (기준 ±{limit}% 초과) — 발송에서 확인필요 처리")
 
     return {"price": q["price"], "change": q["change"], "pct": q["pct"], "suspect": suspect}
 
