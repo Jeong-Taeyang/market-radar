@@ -7,10 +7,12 @@ Windows 작업 스케줄러에 등록하여 자동 실행
 import os
 import sys
 import ssl
+import json
 import html
 import smtplib
 import requests
 import urllib3
+from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from email.mime.text import MIMEText
@@ -231,6 +233,185 @@ def get_ai_summary(snapshot: str, headlines: list[str]) -> str:
         return f"AI 요약 오류: {e}"
 
 
+# ════════════════════════════════════════════════════════════════
+# 프리미엄 전용 콘텐츠 — 4-페르소나 심층 분석 + 종합 결론 + 히스토리 컨텍스트
+# (무료 채널은 위 get_ai_summary()의 통합 요약만 받음)
+# ════════════════════════════════════════════════════════════════
+
+PERSONAS = {
+    "bull": {
+        "name": "🐂 강세론자",
+        "system": (
+            "당신은 낙관적인 강세론자 투자 분석가입니다. "
+            "시장의 긍정적 신호, 상승 모멘텀, 투자 기회를 부각하는 관점에서 분석합니다. "
+            "리스크보다 기회를 강조하고 장기 성장 스토리를 지지하는 논거를 제시합니다."
+        ),
+    },
+    "bear": {
+        "name": "🐻 약세론자",
+        "system": (
+            "당신은 신중한 약세론자 투자 분석가입니다. "
+            "시장의 과열 신호, 하방 리스크, 잠재적 위험 요인을 중심으로 분석합니다. "
+            "낙관론에 경고를 보내고 방어적 포지션의 근거를 제시합니다."
+        ),
+    },
+    "quant": {
+        "name": "📐 퀀트",
+        "system": (
+            "당신은 데이터 기반 퀀트 애널리스트입니다. "
+            "숫자, 통계, 지표 간 상관관계를 중심으로 분석합니다. "
+            "VIX 레벨, 모멘텀, 기술적 레벨, 변동성 패턴 등 계량적 관점에서 설명합니다. "
+            "감정이 아닌 데이터로만 말합니다."
+        ),
+    },
+    "buffett": {
+        "name": "🎩 워런 버핏",
+        "system": (
+            "당신은 워런 버핏의 가치투자 철학을 따르는 장기 투자자입니다. "
+            "'다른 사람이 탐욕스러울 때 두려워하고, 두려워할 때 탐욕스러워라'는 관점으로 분석합니다. "
+            "단기 변동보다 기업 펀더멘털, 내재가치, 장기 성장성에 집중합니다. "
+            "복잡한 금융 용어보다 쉽고 통찰 있는 언어를 사용합니다."
+        ),
+    },
+}
+
+# 텔레그램 watchlist 심볼 -> daily_build.py가 쌓아온 historical/*.json 파일 키
+HIST_KEY_MAP = {
+    "^GSPC": "sp500", "^KS11": "kospi", "USDKRW=X": "usd_krw",
+    "GC=F": "gold", "CL=F": "wti", "^VIX": "vix", "DX-Y.NYB": "dxy",
+}
+HIST_DIR = Path(__file__).parent / "public" / "data" / "historical"
+
+
+def generate_persona_analyses(snapshot: str, headlines: list[str]) -> dict:
+    if not API_KEY:
+        return {k: "⚠️ ANTHROPIC_API_KEY 미설정" for k in PERSONAS}
+    news_text = "\n".join(f"- {h}" for h in headlines)
+    client = anthropic.Anthropic(api_key=API_KEY)
+    results = {}
+    for key, persona in PERSONAS.items():
+        try:
+            msg = client.messages.create(
+                model="claude-sonnet-4-6",
+                max_tokens=500,
+                system=persona["system"],
+                messages=[{
+                    "role": "user",
+                    "content": (
+                        f"📊 오늘의 시장 데이터:\n{snapshot}\n\n"
+                        f"📰 주요 뉴스:\n{news_text}\n\n"
+                        "아래 형식으로 한국어 분석을 작성해주세요. 각 항목은 2~3문장으로 간결하게.\n\n"
+                        "1️⃣ 오늘의 핵심 판단\n"
+                        "2️⃣ 시장 분석\n"
+                        "3️⃣ 주목할 포인트"
+                    ),
+                }],
+            )
+            results[key] = msg.content[0].text
+        except Exception as e:
+            results[key] = f"⚠️ 분석 생성 실패: {e}"
+    return results
+
+
+def generate_synthesis(persona_analyses: dict, snapshot: str) -> str:
+    """4개 페르소나 의견을 종합해 실행 가능한 결론 도출 — 프리미엄의 핵심 차별점."""
+    if not API_KEY:
+        return "⚠️ ANTHROPIC_API_KEY 미설정"
+    combined = "\n\n".join(
+        f"[{PERSONAS[k]['name']}]\n{v}" for k, v in persona_analyses.items()
+    )
+    try:
+        client = anthropic.Anthropic(api_key=API_KEY)
+        msg = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=400,
+            messages=[{
+                "role": "user",
+                "content": (
+                    f"📊 오늘의 시장 데이터:\n{snapshot}\n\n"
+                    f"아래는 오늘 시장에 대한 4가지 관점의 분석입니다:\n\n{combined}\n\n"
+                    "이 4가지 관점을 종합해서, 오늘 투자자가 참고할 수 있는 "
+                    "'종합 결론'을 3~4문장으로 작성해주세요. "
+                    "관점이 서로 상충한다면 그 긴장관계를 짚어주고, "
+                    "관망/리스크관리/기회탐색 중 방향성을 명확히 제시하세요. "
+                    "특정 종목 매수·매도를 지시하지 말고 참고용 관점으로 서술하세요."
+                ),
+            }],
+        )
+        return msg.content[0].text
+    except Exception as e:
+        return f"⚠️ 종합 결론 생성 실패: {e}"
+
+
+def percentile_context(hist_key: str, current_value: float, lookback: int = 252) -> str | None:
+    """최근 1년(약 252거래일) 히스토리 대비 현재 값의 백분위 — 프리미엄 전용."""
+    path = HIST_DIR / f"{hist_key}.json"
+    if not path.exists():
+        return None
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        values = [d["v"] for d in data["data"][-lookback:]]
+        if len(values) < 30:
+            return None
+        rank = sum(1 for v in values if v <= current_value) / len(values) * 100
+        if rank >= 80:
+            desc = "상위권"
+        elif rank <= 20:
+            desc = "하위권"
+        else:
+            desc = "평균 범위"
+        return f"최근 1년 대비 {rank:.0f}백분위 ({desc})"
+    except Exception:
+        return None
+
+
+def build_premium_message(quotes: dict, headlines: list[str]) -> tuple[str, str]:
+    """프리미엄 채널 전용 메시지 조립: 4-페르소나 + 종합 결론 + 히스토리 컨텍스트."""
+    snapshot = build_snapshot_text(quotes)
+    personas = generate_persona_analyses(snapshot, headlines)
+    synthesis = generate_synthesis(personas, snapshot)
+    now_str = datetime.now(KST).strftime("%Y년 %m월 %d일 %H:%M")
+    sep = "─" * 28
+
+    persona_blocks_html = "\n\n".join(
+        f"<b>{PERSONAS[k]['name']}</b>\n{html.escape(v)}" for k, v in personas.items()
+    )
+    persona_blocks_md = "\n\n".join(
+        f"**{PERSONAS[k]['name']}**\n{v}" for k, v in personas.items()
+    )
+
+    ctx_lines_html, ctx_lines_md = [], []
+    for market, tickers in WATCHLIST.items():
+        for name, sym in tickers.items():
+            q = quotes.get(sym)
+            hist_key = HIST_KEY_MAP.get(sym)
+            if not q or q.get("suspect") or not hist_key:
+                continue
+            ctx = percentile_context(hist_key, q["price"])
+            if ctx:
+                ctx_lines_html.append(f"  {name}: {ctx}")
+                ctx_lines_md.append(f"  {name}: {ctx}")
+    ctx_block_html = "\n".join(ctx_lines_html) or "  (데이터 부족으로 이번엔 생략)"
+    ctx_block_md   = "\n".join(ctx_lines_md) or "  (데이터 부족으로 이번엔 생략)"
+
+    tg_message = (
+        f"🌟 <b>프리미엄 브리핑</b>\n<i>{now_str}</i>\n{sep}\n\n"
+        f"{persona_blocks_html}\n\n{sep}\n"
+        f"🎯 <b>종합 결론</b>\n{html.escape(synthesis)}\n\n{sep}\n"
+        f"📊 <b>히스토리 컨텍스트</b>\n{ctx_block_html}\n\n{sep}\n"
+        f"<i>⚠️ 투자 참고용이며 투자 권유가 아닙니다.</i>"
+    )
+    plain_message = (
+        f"🌟 **프리미엄 브리핑**\n{now_str}\n{sep}\n\n"
+        f"{persona_blocks_md}\n\n{sep}\n"
+        f"🎯 **종합 결론**\n{synthesis}\n\n{sep}\n"
+        f"📊 **히스토리 컨텍스트**\n{ctx_block_md}\n\n{sep}\n"
+        f"⚠️ 투자 참고용이며 투자 권유가 아닙니다."
+    )
+    return tg_message, plain_message
+
+
 # ── 발송 채널 ────────────────────────────────────────────────
 
 def _send_telegram_to(chat_id: str, text: str) -> bool:
@@ -424,5 +605,27 @@ def main():
     sys.exit(1)
 
 
+def preview_premium():
+    """프리미엄 콘텐츠 품질 확인용 — 개인 채팅(CHAT_ID)에만 발송, 채널엔 안 보냄."""
+    print("[프리미엄 미리보기] 시장 데이터 수집 중...")
+    quotes: dict[str, dict] = {}
+    for tickers in WATCHLIST.values():
+        for sym in tickers.values():
+            q = fetch_quote(sym)
+            if q:
+                quotes[sym] = q
+
+    headlines = fetch_news()
+    print("[프리미엄 미리보기] 4-페르소나 + 종합 결론 생성 중 (AI 호출 5회, 시간이 조금 걸립니다)...")
+    tg_message, _ = build_premium_message(quotes, headlines)
+
+    ok = _send_telegram_to(CHAT_ID, tg_message)
+    print("✅ 개인 채팅으로 미리보기 발송 완료" if ok else "❌ 미리보기 발송 실패")
+    sys.exit(0 if ok else 1)
+
+
 if __name__ == "__main__":
-    main()
+    if "--premium-preview" in sys.argv:
+        preview_premium()
+    else:
+        main()

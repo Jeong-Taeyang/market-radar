@@ -479,6 +479,65 @@ def generate_analyses(quotes: dict, kcif_title: str, kcif_body: str) -> dict:
     return results
 
 
+def generate_synthesis(analyses: dict, quotes: dict) -> str:
+    """4개 페르소나 의견을 종합해 실행 가능한 결론 도출 — 프리미엄 전용."""
+    if not API_KEY:
+        return "⚠️ ANTHROPIC_API_KEY 미설정"
+    combined = "\n\n".join(
+        f"[{PERSONAS[k]['name']}]\n{v}" for k, v in analyses.items()
+    )
+    try:
+        client = anthropic.Anthropic(api_key=API_KEY)
+        msg = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=400,
+            messages=[{
+                "role": "user",
+                "content": (
+                    f"📊 오늘의 시장 데이터:\n{_market_text(quotes)}\n\n"
+                    f"아래는 오늘 시장에 대한 4가지 관점의 분석입니다:\n\n{combined}\n\n"
+                    "이 4가지 관점을 종합해서, 오늘 투자자가 참고할 수 있는 "
+                    "'종합 결론'을 3~4문장으로 작성해주세요. "
+                    "관점이 서로 상충한다면 그 긴장관계를 짚어주고, "
+                    "관망/리스크관리/기회탐색 중 방향성을 명확히 제시하세요. "
+                    "특정 종목 매수·매도를 지시하지 말고 참고용 관점으로 서술하세요."
+                ),
+            }],
+        )
+        return msg.content[0].text
+    except Exception as e:
+        return f"⚠️ 종합 결론 생성 실패: {e}"
+
+
+def percentile_context(key: str, current_value: float, lookback: int = 252) -> dict | None:
+    """최근 1년(약 252거래일) 히스토리 대비 현재 값의 백분위 — 프리미엄 전용."""
+    path = HIST_DIR / f"{key}.json"
+    if not path.exists():
+        return None
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        values = [d["v"] for d in data["data"][-lookback:]]
+        if len(values) < 30:
+            return None
+        rank = sum(1 for v in values if v <= current_value) / len(values) * 100
+        desc = "상위권" if rank >= 80 else ("하위권" if rank <= 20 else "평균 범위")
+        return {"rank": round(rank), "desc": desc}
+    except Exception:
+        return None
+
+
+def build_percentiles(quotes: dict) -> dict:
+    out = {}
+    for key, q in quotes.items():
+        if q.get("_suspect"):
+            continue
+        ctx = percentile_context(key, q["_raw"])
+        if ctx:
+            out[key] = ctx
+    return out
+
+
 # ════════════════════════════════════════════════════════════════
 # 4. JSON 파일 빌드
 # ════════════════════════════════════════════════════════════════
@@ -496,13 +555,15 @@ def _clean_quotes(quotes: dict) -> dict:
 
 
 def save_daily_json(date: str, title: str, source_url: str,
-                    quotes: dict, analyses: dict):
+                    quotes: dict, analyses: dict, synthesis: str, percentiles: dict):
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     payload = {
         "date":        date,
         "title":       title,
         "source_url":  source_url,
         "market_data": _clean_quotes(quotes),
+        "synthesis":   synthesis,     # 프리미엄 전용 — 프론트에서 블러 처리
+        "percentiles": percentiles,   # 프리미엄 전용 — 프론트에서 블러 처리
         **analyses,
     }
     path = DATA_DIR / f"{date}.json"
@@ -606,9 +667,15 @@ def main():
     print("\n[4/5] AI 페르소나 분석 생성...")
     analyses = generate_analyses(quotes, news["title"], news["body"])
 
+    print("  종합 결론 생성 중 (프리미엄)...")
+    synthesis = generate_synthesis(analyses, quotes)
+
+    print("  히스토리 백분위 계산 중 (프리미엄)...")
+    percentiles = build_percentiles(quotes)
+
     # 5. JSON 저장
     print("\n[5/5] JSON 파일 저장...")
-    save_daily_json(date, news["title"], news["url"], quotes, analyses)
+    save_daily_json(date, news["title"], news["url"], quotes, analyses, synthesis, percentiles)
     update_reports_json(date, news["title"], quotes, analyses)
 
     # 6. Git 배포

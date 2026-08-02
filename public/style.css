@@ -102,6 +102,169 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .hidden { display: none !important; }
 
 /* ════════════════════════════════════
+   구독 CTA (랜딩)
+   ════════════════════════════════════ */
+.subscribe-card {
+  background: var(--card);
+  border-radius: var(--r-lg);
+  padding: var(--sp-2xl) var(--sp-xl);
+  margin-bottom: var(--sp-lg);
+  text-align: center;
+}
+.subscribe-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: 0.2px;
+  margin-bottom: var(--sp-sm);
+}
+.subscribe-title {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.45;
+  letter-spacing: -0.3px;
+  color: var(--text-1);
+  margin-bottom: var(--sp-xl);
+}
+.subscribe-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+  max-width: 360px;
+  margin: 0 auto var(--sp-xl);
+  text-align: left;
+}
+.subscribe-points li {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  font-size: 14px;
+  color: var(--text-2);
+}
+.persona-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-pill);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.persona-dot.bull    { background: var(--up-light); }
+.persona-dot.bear    { background: var(--down-light); }
+.persona-dot.quant   { background: #F3EEFF; }
+.persona-dot.buffett { background: var(--green-light); }
+.subscribe-btn {
+  display: inline-block;
+  width: 100%;
+  max-width: 360px;
+  padding: var(--sp-md) var(--sp-lg);
+  background: var(--blue);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--r-md);
+  transition: opacity 150ms var(--ease), transform 150ms var(--ease);
+}
+.subscribe-btn:active { transform: scale(0.98); opacity: 0.9; }
+@media (hover: hover) {
+  .subscribe-btn:hover { opacity: 0.92; }
+}
+.subscribe-note {
+  font-size: 12px;
+  color: var(--text-3);
+  margin-top: var(--sp-md);
+}
+
+/* ════════════════════════════════════
+   프리미엄 미리보기 (블러)
+   ════════════════════════════════════ */
+.premium-teaser {
+  background: var(--card);
+  border-radius: var(--r-lg);
+  padding: var(--sp-xl);
+  margin-top: var(--sp-lg);
+  overflow: hidden;
+}
+.premium-teaser-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  margin-bottom: var(--sp-lg);
+}
+.premium-badge {
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  padding: 3px var(--sp-sm);
+  border-radius: var(--r-pill);
+  letter-spacing: 0.3px;
+}
+.premium-teaser-header h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-1);
+}
+.premium-blur-wrap {
+  position: relative;
+  min-height: 140px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.premium-blur-content {
+  filter: blur(6px);
+  user-select: none;
+  pointer-events: none;
+}
+.premium-fake-line {
+  height: 14px;
+  background: var(--divider);
+  border-radius: var(--r-sm);
+  margin-bottom: var(--sp-md);
+}
+.premium-fake-line.short { width: 60%; }
+.premium-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-md);
+  text-align: center;
+  padding: var(--sp-lg);
+  background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.92) 40%);
+}
+.premium-overlay-text {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+.premium-cta-btn {
+  display: inline-block;
+  padding: var(--sp-sm) var(--sp-lg);
+  background: var(--blue);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: var(--r-md);
+  transition: opacity 150ms var(--ease), transform 150ms var(--ease);
+}
+.premium-cta-btn:active { transform: scale(0.97); }
+@media (hover: hover) {
+  .premium-cta-btn:hover { opacity: 0.9; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .premium-overlay {
+    background: linear-gradient(180deg, rgba(25,31,40,0.3) 0%, rgba(25,31,40,0.92) 40%);
+  }
+}
+
+/* ════════════════════════════════════
    목록 뷰
    ════════════════════════════════════ */
 #report-list {
