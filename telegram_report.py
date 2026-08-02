@@ -203,39 +203,8 @@ def build_snapshot_text(quotes: dict) -> str:
     return "\n".join(lines)
 
 
-def get_ai_summary(snapshot: str, headlines: list[str]) -> str:
-    if not API_KEY:
-        return "⚠️ ANTHROPIC_API_KEY 미설정"
-    news_text = "\n".join(f"- {h}" for h in headlines)
-    try:
-        client = anthropic.Anthropic(api_key=API_KEY)
-        msg = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=800,
-            messages=[{
-                "role": "user",
-                "content": (
-                    "당신은 투자 전문 애널리스트입니다.\n"
-                    "아래 시장 데이터와 뉴스를 바탕으로 오늘의 글로벌 시장 동향을 "
-                    "간결하게 한국어로 요약해 주세요.\n\n"
-                    "📊 시장 데이터:\n" + snapshot + "\n\n"
-                    "📰 주요 뉴스:\n" + news_text + "\n\n"
-                    "형식 (각 항목 2~3문장):\n"
-                    "1️⃣ 오늘의 핵심\n"
-                    "2️⃣ 미국 시장\n"
-                    "3️⃣ 한국 시장\n"
-                    "4️⃣ 주목 포인트\n"
-                ),
-            }],
-        )
-        return msg.content[0].text
-    except Exception as e:
-        return f"AI 요약 오류: {e}"
-
-
 # ════════════════════════════════════════════════════════════════
-# 프리미엄 전용 콘텐츠 — 4-페르소나 심층 분석 + 종합 결론 + 히스토리 컨텍스트
-# (무료 채널은 위 get_ai_summary()의 통합 요약만 받음)
+# 4-페르소나 (무료: 강세론자 1개 / 프리미엄: 나머지 3개 + 종합결론 + 히스토리 컨텍스트)
 # ════════════════════════════════════════════════════════════════
 
 PERSONAS = {
@@ -248,11 +217,13 @@ PERSONAS = {
         ),
     },
     "bear": {
-        "name": "🐻 약세론자",
+        "name": "🦉 신중론자",
         "system": (
-            "당신은 신중한 약세론자 투자 분석가입니다. "
+            "당신은 신중론자 투자 분석가입니다. "
             "시장의 과열 신호, 하방 리스크, 잠재적 위험 요인을 중심으로 분석합니다. "
-            "낙관론에 경고를 보내고 방어적 포지션의 근거를 제시합니다."
+            "낙관론에 경고를 보내고 방어적 포지션의 근거를 제시합니다. "
+            "비관이 아니라 신중함이 목적이므로, 단정적인 공포 조장보다는 "
+            "'무엇을 확인하기 전까지는 주의가 필요하다'는 톤을 유지합니다."
         ),
     },
     "quant": {
@@ -274,6 +245,10 @@ PERSONAS = {
         ),
     },
 }
+
+# 무료: 강세론자 1개만 전체 공개. 유료: 나머지 3개 + 종합결론 + 히스토리 백분위.
+FREE_PERSONA_KEY = "bull"
+PREMIUM_PERSONA_KEYS = ["bear", "quant", "buffett"]
 
 # 텔레그램 watchlist 심볼 -> daily_build.py가 쌓아온 historical/*.json 파일 키
 HIST_KEY_MAP = {
@@ -313,6 +288,35 @@ def generate_persona_analyses(snapshot: str, headlines: list[str]) -> dict:
     return results
 
 
+def generate_single_persona(key: str, snapshot: str, headlines: list[str]) -> str:
+    """페르소나 1개만 생성 — 무료 채널(강세론자)용. 4개 다 돌리는 비용을 아낀다."""
+    if not API_KEY:
+        return "⚠️ ANTHROPIC_API_KEY 미설정"
+    persona = PERSONAS[key]
+    news_text = "\n".join(f"- {h}" for h in headlines)
+    try:
+        client = anthropic.Anthropic(api_key=API_KEY)
+        msg = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=500,
+            system=persona["system"],
+            messages=[{
+                "role": "user",
+                "content": (
+                    f"📊 오늘의 시장 데이터:\n{snapshot}\n\n"
+                    f"📰 주요 뉴스:\n{news_text}\n\n"
+                    "아래 형식으로 한국어 분석을 작성해주세요. 각 항목은 2~3문장으로 간결하게.\n\n"
+                    "1️⃣ 오늘의 핵심 판단\n"
+                    "2️⃣ 시장 분석\n"
+                    "3️⃣ 주목할 포인트"
+                ),
+            }],
+        )
+        return msg.content[0].text
+    except Exception as e:
+        return f"⚠️ 분석 생성 실패: {e}"
+
+
 def generate_synthesis(persona_analyses: dict, snapshot: str) -> str:
     """4개 페르소나 의견을 종합해 실행 가능한 결론 도출 — 프리미엄의 핵심 차별점."""
     if not API_KEY:
@@ -324,7 +328,7 @@ def generate_synthesis(persona_analyses: dict, snapshot: str) -> str:
         client = anthropic.Anthropic(api_key=API_KEY)
         msg = client.messages.create(
             model="claude-sonnet-4-6",
-            max_tokens=400,
+            max_tokens=700,
             messages=[{
                 "role": "user",
                 "content": (
@@ -334,7 +338,9 @@ def generate_synthesis(persona_analyses: dict, snapshot: str) -> str:
                     "'종합 결론'을 3~4문장으로 작성해주세요. "
                     "관점이 서로 상충한다면 그 긴장관계를 짚어주고, "
                     "관망/리스크관리/기회탐색 중 방향성을 명확히 제시하세요. "
-                    "특정 종목 매수·매도를 지시하지 말고 참고용 관점으로 서술하세요."
+                    "특정 종목 매수·매도를 지시하지 말고 참고용 관점으로 서술하세요. "
+                    "반드시 완결된 문장으로 마무리하세요 — 문장이 중간에 끊기지 않도록 "
+                    "여유 있게 작성하고, 마지막 문장을 결론으로 깔끔하게 맺으세요."
                 ),
             }],
         )
@@ -369,16 +375,18 @@ def percentile_context(hist_key: str, current_value: float, lookback: int = 252)
 def build_premium_message(quotes: dict, headlines: list[str]) -> tuple[str, str]:
     """프리미엄 채널 전용 메시지 조립: 4-페르소나 + 종합 결론 + 히스토리 컨텍스트."""
     snapshot = build_snapshot_text(quotes)
-    personas = generate_persona_analyses(snapshot, headlines)
+    personas = generate_persona_analyses(snapshot, headlines)  # 종합결론 재료로 4개 다 필요
     synthesis = generate_synthesis(personas, snapshot)
     now_str = datetime.now(KST).strftime("%Y년 %m월 %d일 %H:%M")
     sep = "─" * 28
 
+    # 표시는 프리미엄 전용 3개만 — 강세론자는 무료 채널에서 이미 공개됨
+    premium_personas = {k: v for k, v in personas.items() if k in PREMIUM_PERSONA_KEYS}
     persona_blocks_html = "\n\n".join(
-        f"<b>{PERSONAS[k]['name']}</b>\n{html.escape(v)}" for k, v in personas.items()
+        f"<b>{PERSONAS[k]['name']}</b>\n{html.escape(v)}" for k, v in premium_personas.items()
     )
     persona_blocks_md = "\n\n".join(
-        f"**{PERSONAS[k]['name']}**\n{v}" for k, v in personas.items()
+        f"**{PERSONAS[k]['name']}**\n{v}" for k, v in premium_personas.items()
     )
 
     ctx_lines_html, ctx_lines_md = [], []
@@ -556,10 +564,11 @@ def main():
         headlines     = fetch_news()
         snapshot_text = build_snapshot_text(quotes)
 
-        print("AI 요약 생성 중...")
-        summary = get_ai_summary(snapshot_text, headlines)
+        print(f"{PERSONAS[FREE_PERSONA_KEY]['name']} 분석 생성 중 (무료 기본 제공)...")
+        bull_analysis = generate_single_persona(FREE_PERSONA_KEY, snapshot_text, headlines)
 
         news_block = "\n".join(f"• {h}" for h in headlines[:6])
+        persona_label = PERSONAS[FREE_PERSONA_KEY]["name"]
 
         # 텔레그램 전용 (HTML)
         tg_message = (
@@ -568,9 +577,10 @@ def main():
             f"{sep}\n"
             f"{tg_market}\n\n"
             f"{sep}\n"
-            f"🤖 <b>AI 분석</b>\n{html.escape(summary)}\n\n"
+            f"{persona_label} <b>분석</b>\n{html.escape(bull_analysis)}\n\n"
             f"{sep}\n"
             f"📰 <b>주요 뉴스</b>\n{html.escape(news_block)}\n\n"
+            f"<i>💎 신중론자·퀀트·워런 버핏 관점과 종합 결론은 프리미엄에서 확인하세요.</i>\n"
             f"<i>⚠️ 투자 참고용이며 투자 권유가 아닙니다.</i>"
         )
 
@@ -581,9 +591,10 @@ def main():
             f"{sep}\n"
             f"{raw_market}\n\n"
             f"{sep}\n"
-            f"🤖 **AI 분석**\n{summary}\n\n"
+            f"{persona_label} **분석**\n{bull_analysis}\n\n"
             f"{sep}\n"
             f"📰 **주요 뉴스**\n{news_block}\n\n"
+            f"💎 신중론자·퀀트·워런 버핏 관점과 종합 결론은 프리미엄에서 확인하세요.\n"
             f"⚠️ 투자 참고용이며 투자 권유가 아닙니다."
         )
         subject = f"📈 글로벌 시장 모닝 브리핑 — {now}"

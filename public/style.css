@@ -156,6 +156,16 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .persona-dot.bear    { background: var(--down-light); }
 .persona-dot.quant   { background: #F3EEFF; }
 .persona-dot.buffett { background: var(--green-light); }
+.premium-tag {
+  font-size: 10px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  padding: 2px 6px;
+  border-radius: var(--r-pill);
+  letter-spacing: 0.2px;
+  margin-left: var(--sp-xs);
+}
 .subscribe-btn {
   display: inline-block;
   width: 100%;

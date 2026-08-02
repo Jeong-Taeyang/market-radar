@@ -5,10 +5,10 @@
 const DATA = "data";
 
 const PERSONAS = [
-  { key: "bull",    label: "🐂 강세론자", short: "🐂" },
-  { key: "bear",    label: "🐻 약세론자", short: "🐻" },
-  { key: "quant",   label: "📐 퀀트",     short: "📐" },
-  { key: "buffett", label: "🎩 버핏",     short: "🎩" },
+  { key: "bull",    label: "🐂 강세론자", short: "🐂", free: true },
+  { key: "bear",    label: "🦉 신중론자", short: "🦉", free: false },
+  { key: "quant",   label: "📐 퀀트",     short: "📐", free: false },
+  { key: "buffett", label: "🎩 버핏",     short: "🎩", free: false },
 ];
 
 // 목록 카드에 보여줄 미니 지표 4개
@@ -191,12 +191,12 @@ function renderDetail(report) {
       </div>`;
   }).join("");
 
-  // 페르소나 탭
+  // 페르소나 탭 (강세론자만 무료, 나머지는 프리미엄 잠금 표시)
   const tabs = document.getElementById("persona-tabs");
   tabs.innerHTML = PERSONAS.map(p => `
     <button class="ptab ${p.key} ${p.key === currentPersona ? "active" : ""}"
             onclick="switchPersona('${p.key}')">
-      ${p.short} ${p.label.split(" ")[1]}
+      ${p.short} ${p.label.split(" ")[1]}${p.free ? "" : " 🔒"}
     </button>`).join("");
 
   renderPersonaContent();
@@ -212,6 +212,28 @@ function switchPersona(key) {
 
 function renderPersonaContent() {
   const el = document.getElementById("persona-content");
+  const meta = PERSONAS.find(p => p.key === currentPersona);
+
+  if (meta && !meta.free) {
+    el.innerHTML = `
+      <div class="premium-blur-wrap persona-lock">
+        <div class="premium-blur-content">
+          <p class="premium-fake-line"></p>
+          <p class="premium-fake-line"></p>
+          <p class="premium-fake-line short"></p>
+        </div>
+        <div class="premium-overlay">
+          <p class="premium-overlay-text">
+            ${meta.label} 분석은 프리미엄 구독자에게만 공개됩니다.
+          </p>
+          <a href="https://t.me/a86791245" target="_blank" rel="noopener" class="premium-cta-btn">
+            프리미엄 구독하기 →
+          </a>
+        </div>
+      </div>`;
+    return;
+  }
+
   const text = currentReport?.[currentPersona];
   el.textContent = text || "⚠️ 이 페르소나 분석이 없습니다.";
 }
