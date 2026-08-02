@@ -36,7 +36,7 @@ def find_valid_date() -> str | None:
     return None
 
 
-def backfill(date: str):
+def backfill(date: str, force: bool = False):
     path = DATA_DIR / f"{date}.json"
     if not path.exists():
         print(f"❌ {path} 없음")
@@ -52,10 +52,16 @@ def backfill(date: str):
         quotes[key] = {"value": md["value"], "change": md["change"], "_raw": _to_raw(md["value"])}
 
     analyses = {k: data.get(k, "") for k in PERSONA_KEYS}
-    if not all(analyses.values()) or any("⚠️" in v for v in analyses.values()):
-        # 원래 저장된 페르소나 분석이 실패(API 오류 등)했던 경우 —
-        # 저장된 market_data + title로 4개 페르소나부터 다시 생성.
-        print(f"[{date}] 기존 페르소나 분석이 유효하지 않아 재생성합니다...")
+    # "3️⃣" 마커가 없으면 예전(낮은 max_tokens) 프롬프트로 생성되어 문장 중간에
+    # 잘렸을 가능성이 높다고 보고 재생성 대상에 포함시킨다.
+    invalid = (
+        not all(analyses.values())
+        or any("⚠️" in v for v in analyses.values())
+        or any("3️⃣" not in v for v in analyses.values())
+    )
+    if force or invalid:
+        reason = "재생성 강제 지정" if force else "기존 페르소나 분석이 유효하지 않거나 잘려있어"
+        print(f"[{date}] {reason} 재생성합니다...")
         analyses = generate_analyses(quotes, data.get("title", ""), "")
         data.update(analyses)
 
@@ -76,9 +82,12 @@ def backfill(date: str):
 
 
 if __name__ == "__main__":
-    arg = sys.argv[1] if len(sys.argv) > 1 else ""
+    args = sys.argv[1:]
+    force_flag = "--force" in args
+    args = [a for a in args if a != "--force"]
+    arg = args[0] if args else ""
     target_date = arg.strip() or find_valid_date()
     if not target_date:
         print("❌ 유효한(4개 페르소나 정상 생성) 리포트를 찾지 못함")
         sys.exit(1)
-    backfill(target_date)
+    backfill(target_date, force=force_flag)
