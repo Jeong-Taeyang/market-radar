@@ -44,9 +44,9 @@ GMAIL_TO        = os.getenv("GMAIL_TO", GMAIL_USER)
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 # ── 시세 수집 대상 ───────────────────────────────────────────
-# 원/엔(100엔)은 별도 시세원이 없어 원/달러 ÷ USD/JPY로 파생 계산한다
-# (daily_build.py의 _compute_jpy_krw와 동일한 방식). fetch_quote 대상이 아닌
-# 가짜 심볼이며, main()에서 조회 루프를 건너뛰고 별도로 채워넣는다.
+# 원/엔(100엔)은 야후 심볼이 없어 네이버 은행 고시환율(FX_JPYKRW)을 직접
+# 조회한다 — 실제 심볼이 아닌 내부 식별용 문자열이며, fetch_quote()가
+# NAVER_EXCHANGE_MAP을 통해 이 값을 인식해 _fetch_naver_exchange로 라우팅한다.
 JPY_KRW_SYM = "JPYKRW_DERIVED"
 
 WATCHLIST = {
@@ -100,20 +100,26 @@ DEFAULT_MAX_PCT = 10
 # (야후 ^KS11/^KQ11에서 전일과 완전히 동일한 값이 반복되다 나중에
 #  몰아서 튀는 현상이 실제 발견됨 — 네이버는 거래소 실시간 시세를 직접 반영)
 NAVER_INDEX_MAP = {"^KS11": "KOSPI", "^KQ11": "KOSDAQ"}
+# 원/엔(100엔)은 은행 고시환율을 네이버가 직접 제공 — 원/달러÷USD/JPY 파생
+# 계산보다 이쪽이 정확함(finance.naver.com/marketindex/ 확인).
+NAVER_EXCHANGE_MAP = {JPY_KRW_SYM: "FX_JPYKRW"}
 
 
 def fetch_quote(sym: str) -> dict | None:
-    is_naver = sym in NAVER_INDEX_MAP
-    q = _fetch_naver(NAVER_INDEX_MAP[sym]) if is_naver else _fetch_yahoo(sym)
+    if sym in NAVER_INDEX_MAP:
+        q, is_naver = _fetch_naver(NAVER_INDEX_MAP[sym]), True
+    elif sym in NAVER_EXCHANGE_MAP:
+        q, is_naver = _fetch_naver_exchange(NAVER_EXCHANGE_MAP[sym]), True
+    else:
+        q, is_naver = _fetch_yahoo(sym), False
     if q is None:
         return None
 
     if is_naver:
-        # 네이버(KOSPI/KOSDAQ)는 거래소 실시간 시세를 직접 받아오므로, 야후에서
-        # 발견됐던 "전일과 동일한 값 반복" 같은 소스 자체의 결함이 구조적으로
-        # 발생하지 않는다. 등락폭이 커도 실제 시세일 수 있으므로(예: 2026-08-01
-        # 전후 급변동 시 야후·네이버 양쪽 모두 동일 수치로 교차 확인됨) 등락폭
-        # 기준으로 걸러내지 않고, 값 자체가 비정상(0 이하 등)인 경우만 검증한다.
+        # 네이버(KOSPI/KOSDAQ/원엔)는 거래소·은행 고시 시세를 직접 받아오므로,
+        # 야후에서 발견됐던 "전일과 동일한 값 반복" 같은 소스 자체의 결함이
+        # 구조적으로 발생하지 않는다. 등락폭이 커도 실제 시세일 수 있으므로
+        # 등락폭 기준으로 걸러내지 않고, 값 자체가 비정상(0 이하 등)인 경우만 검증한다.
         suspect = q["price"] <= 0
     else:
         limit = SANITY_MAX_PCT.get(sym, DEFAULT_MAX_PCT)
@@ -163,30 +169,25 @@ def _fetch_naver(item_code: str) -> dict | None:
         return None
 
 
-def compute_jpy_krw(quotes: dict) -> dict | None:
-    """원/엔(100엔)은 원/달러 ÷ USD/JPY로 파생 계산 (daily_build.py와 동일 방식).
-    등락률은 historical/jpy_krw.json(daily_build.py가 관리)의 마지막 저장값 대비로 산출한다."""
-    krw = quotes.get("USDKRW=X")
-    jpy = quotes.get("USDJPY=X")
-    if not krw or not jpy or jpy["price"] == 0:
+def _fetch_naver_exchange(code: str) -> dict | None:
+    """네이버금융 환율 API (원/엔 등 은행 고시환율 전용, api.stock.naver.com)."""
+    try:
+        url = f"https://api.stock.naver.com/marketindex/exchange/{code}"
+        resp = requests.get(
+            url,
+            headers={"User-Agent": "Mozilla/5.0", "Referer": "https://finance.naver.com/marketindex/"},
+            verify=False, timeout=15,
+        )
+        d = resp.json()["exchangeInfo"]
+        price = float(d["closePrice"].replace(",", ""))
+        pct   = abs(float(d["fluctuationsRatio"]))
+        chg   = abs(float(d["fluctuations"]))
+        if "하락" in d.get("fluctuationsType", {}).get("text", ""):
+            pct, chg = -pct, -chg
+        return {"price": price, "change": chg, "pct": pct}
+    except Exception as e:
+        print(f"  네이버금융 환율 조회 실패({code}): {e}")
         return None
-
-    raw = krw["price"] / jpy["price"] * 100
-    path = HIST_DIR / "jpy_krw.json"
-    prev_val = None
-    if path.exists():
-        try:
-            with open(path, encoding="utf-8") as f:
-                data = json.load(f)["data"]
-            if data:
-                prev_val = data[-1]["v"]
-        except Exception:
-            prev_val = None
-
-    pct = ((raw - prev_val) / prev_val * 100) if prev_val else 0.0
-    chg = raw - prev_val if prev_val else 0.0
-    suspect = bool(krw.get("suspect") or jpy.get("suspect")) or (prev_val is not None and abs(pct) > 5)
-    return {"price": raw, "change": chg, "pct": pct, "suspect": suspect}
 
 
 def fetch_news(limit: int = 8) -> list[str]:
@@ -575,14 +576,9 @@ def main():
     quotes: dict[str, dict] = {}
     for tickers in WATCHLIST.values():
         for sym in tickers.values():
-            if sym == JPY_KRW_SYM:
-                continue   # 파생 종목 — 아래에서 별도 계산
             q = fetch_quote(sym)
             if q:
                 quotes[sym] = q
-    jpy_krw_q = compute_jpy_krw(quotes)
-    if jpy_krw_q:
-        quotes[JPY_KRW_SYM] = jpy_krw_q
 
     tg_market  = format_market_block(quotes, mode="telegram")
     raw_market = format_market_block(quotes, mode="plain")
@@ -677,14 +673,9 @@ def preview_premium():
     quotes: dict[str, dict] = {}
     for tickers in WATCHLIST.values():
         for sym in tickers.values():
-            if sym == JPY_KRW_SYM:
-                continue
             q = fetch_quote(sym)
             if q:
                 quotes[sym] = q
-    jpy_krw_q = compute_jpy_krw(quotes)
-    if jpy_krw_q:
-        quotes[JPY_KRW_SYM] = jpy_krw_q
 
     headlines = fetch_news()
     print("[프리미엄 미리보기] 4-페르소나 + 종합 결론 생성 중 (AI 호출 5회, 시간이 조금 걸립니다)...")

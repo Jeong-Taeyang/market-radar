@@ -71,8 +71,9 @@ TICKERS = {
     "us10y":   {"sym": "^TNX",     "label": "미국 10년물",  "prefix": "",  "decimals": 3},
     "eurusd":  {"sym": "EURUSD=X", "label": "EUR/USD",     "prefix": "",  "decimals": 4},
     "usdjpy":  {"sym": "USDJPY=X", "label": "USD/JPY",     "prefix": "",  "decimals": 2},
-    # sym=None: 야후·네이버에서 직접 시세를 받지 않고 usd_krw/usdjpy로부터
-    # 파생 계산한다(아래 _compute_jpy_krw 참고). 100엔당 원화 기준(통상적인 한국 표기).
+    # sym=None: 야후 심볼 없이 네이버 은행 고시환율(FX_JPYKRW, NAVER_EXCHANGE_MAP)만
+    # 사용. 5년치 히스토리 초기화는 usd_krw/usdjpy 히스토리 교차계산으로 대체
+    # (_init_historical 참고). 100엔당 원화 기준(통상적인 한국 표기).
     "jpy_krw": {"sym": None,       "label": "원/엔(100엔)", "prefix": "₩", "decimals": 1},
 }
 
@@ -84,7 +85,7 @@ TICKERS = {
 #  동일 기간 정상 범위였음 — 한국 지수 데이터 소스 자체의 지연/재사용 이슈로 추정)
 SANITY_MAX_PCT = {
     "sp500": 7, "kospi": 8, "kosdaq": 10, "usd_krw": 5, "wti": 12, "gold": 8,
-    "vix": 50, "dxy": 3, "us10y": 15, "eurusd": 4, "usdjpy": 4, "jpy_krw": 5,
+    "vix": 50, "dxy": 3, "us10y": 15, "eurusd": 4, "usdjpy": 4,
 }
 DEFAULT_MAX_PCT = 10
 
@@ -92,6 +93,9 @@ DEFAULT_MAX_PCT = 10
 # (야후에서 전일과 완전히 동일한 값이 반복되다 나중에 몰아서 튀는
 # 현상이 실제 발견됨 — 네이버는 거래소 실시간 시세를 직접 반영)
 NAVER_INDEX_MAP = {"kospi": "KOSPI", "kosdaq": "KOSDAQ"}
+# 원/엔(100엔)은 은행 고시환율을 네이버가 직접 제공 — 원/달러÷USD/JPY 파생
+# 계산보다 이쪽이 정확함(finance.naver.com/marketindex/ 확인).
+NAVER_EXCHANGE_MAP = {"jpy_krw": "FX_JPYKRW"}
 
 # ── AI 페르소나 ───────────────────────────────────────────────────
 PERSONAS = {
@@ -287,6 +291,27 @@ def _naver_index_quote(item_code: str) -> dict | None:
         return None
 
 
+def _naver_exchange_quote(code: str) -> dict | None:
+    """네이버금융 환율 API (원/엔 등 은행 고시환율 전용, api.stock.naver.com).
+    KOSPI/KOSDAQ의 index API와는 다른 응답 구조라 별도 함수로 분리."""
+    try:
+        url = f"https://api.stock.naver.com/marketindex/exchange/{code}"
+        resp = requests.get(
+            url,
+            headers={"User-Agent": "Mozilla/5.0", "Referer": "https://finance.naver.com/marketindex/"},
+            verify=False, timeout=15,
+        )
+        d = resp.json()["exchangeInfo"]
+        value = float(d["closePrice"].replace(",", ""))
+        pct   = abs(float(d["fluctuationsRatio"]))
+        if "하락" in d.get("fluctuationsType", {}).get("text", ""):
+            pct = -pct
+        return {"value": value, "pct": pct}
+    except Exception as e:
+        print(f"  네이버금융 환율 조회 실패({code}): {e}")
+        return None
+
+
 def _yahoo_quote(sym: str) -> dict | None:
     """Yahoo Finance Chart API를 requests(verify=False)로 직접 호출."""
     import time as _time
@@ -339,79 +364,25 @@ def _yahoo_history(sym: str, period: str = "5y") -> list[dict]:
     return []
 
 
-def _compute_jpy_krw(quotes: dict) -> dict | None:
-    """원/엔(100엔당)은 별도 시세원이 없어 usd_krw ÷ usdjpy × 100 으로 파생 계산한다.
-    등락률은 historical/jpy_krw.json의 직전 저장값 대비로 산출하며, 해당 파일이
-    없으면 이미 쌓여있는 usd_krw·usdjpy 히스토리를 교차 계산해 최초 생성한다."""
-    krw = quotes.get("usd_krw")
-    jpy = quotes.get("usdjpy")
-    if not krw or not jpy or jpy["_raw"] == 0:
-        return None
-
-    raw = krw["_raw"] / jpy["_raw"] * 100
-    cfg = TICKERS["jpy_krw"]
-
-    path = HIST_DIR / "jpy_krw.json"
-    if not path.exists():
-        krw_hist_path = HIST_DIR / "usd_krw.json"
-        jpy_hist_path = HIST_DIR / "usdjpy.json"
-        rows = []
-        if krw_hist_path.exists() and jpy_hist_path.exists():
-            with open(krw_hist_path, encoding="utf-8") as f:
-                krw_hist = {r["d"]: r["v"] for r in json.load(f)["data"]}
-            with open(jpy_hist_path, encoding="utf-8") as f:
-                jpy_hist = {r["d"]: r["v"] for r in json.load(f)["data"]}
-            for d in sorted(set(krw_hist) & set(jpy_hist)):
-                if jpy_hist[d] == 0:
-                    continue
-                rows.append({"d": d, "v": round(krw_hist[d] / jpy_hist[d] * 100, cfg["decimals"])})
-        HIST_DIR.mkdir(parents=True, exist_ok=True)
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump({
-                "key": "jpy_krw", "label": cfg["label"], "prefix": cfg["prefix"],
-                "decimals": cfg["decimals"], "updated": "", "data": rows,
-            }, f, ensure_ascii=False, separators=(",", ":"))
-
-    with open(path, encoding="utf-8") as f:
-        hist = json.load(f)
-    prev_val = hist["data"][-1]["v"] if hist["data"] else None
-    pct = ((raw - prev_val) / prev_val * 100) if prev_val else 0.0
-    sign = "+" if pct >= 0 else ""
-
-    suspect = bool(krw.get("_suspect") or jpy.get("_suspect"))
-    if not suspect:
-        limit = SANITY_MAX_PCT.get("jpy_krw", DEFAULT_MAX_PCT)
-        if abs(pct) > limit:
-            suspect = True
-            print(f"  ⚠️ 데이터 이상 감지: jpy_krw 등락률 {sign}{pct:.2f}% (기준 ±{limit}% 초과)")
-
-    return {
-        "value": f"{raw:,.{cfg['decimals']}f}",
-        "change": f"{sign}{pct:.2f}%",
-        "_raw": raw,
-        "_pct": pct,
-        "_suspect": suspect,
-    }
-
-
 def fetch_market_data() -> dict:
-    print("  시세 수집 중 (KOSPI/KOSDAQ: 네이버금융 / 그 외: Yahoo Finance 직접 호출)...")
+    print("  시세 수집 중 (KOSPI/KOSDAQ/원엔: 네이버금융 / 그 외: Yahoo Finance 직접 호출)...")
     import time as _time
     quotes = {}
     for key, cfg in TICKERS.items():
-        if cfg["sym"] is None:
-            continue   # 파생 종목(원/엔)은 아래에서 별도 계산
+        is_naver = key in NAVER_INDEX_MAP or key in NAVER_EXCHANGE_MAP
         if key in NAVER_INDEX_MAP:
             q = _naver_index_quote(NAVER_INDEX_MAP[key])
+        elif key in NAVER_EXCHANGE_MAP:
+            q = _naver_exchange_quote(NAVER_EXCHANGE_MAP[key])
         else:
             q = _yahoo_quote(cfg["sym"])
         if q:
             d    = cfg["decimals"]
             sign = "+" if q["pct"] >= 0 else ""
-            if key in NAVER_INDEX_MAP:
-                # 네이버(KOSPI)는 거래소 실시간 시세 직접 반영이라 등락폭이 커도
-                # 실제 시세일 수 있음 — 값 자체 유효성만 체크. "전일과 완전히
-                # 동일한 값" 검증은 아래 update_historical()에서 별도로 수행.
+            if is_naver:
+                # 네이버(KOSPI/KOSDAQ/원엔)는 거래소·은행 고시 시세를 직접 반영이라
+                # 등락폭이 커도 실제 시세일 수 있음 — 값 자체 유효성만 체크.
+                # "전일과 완전히 동일한 값" 검증은 아래 update_historical()에서 수행.
                 suspect = q["value"] <= 0
             else:
                 limit   = SANITY_MAX_PCT.get(key, DEFAULT_MAX_PCT)
@@ -426,11 +397,6 @@ def fetch_market_data() -> dict:
                 "_suspect": suspect,
             }
         _time.sleep(0.3)   # rate limit 방지
-
-    jpy_krw_q = _compute_jpy_krw(quotes)
-    if jpy_krw_q:
-        quotes["jpy_krw"] = jpy_krw_q
-
     return quotes
 
 
@@ -441,6 +407,26 @@ def _init_historical(key: str, cfg: dict) -> dict:
         "prefix": cfg["prefix"], "decimals": cfg["decimals"],
         "updated": "", "data": [],
     }
+    if key == "jpy_krw":
+        # 원/엔은 야후에 신뢰할 만한 장기 히스토리 소스가 없어, 이미 쌓여있는
+        # usd_krw·usdjpy 히스토리를 같은 날짜끼리 교차 계산해 초기화한다.
+        krw_hist_path = HIST_DIR / "usd_krw.json"
+        jpy_hist_path = HIST_DIR / "usdjpy.json"
+        if krw_hist_path.exists() and jpy_hist_path.exists():
+            with open(krw_hist_path, encoding="utf-8") as f:
+                krw_hist = {r["d"]: r["v"] for r in json.load(f)["data"]}
+            with open(jpy_hist_path, encoding="utf-8") as f:
+                jpy_hist = {r["d"]: r["v"] for r in json.load(f)["data"]}
+            for d in sorted(set(krw_hist) & set(jpy_hist)):
+                if jpy_hist[d] == 0:
+                    continue
+                v = round(krw_hist[d] / jpy_hist[d] * 100, cfg["decimals"])
+                data["data"].append({"d": d, "v": v})
+            print(f"    {key}: {len(data['data'])}일치 교차 계산 완료")
+        else:
+            print(f"    {key} 초기화 실패 — usd_krw/usdjpy 히스토리가 아직 없음")
+        return data
+
     rows = _yahoo_history(cfg["sym"], "5y")
     if rows:
         data["data"] = [{"d": r["d"], "v": round(r["v"], cfg["decimals"])} for r in rows]
