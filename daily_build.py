@@ -72,6 +72,23 @@ TICKERS = {
     "usdjpy":  {"sym": "USDJPY=X", "label": "USD/JPY",     "prefix": "",  "decimals": 2},
 }
 
+# ── 데이터 안전장치 ───────────────────────────────────────────────
+# 하루 등락폭이 이 값을 넘으면 데이터 소스 지연/오류로 의심하고
+# 사이트에 그 숫자를 그대로 게시하지 않는다.
+# (근거: ^KS11/^KQ11에서 전일과 완전히 동일한 값이 이틀 연속 나온 뒤
+#  나중에 -10% 안팎으로 몰아서 튀는 현상이 실제로 발견됨. 미국 지수는
+#  동일 기간 정상 범위였음 — 한국 지수 데이터 소스 자체의 지연/재사용 이슈로 추정)
+SANITY_MAX_PCT = {
+    "sp500": 7, "kospi": 8, "usd_krw": 5, "wti": 12, "gold": 8,
+    "vix": 50, "dxy": 3, "us10y": 15, "eurusd": 4, "usdjpy": 4,
+}
+DEFAULT_MAX_PCT = 10
+
+# 한국 지수는 야후(^KS11)보다 네이버금융 실시간 API가 더 신뢰도가 높음
+# (야후에서 전일과 완전히 동일한 값이 반복되다 나중에 몰아서 튀는
+# 현상이 실제 발견됨 — 네이버는 거래소 실시간 시세를 직접 반영)
+NAVER_INDEX_MAP = {"kospi": "KOSPI"}
+
 # ── AI 페르소나 ───────────────────────────────────────────────────
 PERSONAS = {
     "bull": {
@@ -238,6 +255,28 @@ def _kcif_fallback() -> dict:
 # 2. 시세 수집 + historical JSON 업데이트
 # ════════════════════════════════════════════════════════════════
 
+def _naver_index_quote(item_code: str) -> dict | None:
+    """네이버금융 실시간 지수 API (KOSPI/KOSDAQ 전용).
+    한국 지수는 야후보다 이 소스가 더 신뢰도 높음."""
+    try:
+        url = f"https://polling.finance.naver.com/api/realtime/domestic/index/{item_code}"
+        resp = requests.get(
+            url,
+            headers={"User-Agent": "Mozilla/5.0", "Referer": "https://finance.naver.com/"},
+            verify=False, timeout=15,
+        )
+        d = resp.json()["datas"][0]
+        value = float(d["closePriceRaw"])
+        pct   = abs(float(d["fluctuationsRatioRaw"]))
+        direction = d.get("compareToPreviousPrice", {}).get("text", "")
+        if "하락" in direction or "하한" in direction:
+            pct = -pct
+        return {"value": value, "pct": pct}
+    except Exception as e:
+        print(f"  네이버금융 조회 실패({item_code}): {e}")
+        return None
+
+
 def _yahoo_quote(sym: str) -> dict | None:
     """Yahoo Finance Chart API를 requests(verify=False)로 직접 호출."""
     import time as _time
@@ -291,19 +330,27 @@ def _yahoo_history(sym: str, period: str = "5y") -> list[dict]:
 
 
 def fetch_market_data() -> dict:
-    print("  Yahoo Finance API 직접 호출 중...")
+    print("  시세 수집 중 (KOSPI: 네이버금융 / 그 외: Yahoo Finance 직접 호출)...")
     import time as _time
     quotes = {}
     for key, cfg in TICKERS.items():
-        q = _yahoo_quote(cfg["sym"])
+        if key in NAVER_INDEX_MAP:
+            q = _naver_index_quote(NAVER_INDEX_MAP[key])
+        else:
+            q = _yahoo_quote(cfg["sym"])
         if q:
-            d    = cfg["decimals"]
-            sign = "+" if q["pct"] >= 0 else ""
+            d       = cfg["decimals"]
+            sign    = "+" if q["pct"] >= 0 else ""
+            limit   = SANITY_MAX_PCT.get(key, DEFAULT_MAX_PCT)
+            suspect = abs(q["pct"]) > limit
+            if suspect:
+                print(f"  ⚠️ 데이터 이상 감지: {key} 등락률 {sign}{q['pct']:.2f}% (기준 ±{limit}% 초과)")
             quotes[key] = {
-                "value":  f"{q['value']:,.{d}f}",
-                "change": f"{sign}{q['pct']:.2f}%",
-                "_raw":   q["value"],
-                "_pct":   q["pct"],
+                "value":   f"{q['value']:,.{d}f}",
+                "change":  f"{sign}{q['pct']:.2f}%",
+                "_raw":    q["value"],
+                "_pct":    q["pct"],
+                "_suspect": suspect,
             }
         _time.sleep(0.3)   # rate limit 방지
     return quotes
@@ -337,9 +384,24 @@ def update_historical(date: str, quotes: dict):
         else:
             data = _init_historical(key, cfg)
 
-        # 오늘 데이터 추가/갱신
-        raw_val = round(quotes[key]["_raw"], cfg["decimals"])
+        raw_val  = round(quotes[key]["_raw"], cfg["decimals"])
         existing = {e["d"]: i for i, e in enumerate(data["data"])}
+
+        # 전일과 완전히 동일한 값이면(활발히 거래되는 지수·환율에서 통계적으로
+        # 거의 불가능) 데이터 소스가 갱신되지 않은 것으로 의심 — 의심 처리.
+        if data["data"] and date not in existing:
+            last_val = data["data"][-1]["v"]
+            if raw_val == last_val:
+                quotes[key]["_suspect"] = True
+                print(f"  ⚠️ 데이터 이상 감지: {key} 값이 전일과 완전히 동일함({raw_val}) — 확인필요 처리")
+
+        if quotes[key].get("_suspect"):
+            # 의심스러운 값은 히스토리(차트)에 반영하지 않고 건너뛴다.
+            # → 나쁜 값이 장기 데이터에 영구히 남는 것을 방지.
+            print(f"  ⏭️  {key}: 검증 실패로 히스토리 업데이트 건너뜀 (기존 값 유지)")
+            continue
+
+        # 오늘 데이터 추가/갱신
         if date in existing:
             data["data"][existing[date]]["v"] = raw_val
         else:
@@ -360,11 +422,18 @@ def update_historical(date: str, quotes: dict):
 # ════════════════════════════════════════════════════════════════
 
 def _market_text(quotes: dict) -> str:
+    # 주의: 이 텍스트가 그대로 AI(Claude) 프롬프트에 들어가므로, 검증 실패
+    # (_suspect) 데이터는 절대 포함시키지 않는다 — AI가 잘못된 수치를
+    # 사실처럼 서술하는 2차 오류를 막기 위함.
     lines = []
     for key, cfg in TICKERS.items():
         q = quotes.get(key)
-        if q:
-            lines.append(f"{cfg['label']}: {q['value']} ({q['change']})")
+        if not q:
+            continue
+        if q.get("_suspect"):
+            lines.append(f"{cfg['label']}: 데이터 검증 실패로 이번 분석에서 제외됨")
+            continue
+        lines.append(f"{cfg['label']}: {q['value']} ({q['change']})")
     return "\n".join(lines)
 
 
@@ -409,7 +478,15 @@ def generate_analyses(quotes: dict, kcif_title: str, kcif_body: str) -> dict:
 # ════════════════════════════════════════════════════════════════
 
 def _clean_quotes(quotes: dict) -> dict:
-    return {k: {"value": v["value"], "change": v["change"]} for k, v in quotes.items()}
+    # 검증 실패(_suspect) 데이터는 사이트에 숫자를 그대로 노출하지 않고
+    # "확인중" 상태로 내려보낸다 — 프론트엔드에서 badge로 표시 가능.
+    out = {}
+    for k, v in quotes.items():
+        if v.get("_suspect"):
+            out[k] = {"value": v["value"], "change": v["change"], "suspect": True}
+        else:
+            out[k] = {"value": v["value"], "change": v["change"]}
+    return out
 
 
 def save_daily_json(date: str, title: str, source_url: str,

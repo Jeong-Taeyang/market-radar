@@ -95,6 +95,7 @@ function renderList(reports) {
     const mini = MINI_KEYS.map(k => {
       const q = r.market_data?.[k];
       if (!q) return `<div class="mini-indicator"><span class="mini-label">${MINI_LABELS[k]}</span><span class="mini-value flat-color">—</span></div>`;
+      if (q.suspect) return `<div class="mini-indicator"><span class="mini-label">${MINI_LABELS[k]}</span><span class="mini-value flat-color">⚠️ 확인중</span></div>`;
       const dir = dirColorClass(q.change);
       return `
         <div class="mini-indicator">
@@ -170,6 +171,14 @@ function renderDetail(report) {
   grid.innerHTML = MARKET_KEYS.map(({ key, label }) => {
     const q = report.market_data?.[key];
     if (!q) return "";
+    if (q.suspect) {
+      return `
+      <div class="market-card flat" style="cursor:default">
+        <div class="market-card-label">${label}</div>
+        <div class="market-card-value">⚠️ 확인중</div>
+        <div class="market-card-change">데이터 자동 검증 보류</div>
+      </div>`;
+    }
     const dir = dirClass(q.change);
     const onlyInSheet = SHEET_INDICATORS.includes(key);
     return `

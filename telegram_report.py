@@ -68,8 +68,41 @@ BLOCKED_ERRORS = (
     requests.exceptions.Timeout,
 )
 
+# ── 데이터 안전장치 ──────────────────────────────────────────
+# 하루 등락폭이 이 값을 넘으면 야후 데이터 소스 지연/오류로 의심하고,
+# 숫자를 그대로 내보내지 않고 "확인 필요"로 표시한다.
+# (근거: ^KS11/^KQ11에서 전일과 완전히 동일한 값이 이틀 연속 나온 뒤
+#  나중에 -10% 안팎으로 몰아서 튀는 현상이 실제로 발견됨. 미국 지수는
+#  동일 기간 정상 범위였음 — 한국 지수 데이터 소스 자체의 지연/재사용 이슈로 추정)
+SANITY_MAX_PCT = {
+    "^GSPC": 7, "^IXIC": 8, "^DJI": 7,
+    "^KS11": 8, "^KQ11": 10,
+    "^VIX": 50, "DX-Y.NYB": 3,
+    "USDKRW=X": 5, "EURUSD=X": 4, "USDJPY=X": 4,
+    "GC=F": 8, "CL=F": 12, "^TNX": 15, "BTC-USD": 20,
+}
+DEFAULT_MAX_PCT = 10
+
+# 한국 지수는 야후보다 네이버금융 실시간 API가 더 신뢰도가 높음
+# (야후 ^KS11/^KQ11에서 전일과 완전히 동일한 값이 반복되다 나중에
+#  몰아서 튀는 현상이 실제 발견됨 — 네이버는 거래소 실시간 시세를 직접 반영)
+NAVER_INDEX_MAP = {"^KS11": "KOSPI", "^KQ11": "KOSDAQ"}
+
 
 def fetch_quote(sym: str) -> dict | None:
+    q = _fetch_naver(NAVER_INDEX_MAP[sym]) if sym in NAVER_INDEX_MAP else _fetch_yahoo(sym)
+    if q is None:
+        return None
+
+    limit = SANITY_MAX_PCT.get(sym, DEFAULT_MAX_PCT)
+    suspect = abs(q["pct"]) > limit
+    if suspect:
+        print(f"  ⚠️ 데이터 이상 감지: {sym} 등락률 {q['pct']:+.2f}% (기준 ±{limit}% 초과) — 발송에서 확인필요 처리")
+
+    return {"price": q["price"], "change": q["change"], "pct": q["pct"], "suspect": suspect}
+
+
+def _fetch_yahoo(sym: str) -> dict | None:
     try:
         url = f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}"
         resp = requests.get(url, params={"interval": "1d", "range": "5d"},
@@ -83,6 +116,28 @@ def fetch_quote(sym: str) -> dict | None:
         pct = (chg / prev) * 100 if prev else 0
         return {"price": last, "change": chg, "pct": pct}
     except Exception:
+        return None
+
+
+def _fetch_naver(item_code: str) -> dict | None:
+    """네이버금융 실시간 지수 API (KOSPI/KOSDAQ 전용)."""
+    try:
+        url = f"https://polling.finance.naver.com/api/realtime/domestic/index/{item_code}"
+        resp = requests.get(
+            url,
+            headers={"User-Agent": "Mozilla/5.0", "Referer": "https://finance.naver.com/"},
+            verify=False, timeout=15,
+        )
+        d = resp.json()["datas"][0]
+        price = float(d["closePriceRaw"])
+        pct   = abs(float(d["fluctuationsRatioRaw"]))
+        chg   = abs(float(d["compareToPreviousClosePriceRaw"]))
+        direction = d.get("compareToPreviousPrice", {}).get("text", "")
+        if "하락" in direction or "하한" in direction:
+            pct, chg = -pct, -chg
+        return {"price": price, "change": chg, "pct": pct}
+    except Exception as e:
+        print(f"  네이버금융 조회 실패({item_code}): {e}")
         return None
 
 
@@ -102,6 +157,9 @@ def format_market_block(quotes: dict, mode: str = "telegram") -> str:
             q = quotes.get(sym)
             if not q:
                 continue
+            if q.get("suspect"):
+                lines.append(f"  ⚠️ {name}: 데이터 확인중 (자동 검증 보류)")
+                continue
             sign = "+" if q["pct"] >= 0 else ""
             price = f"{q['price']:,.2f}"
             pct   = f"{sign}{q['pct']:.2f}%"
@@ -113,14 +171,21 @@ def format_market_block(quotes: dict, mode: str = "telegram") -> str:
 
 
 def build_snapshot_text(quotes: dict) -> str:
+    # 주의: 여기서 만든 텍스트가 그대로 AI(Claude) 프롬프트에 들어가 코멘트로
+    # 재생산되므로, 검증 실패(suspect) 데이터는 절대 포함시키지 않는다.
+    # (AI가 잘못된 수치를 사실처럼 서술하는 2차 오류를 막기 위함)
     lines = []
     for market, tickers in WATCHLIST.items():
         lines.append(f"\n[{market}]")
         for name, sym in tickers.items():
             q = quotes.get(sym)
-            if q:
-                sign = "+" if q["pct"] >= 0 else ""
-                lines.append(f"  {name}: {q['price']:,.2f} ({sign}{q['pct']:.2f}%)")
+            if not q:
+                continue
+            if q.get("suspect"):
+                lines.append(f"  {name}: 데이터 검증 실패로 이번 분석에서 제외됨")
+                continue
+            sign = "+" if q["pct"] >= 0 else ""
+            lines.append(f"  {name}: {q['price']:,.2f} ({sign}{q['pct']:.2f}%)")
     return "\n".join(lines)
 
 
