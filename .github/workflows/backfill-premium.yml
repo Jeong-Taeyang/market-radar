@@ -1,0 +1,43 @@
+name: Backfill Premium Content (one-off)
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '대상 날짜 (YYYY-MM-DD). 비워두면 자동으로 유효한 최근 리포트를 찾음'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Configure git identity
+        run: |
+          git config user.name "market-radar-bot"
+          git config user.email "market-radar-bot@users.noreply.github.com"
+
+      - name: Run backfill
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python backfill_premium.py "${{ github.event.inputs.date }}"
+
+      - name: Commit and push
+        run: |
+          git add public/data/
+          git commit -m "data: 프리미엄 콘텐츠(종합결론/백분위) 소급 반영 (테스트용)" || echo "변경 없음"
+          git push
