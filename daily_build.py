@@ -646,15 +646,20 @@ def git_deploy(date: str) -> bool:
 
 def main():
     now  = now_kst()
-    date = now.strftime("%Y-%m-%d")
+    # 날짜를 인자로 넘기면(예: 놓친 토요일 자동화를 뒤늦게 수동으로 채울 때)
+    # 해당 날짜로 강제 지정하고 요일 스킵 검사를 건너뛴다. 인자가 없으면
+    # 지금까지처럼 실제 현재 시각 기준으로 동작한다.
+    override_date = sys.argv[1].strip() if len(sys.argv) > 1 else ""
+    date = override_date or now.strftime("%Y-%m-%d")
     print(f"\n{'='*50}")
-    print(f"마켓레이더 빌드 시작: {now.strftime('%Y-%m-%d %H:%M')}")
+    print(f"마켓레이더 빌드 시작: {date}" + (" (수동 지정)" if override_date else f" {now.strftime('%H:%M')}"))
     print(f"{'='*50}\n")
 
-    # 토·일 = 한국·미국 시장 모두 휴장 → 건너뜀
-    if now.weekday() >= 5:
-        day_name = "토요일" if now.weekday() == 5 else "일요일"
-        print(f"  {day_name} — 한국·미국 시장 모두 휴장, 빌드를 건너뜁니다.")
+    # 일요일만 건너뜀. 토요일 07:30 KST 시점엔 금요일 한국장(전일 마감)뿐 아니라
+    # 금요일 미국장(현지시간 16:00 ET 마감 = 한국시간 토요일 새벽 5시경)까지
+    # 이미 확정돼있으므로, 토요일 빌드가 "금요일 거래일"을 담당하는 정상 빌드다.
+    if not override_date and now.weekday() == 6:
+        print("  일요일 — 신규로 마감된 거래일이 없어 빌드를 건너뜁니다.")
         sys.exit(0)
 
     # 1. KCIF 스크래핑

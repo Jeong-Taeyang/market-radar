@@ -520,7 +520,10 @@ def send_gmail(subject: str, body: str) -> bool:
 
 def main():
     today_kst = datetime.now(KST)
-    is_weekend = today_kst.weekday() >= 5
+    # 토요일 07:00 KST 시점엔 금요일 한국장·미국장이 모두 마감돼있어 새로 발행할
+    # 거래일 데이터가 있다 (daily_build.py와 동일한 판단). 신규 거래일이 없는
+    # 일요일만 "휴장 안내" 간단 요약으로 처리한다.
+    is_weekend = today_kst.weekday() == 6
     day_name = ["월", "화", "수", "목", "금", "토", "일"][today_kst.weekday()]
 
     now = today_kst.strftime("%Y년 %m월 %d일 %H:%M")

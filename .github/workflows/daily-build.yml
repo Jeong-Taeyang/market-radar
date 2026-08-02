@@ -3,9 +3,14 @@ name: Daily Market Build
 on:
   schedule:
     # 매일 22:30 UTC = 07:30 KST (다음날). 실제 실행 여부는 daily_build.py 내부에서
-    # 한국시간 기준 주말이면 스스로 건너뜁니다.
+    # 한국시간 기준 일요일이면 스스로 건너뜁니다.
     - cron: '30 22 * * *'
-  workflow_dispatch: {}   # Actions 탭에서 수동 실행 버튼
+  workflow_dispatch:   # Actions 탭에서 수동 실행 버튼
+    inputs:
+      date:
+        description: '강제 지정할 날짜 (YYYY-MM-DD). 비워두면 현재 시각 기준 자동 판단 (놓친 토요일 등을 수동으로 채울 때만 사용)'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -37,4 +42,4 @@ jobs:
       - name: Run daily build (fetch data + AI analysis + git push)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python daily_build.py
+        run: python daily_build.py "${{ github.event.inputs.date }}"
