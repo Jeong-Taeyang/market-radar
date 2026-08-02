@@ -29,6 +29,9 @@ load_dotenv()
 
 BOT_TOKEN       = os.getenv("TELEGRAM_BOT_TOKEN", "")
 CHAT_ID         = os.getenv("TELEGRAM_CHAT_ID", "")
+# 공개 채널(무료 구독자 대상). 채널 자체는 비공개 정보가 아니라 코드 기본값으로 둠 —
+# 필요시 TELEGRAM_CHANNEL_ID secret으로 덮어쓸 수 있음.
+TELEGRAM_CHANNEL_ID = os.getenv("TELEGRAM_CHANNEL_ID", "@a86791245")
 API_KEY         = os.getenv("ANTHROPIC_API_KEY", "")
 SLACK_WEBHOOK   = os.getenv("SLACK_WEBHOOK_URL", "")
 DISCORD_WEBHOOK = os.getenv("DISCORD_WEBHOOK_URL", "")
@@ -230,24 +233,36 @@ def get_ai_summary(snapshot: str, headlines: list[str]) -> str:
 
 # ── 발송 채널 ────────────────────────────────────────────────
 
-def send_telegram(text: str) -> bool:
-    if not BOT_TOKEN or not CHAT_ID:
+def _send_telegram_to(chat_id: str, text: str) -> bool:
+    if not BOT_TOKEN or not chat_id:
         return False
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     try:
         for chunk in [text[i:i+4000] for i in range(0, len(text), 4000)]:
             resp = requests.post(url, json={
-                "chat_id":    CHAT_ID,
+                "chat_id":    chat_id,
                 "text":       chunk,
                 "parse_mode": "HTML",
             }, timeout=10, verify=False)
             if not resp.ok:
-                print(f"  텔레그램 응답 오류: {resp.text[:100]}")
+                print(f"  텔레그램 응답 오류({chat_id}): {resp.text[:200]}")
                 return False
         return True
     except BLOCKED_ERRORS as e:
-        print(f"  텔레그램 차단/연결 실패: {type(e).__name__}")
+        print(f"  텔레그램 차단/연결 실패({chat_id}): {type(e).__name__}")
         return False
+
+
+def send_telegram(text: str) -> bool:
+    # 개인 채팅(관리자 모니터링용)과 공개 채널(무료 구독자) 양쪽에 발송.
+    # 하나라도 성공하면 전체 발송 성공으로 취급(다음 채널 폴백으로 넘어가지 않음).
+    ok_personal = _send_telegram_to(CHAT_ID, text)
+    print(f"  개인 채팅 발송: {'✅ 성공' if ok_personal else '❌ 실패'}")
+
+    ok_channel = _send_telegram_to(TELEGRAM_CHANNEL_ID, text)
+    print(f"  공개 채널({TELEGRAM_CHANNEL_ID}) 발송: {'✅ 성공' if ok_channel else '❌ 실패'}")
+
+    return ok_personal or ok_channel
 
 
 def send_discord(text: str) -> bool:
