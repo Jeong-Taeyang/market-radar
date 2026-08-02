@@ -1,7 +1,70 @@
 {
-  "updated_at": "2026-08-02 16:21 KST",
-  "total": 31,
+  "updated_at": "2026-08-03 08:28 KST",
+  "total": 32,
   "reports": [
+    {
+      "date": "2026-08-03",
+      "title": "2026년 08월 03일 글로벌 시장 브리핑",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,489.7",
+          "change": "+0.70%",
+          "suspect": true
+        },
+        "kospi": {
+          "value": "6,595.45",
+          "change": "+0.00%",
+          "suspect": true
+        },
+        "kosdaq": {
+          "value": "719.76",
+          "change": "+0.00%",
+          "suspect": true
+        },
+        "usd_krw": {
+          "value": "1,439.5",
+          "change": "+1.33%"
+        },
+        "wti": {
+          "value": "81.00",
+          "change": "-4.33%"
+        },
+        "gold": {
+          "value": "4,124.6",
+          "change": "+1.86%"
+        },
+        "vix": {
+          "value": "15.99",
+          "change": "-6.44%",
+          "suspect": true
+        },
+        "dxy": {
+          "value": "99.71",
+          "change": "-0.09%"
+        },
+        "us10y": {
+          "value": "4.745",
+          "change": "+1.76%",
+          "suspect": true
+        },
+        "eurusd": {
+          "value": "1.1547",
+          "change": "+0.21%"
+        },
+        "usdjpy": {
+          "value": "157.79",
+          "change": "-1.49%"
+        },
+        "jpy_krw": {
+          "value": "915.2",
+          "change": "+2.48%"
+        }
+      }
+    },
     {
       "date": "2026-08-01",
       "title": "[8.1] 연준 금리인상 소수의견 위원 3인, 고물가 고착화 방지 위한 조기 인상 촉구",
