@@ -11,7 +11,10 @@ import sys
 import json
 from pathlib import Path
 
-from daily_build import generate_synthesis, build_percentiles, PROJECT_ROOT, DATA_DIR
+from daily_build import (
+    generate_synthesis, build_percentiles, generate_analyses,
+    PROJECT_ROOT, DATA_DIR,
+)
 
 PERSONA_KEYS = ["bull", "bear", "quant", "buffett"]
 
@@ -42,12 +45,19 @@ def backfill(date: str):
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
 
-    analyses = {k: data[k] for k in PERSONA_KEYS}
     quotes = {}
     for key, md in data["market_data"].items():
         if md.get("suspect"):
             continue
         quotes[key] = {"value": md["value"], "change": md["change"], "_raw": _to_raw(md["value"])}
+
+    analyses = {k: data.get(k, "") for k in PERSONA_KEYS}
+    if not all(analyses.values()) or any("⚠️" in v for v in analyses.values()):
+        # 원래 저장된 페르소나 분석이 실패(API 오류 등)했던 경우 —
+        # 저장된 market_data + title로 4개 페르소나부터 다시 생성.
+        print(f"[{date}] 기존 페르소나 분석이 유효하지 않아 재생성합니다...")
+        analyses = generate_analyses(quotes, data.get("title", ""), "")
+        data.update(analyses)
 
     print(f"[{date}] 종합 결론 생성 중...")
     synthesis = generate_synthesis(analyses, quotes)
