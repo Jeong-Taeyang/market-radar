@@ -7,6 +7,11 @@ on:
         description: '대상 날짜 (YYYY-MM-DD). 비워두면 자동으로 유효한 최근 리포트를 찾음'
         required: false
         default: ''
+      force:
+        description: '기존 페르소나 분석이 있어도 무조건 재생성'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -34,7 +39,12 @@ jobs:
       - name: Run backfill
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python backfill_premium.py "${{ github.event.inputs.date }}"
+        run: |
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            python backfill_premium.py "${{ github.event.inputs.date }}" --force
+          else
+            python backfill_premium.py "${{ github.event.inputs.date }}"
+          fi
 
       - name: Commit and push
         run: |

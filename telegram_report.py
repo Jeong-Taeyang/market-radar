@@ -268,19 +268,23 @@ def generate_persona_analyses(snapshot: str, headlines: list[str]) -> dict:
         try:
             msg = client.messages.create(
                 model="claude-sonnet-4-6",
-                max_tokens=1200,
+                max_tokens=2000,
                 system=persona["system"],
                 messages=[{
                     "role": "user",
                     "content": (
                         f"📊 오늘의 시장 데이터:\n{snapshot}\n\n"
                         f"📰 주요 뉴스:\n{news_text}\n\n"
-                        "아래 형식으로 한국어 분석을 작성해주세요. 각 항목은 2~3문장으로 간결하게.\n\n"
-                        "1️⃣ 오늘의 핵심 판단\n"
-                        "2️⃣ 시장 분석\n"
-                        "3️⃣ 주목할 포인트\n\n"
+                        "아래 형식으로 한국어 분석을 작성해주세요.\n\n"
+                        "1️⃣ 오늘의 핵심 판단 (2~3문장)\n"
+                        "2️⃣ 시장 분석 — 하위 소제목은 최대 2개까지만, 각 소제목당 2문장 이내\n"
+                        "3️⃣ 주목할 포인트 — 1개만, 2~3문장\n\n"
+                        "전체 분량은 공백 포함 900자를 넘기지 마세요. "
+                        "뉴스나 데이터에 다룰 소재가 많더라도 가장 중요한 것만 선별하고 "
+                        "나머지는 과감히 생략하세요. "
                         "반드시 3️⃣ 항목까지 전부 작성하고 완결된 문장으로 마무리하세요 — "
-                        "문장이나 항목이 중간에 끊기지 않도록 하세요."
+                        "글자수 제한 때문에 문장이나 항목이 중간에 끊기는 일이 없도록, "
+                        "여유를 두고 일찍 마무리하세요."
                     ),
                 }],
             )
@@ -300,19 +304,23 @@ def generate_single_persona(key: str, snapshot: str, headlines: list[str]) -> st
         client = anthropic.Anthropic(api_key=API_KEY)
         msg = client.messages.create(
             model="claude-sonnet-4-6",
-            max_tokens=1200,
+            max_tokens=2000,
             system=persona["system"],
             messages=[{
                 "role": "user",
                 "content": (
                     f"📊 오늘의 시장 데이터:\n{snapshot}\n\n"
                     f"📰 주요 뉴스:\n{news_text}\n\n"
-                    "아래 형식으로 한국어 분석을 작성해주세요. 각 항목은 2~3문장으로 간결하게.\n\n"
-                    "1️⃣ 오늘의 핵심 판단\n"
-                    "2️⃣ 시장 분석\n"
-                    "3️⃣ 주목할 포인트\n\n"
+                    "아래 형식으로 한국어 분석을 작성해주세요.\n\n"
+                    "1️⃣ 오늘의 핵심 판단 (2~3문장)\n"
+                    "2️⃣ 시장 분석 — 하위 소제목은 최대 2개까지만, 각 소제목당 2문장 이내\n"
+                    "3️⃣ 주목할 포인트 — 1개만, 2~3문장\n\n"
+                    "전체 분량은 공백 포함 900자를 넘기지 마세요. "
+                    "뉴스나 데이터에 다룰 소재가 많더라도 가장 중요한 것만 선별하고 "
+                    "나머지는 과감히 생략하세요. "
                     "반드시 3️⃣ 항목까지 전부 작성하고 완결된 문장으로 마무리하세요 — "
-                    "문장이나 항목이 중간에 끊기지 않도록 하세요."
+                    "글자수 제한 때문에 문장이나 항목이 중간에 끊기는 일이 없도록, "
+                    "여유를 두고 일찍 마무리하세요."
                 ),
             }],
         )
