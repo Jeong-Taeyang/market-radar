@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-08-05 08:32 KST",
-  "total": 34,
+  "updated_at": "2026-08-06 08:29 KST",
+  "total": 35,
   "reports": [
+    {
+      "date": "2026-08-06",
+      "title": "2026년 08월 06일 글로벌 시장 브리핑",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,723.5",
+          "change": "-0.17%"
+        },
+        "kospi": {
+          "value": "6,598.26",
+          "change": "+0.00%"
+        },
+        "kosdaq": {
+          "value": "799.59",
+          "change": "+0.00%"
+        },
+        "usd_krw": {
+          "value": "1,422.4",
+          "change": "-0.42%"
+        },
+        "wti": {
+          "value": "74.98",
+          "change": "-1.04%"
+        },
+        "gold": {
+          "value": "4,318.4",
+          "change": "+5.45%"
+        },
+        "vix": {
+          "value": "15.81",
+          "change": "-4.18%"
+        },
+        "dxy": {
+          "value": "99.69",
+          "change": "-0.20%"
+        },
+        "us10y": {
+          "value": "4.617",
+          "change": "-0.22%"
+        },
+        "eurusd": {
+          "value": "1.1558",
+          "change": "+0.22%"
+        },
+        "usdjpy": {
+          "value": "157.64",
+          "change": "-0.03%"
+        },
+        "jpy_krw": {
+          "value": "902.7",
+          "change": "+0.04%"
+        }
+      }
+    },
     {
       "date": "2026-08-05",
       "title": "2026년 08월 05일 글로벌 시장 브리핑",
