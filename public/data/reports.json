@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-08-07 10:37 KST",
-  "total": 36,
+  "updated_at": "2026-08-08 08:04 KST",
+  "total": 37,
   "reports": [
+    {
+      "date": "2026-08-08",
+      "title": "[8.8] 미국 7월 비농업 고용 2.3만명 감소. 9월 금리인상 전망 축소(57%→44%) 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,757.6",
+          "change": "+0.62%"
+        },
+        "kospi": {
+          "value": "6,258.77",
+          "change": "-0.60%"
+        },
+        "kosdaq": {
+          "value": "798.81",
+          "change": "-0.36%"
+        },
+        "usd_krw": {
+          "value": "1,407.4",
+          "change": "-1.04%"
+        },
+        "wti": {
+          "value": "77.08",
+          "change": "-0.27%"
+        },
+        "gold": {
+          "value": "4,401.3",
+          "change": "+3.76%"
+        },
+        "vix": {
+          "value": "14.90",
+          "change": "-1.65%"
+        },
+        "dxy": {
+          "value": "99.60",
+          "change": "-0.37%"
+        },
+        "us10y": {
+          "value": "4.660",
+          "change": "-0.21%"
+        },
+        "eurusd": {
+          "value": "1.1562",
+          "change": "+0.32%"
+        },
+        "usdjpy": {
+          "value": "157.74",
+          "change": "-0.42%"
+        },
+        "jpy_krw": {
+          "value": "893.8",
+          "change": "-0.58%"
+        }
+      }
+    },
     {
       "date": "2026-08-07",
       "title": "[8.7] 이란, 미국·이스라엘 선박의 호르무즈 통항 금지 검토. 트럼프는 조속한 종전 기대 등",
