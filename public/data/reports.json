@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-08-06 08:29 KST",
-  "total": 35,
+  "updated_at": "2026-08-07 10:37 KST",
+  "total": 36,
   "reports": [
+    {
+      "date": "2026-08-07",
+      "title": "[8.7] 이란, 미국·이스라엘 선박의 호르무즈 통항 금지 검토. 트럼프는 조속한 종전 기대 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,710.0",
+          "change": "-0.18%"
+        },
+        "kospi": {
+          "value": "6,224.96",
+          "change": "-1.13%"
+        },
+        "kosdaq": {
+          "value": "783.40",
+          "change": "-2.28%"
+        },
+        "usd_krw": {
+          "value": "1,419.4",
+          "change": "-0.13%"
+        },
+        "wti": {
+          "value": "77.91",
+          "change": "+3.58%"
+        },
+        "gold": {
+          "value": "4,299.4",
+          "change": "+1.26%"
+        },
+        "vix": {
+          "value": "15.15",
+          "change": "-4.17%"
+        },
+        "dxy": {
+          "value": "99.96",
+          "change": "-0.01%"
+        },
+        "us10y": {
+          "value": "4.670",
+          "change": "+1.15%"
+        },
+        "eurusd": {
+          "value": "1.1525",
+          "change": "-0.28%"
+        },
+        "usdjpy": {
+          "value": "158.34",
+          "change": "+0.47%"
+        },
+        "jpy_krw": {
+          "value": "896.8",
+          "change": "-0.25%"
+        }
+      }
+    },
     {
       "date": "2026-08-06",
       "title": "2026년 08월 06일 글로벌 시장 브리핑",
