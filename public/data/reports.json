@@ -1,7 +1,70 @@
 {
-  "updated_at": "2026-08-08 08:04 KST",
-  "total": 37,
+  "updated_at": "2026-08-10 07:59 KST",
+  "total": 38,
   "reports": [
+    {
+      "date": "2026-08-10",
+      "title": "주간 이슈(8.10) : 호르무즈 협상, 미국 CPI, 영국 2Q GDP, MSCI 분기점검에 주목",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,757.6",
+          "change": "+0.62%",
+          "suspect": true
+        },
+        "kospi": {
+          "value": "6,258.77",
+          "change": "-0.60%",
+          "suspect": true
+        },
+        "kosdaq": {
+          "value": "798.81",
+          "change": "-0.36%",
+          "suspect": true
+        },
+        "usd_krw": {
+          "value": "1,409.7",
+          "change": "-0.89%"
+        },
+        "wti": {
+          "value": "78.87",
+          "change": "+0.88%"
+        },
+        "gold": {
+          "value": "4,400.7",
+          "change": "+1.38%"
+        },
+        "vix": {
+          "value": "14.90",
+          "change": "-1.65%",
+          "suspect": true
+        },
+        "dxy": {
+          "value": "99.63",
+          "change": "+0.03%"
+        },
+        "us10y": {
+          "value": "4.660",
+          "change": "-0.21%",
+          "suspect": true
+        },
+        "eurusd": {
+          "value": "1.1558",
+          "change": "+0.29%"
+        },
+        "usdjpy": {
+          "value": "157.92",
+          "change": "-0.31%"
+        },
+        "jpy_krw": {
+          "value": "894.6",
+          "change": "-0.49%"
+        }
+      }
+    },
     {
       "date": "2026-08-08",
       "title": "[8.8] 미국 7월 비농업 고용 2.3만명 감소. 9월 금리인상 전망 축소(57%→44%) 등",
