@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-08-10 07:59 KST",
-  "total": 38,
+  "updated_at": "2026-08-11 08:06 KST",
+  "total": 39,
   "reports": [
+    {
+      "date": "2026-08-11",
+      "title": "[8.10] 미국 트럼프, 이란에 低강도 대응. 이란은 미군 철수·전쟁 피해 배상 등을 요구 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,753.1",
+          "change": "-0.06%"
+        },
+        "kospi": {
+          "value": "6,299.66",
+          "change": "+0.00%"
+        },
+        "kosdaq": {
+          "value": "854.47",
+          "change": "+0.00%"
+        },
+        "usd_krw": {
+          "value": "1,417.9",
+          "change": "+0.78%"
+        },
+        "wti": {
+          "value": "82.14",
+          "change": "+5.07%"
+        },
+        "gold": {
+          "value": "4,459.4",
+          "change": "+2.73%"
+        },
+        "vix": {
+          "value": "15.46",
+          "change": "+3.76%"
+        },
+        "dxy": {
+          "value": "99.81",
+          "change": "+0.21%"
+        },
+        "us10y": {
+          "value": "4.699",
+          "change": "+0.84%"
+        },
+        "eurusd": {
+          "value": "1.1546",
+          "change": "-0.09%"
+        },
+        "usdjpy": {
+          "value": "159.26",
+          "change": "+0.86%"
+        },
+        "jpy_krw": {
+          "value": "891.1",
+          "change": "-0.40%"
+        }
+      }
+    },
     {
       "date": "2026-08-10",
       "title": "주간 이슈(8.10) : 호르무즈 협상, 미국 CPI, 영국 2Q GDP, MSCI 분기점검에 주목",
