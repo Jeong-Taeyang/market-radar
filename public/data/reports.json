@@ -1,7 +1,67 @@
 {
-  "updated_at": "2026-08-11 08:06 KST",
-  "total": 39,
+  "updated_at": "2026-08-12 08:11 KST",
+  "total": 40,
   "reports": [
+    {
+      "date": "2026-08-12",
+      "title": "[8.11] 미국 트럼프, 이란에 배상금 요구할 방침. 참모에게는 핵합의 없는 종전 시사  등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,728.2",
+          "change": "-0.32%"
+        },
+        "kospi": {
+          "value": "6,345.53",
+          "change": "+0.00%"
+        },
+        "kosdaq": {
+          "value": "857.84",
+          "change": "+0.00%"
+        },
+        "usd_krw": {
+          "value": "1,412.0",
+          "change": "-0.37%"
+        },
+        "wti": {
+          "value": "83.51",
+          "change": "+1.68%"
+        },
+        "gold": {
+          "value": "4,427.2",
+          "change": "+1.50%"
+        },
+        "vix": {
+          "value": "15.28",
+          "change": "-1.16%"
+        },
+        "dxy": {
+          "value": "99.81",
+          "change": "+0.00%",
+          "suspect": true
+        },
+        "us10y": {
+          "value": "4.684",
+          "change": "-0.32%"
+        },
+        "eurusd": {
+          "value": "1.1547",
+          "change": "+0.01%"
+        },
+        "usdjpy": {
+          "value": "159.26",
+          "change": "+0.07%",
+          "suspect": true
+        },
+        "jpy_krw": {
+          "value": "887.0",
+          "change": "-0.46%"
+        }
+      }
+    },
     {
       "date": "2026-08-11",
       "title": "[8.10] 미국 트럼프, 이란에 低강도 대응. 이란은 미군 철수·전쟁 피해 배상 등을 요구 등",
