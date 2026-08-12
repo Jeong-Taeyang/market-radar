@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-08-12 08:11 KST",
-  "total": 40,
+  "updated_at": "2026-08-13 08:10 KST",
+  "total": 41,
   "reports": [
+    {
+      "date": "2026-08-13",
+      "title": "[8.12] 파키스탄, 미국과 이란은 일종의 합의에 근접. 이란은 호르무즈 개방 불가 강조 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,748.5",
+          "change": "+0.26%"
+        },
+        "kospi": {
+          "value": "6,579.04",
+          "change": "+0.00%"
+        },
+        "kosdaq": {
+          "value": "858.91",
+          "change": "+0.00%"
+        },
+        "usd_krw": {
+          "value": "1,416.9",
+          "change": "+0.33%"
+        },
+        "wti": {
+          "value": "82.70",
+          "change": "-0.60%"
+        },
+        "gold": {
+          "value": "4,460.6",
+          "change": "+1.77%"
+        },
+        "vix": {
+          "value": "14.55",
+          "change": "-4.78%"
+        },
+        "dxy": {
+          "value": "99.99",
+          "change": "+0.17%"
+        },
+        "us10y": {
+          "value": "4.682",
+          "change": "-0.04%"
+        },
+        "eurusd": {
+          "value": "1.1530",
+          "change": "-0.12%"
+        },
+        "usdjpy": {
+          "value": "159.36",
+          "change": "+0.06%"
+        },
+        "jpy_krw": {
+          "value": "890.2",
+          "change": "+0.37%"
+        }
+      }
+    },
     {
       "date": "2026-08-12",
       "title": "[8.11] 미국 트럼프, 이란에 배상금 요구할 방침. 참모에게는 핵합의 없는 종전 시사  등",
