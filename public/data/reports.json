@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-08-13 08:10 KST",
-  "total": 41,
+  "updated_at": "2026-08-14 08:11 KST",
+  "total": 42,
   "reports": [
+    {
+      "date": "2026-08-14",
+      "title": "[8.13] 미국 7월 근원 소비자물가, 전월비 상승세 둔화. 9월 금리동결 전망 강화 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,799.0",
+          "change": "+0.65%"
+        },
+        "kospi": {
+          "value": "6,813.34",
+          "change": "+0.00%"
+        },
+        "kosdaq": {
+          "value": "861.37",
+          "change": "+0.00%"
+        },
+        "usd_krw": {
+          "value": "1,418.1",
+          "change": "+0.12%"
+        },
+        "wti": {
+          "value": "81.06",
+          "change": "-2.65%"
+        },
+        "gold": {
+          "value": "4,410.7",
+          "change": "+0.04%"
+        },
+        "vix": {
+          "value": "14.63",
+          "change": "+0.55%"
+        },
+        "dxy": {
+          "value": "99.95",
+          "change": "-0.06%"
+        },
+        "us10y": {
+          "value": "4.641",
+          "change": "-0.88%"
+        },
+        "eurusd": {
+          "value": "1.1537",
+          "change": "+0.06%"
+        },
+        "usdjpy": {
+          "value": "159.46",
+          "change": "+0.08%"
+        },
+        "jpy_krw": {
+          "value": "890.4",
+          "change": "+0.03%"
+        }
+      }
+    },
     {
       "date": "2026-08-13",
       "title": "[8.12] 파키스탄, 미국과 이란은 일종의 합의에 근접. 이란은 호르무즈 개방 불가 강조 등",
