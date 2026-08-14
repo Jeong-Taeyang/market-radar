@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-08-14 08:11 KST",
-  "total": 42,
+  "updated_at": "2026-08-15 07:48 KST",
+  "total": 43,
   "reports": [
+    {
+      "date": "2026-08-15",
+      "title": "2026년 08월 15일 글로벌 시장 브리핑",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,785.8",
+          "change": "-0.17%"
+        },
+        "kospi": {
+          "value": "6,977.94",
+          "change": "+2.42%"
+        },
+        "kosdaq": {
+          "value": "864.65",
+          "change": "+0.38%"
+        },
+        "usd_krw": {
+          "value": "1,416.5",
+          "change": "+0.00%"
+        },
+        "wti": {
+          "value": "82.40",
+          "change": "+1.42%"
+        },
+        "gold": {
+          "value": "4,432.0",
+          "change": "+1.57%"
+        },
+        "vix": {
+          "value": "14.25",
+          "change": "-2.60%"
+        },
+        "dxy": {
+          "value": "99.64",
+          "change": "-0.32%"
+        },
+        "us10y": {
+          "value": "4.696",
+          "change": "+1.19%"
+        },
+        "eurusd": {
+          "value": "1.1573",
+          "change": "+0.32%"
+        },
+        "usdjpy": {
+          "value": "159.30",
+          "change": "-0.08%"
+        },
+        "jpy_krw": {
+          "value": "890.3",
+          "change": "-0.02%"
+        }
+      }
+    },
     {
       "date": "2026-08-14",
       "title": "[8.13] 미국 7월 근원 소비자물가, 전월비 상승세 둔화. 9월 금리동결 전망 강화 등",
