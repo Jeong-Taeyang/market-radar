@@ -1,7 +1,71 @@
 {
-  "updated_at": "2026-08-15 07:48 KST",
-  "total": 43,
+  "updated_at": "2026-08-17 07:45 KST",
+  "total": 44,
   "reports": [
+    {
+      "date": "2026-08-17",
+      "title": "[8.15] 미국 7월 소매판매 및 미시간대 8월 소비자 심리지수 모두 예상치 하회",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,785.8",
+          "change": "-0.17%",
+          "suspect": true
+        },
+        "kospi": {
+          "value": "6,977.94",
+          "change": "+2.42%",
+          "suspect": true
+        },
+        "kosdaq": {
+          "value": "864.65",
+          "change": "+0.38%",
+          "suspect": true
+        },
+        "usd_krw": {
+          "value": "1,416.5",
+          "change": "-0.03%",
+          "suspect": true
+        },
+        "wti": {
+          "value": "82.49",
+          "change": "+0.11%"
+        },
+        "gold": {
+          "value": "4,433.3",
+          "change": "+1.21%"
+        },
+        "vix": {
+          "value": "14.25",
+          "change": "-2.60%",
+          "suspect": true
+        },
+        "dxy": {
+          "value": "99.62",
+          "change": "-0.05%"
+        },
+        "us10y": {
+          "value": "4.696",
+          "change": "+1.19%",
+          "suspect": true
+        },
+        "eurusd": {
+          "value": "1.1575",
+          "change": "+0.35%"
+        },
+        "usdjpy": {
+          "value": "159.26",
+          "change": "-0.10%"
+        },
+        "jpy_krw": {
+          "value": "890.8",
+          "change": "+0.04%"
+        }
+      }
+    },
     {
       "date": "2026-08-15",
       "title": "2026년 08월 15일 글로벌 시장 브리핑",
