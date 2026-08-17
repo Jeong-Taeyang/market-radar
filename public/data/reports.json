@@ -1,7 +1,67 @@
 {
-  "updated_at": "2026-08-17 07:45 KST",
-  "total": 44,
+  "updated_at": "2026-08-18 07:49 KST",
+  "total": 45,
   "reports": [
+    {
+      "date": "2026-08-18",
+      "title": "[8.17] 美 경제민심 악화, 11월 중간선거에서 공화당 부담요인으로 작용할 가능성 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,745.1",
+          "change": "-0.52%"
+        },
+        "kospi": {
+          "value": "6,977.94",
+          "change": "+2.42%",
+          "suspect": true
+        },
+        "kosdaq": {
+          "value": "864.65",
+          "change": "+0.38%",
+          "suspect": true
+        },
+        "usd_krw": {
+          "value": "1,416.4",
+          "change": "+0.07%"
+        },
+        "wti": {
+          "value": "85.12",
+          "change": "+3.30%"
+        },
+        "gold": {
+          "value": "4,470.6",
+          "change": "+2.06%"
+        },
+        "vix": {
+          "value": "15.19",
+          "change": "+6.60%"
+        },
+        "dxy": {
+          "value": "99.58",
+          "change": "-0.09%"
+        },
+        "us10y": {
+          "value": "4.724",
+          "change": "+0.60%"
+        },
+        "eurusd": {
+          "value": "1.1583",
+          "change": "+0.08%"
+        },
+        "usdjpy": {
+          "value": "159.42",
+          "change": "+0.12%"
+        },
+        "jpy_krw": {
+          "value": "889.1",
+          "change": "-0.15%"
+        }
+      }
+    },
     {
       "date": "2026-08-17",
       "title": "[8.15] 미국 7월 소매판매 및 미시간대 8월 소비자 심리지수 모두 예상치 하회",
