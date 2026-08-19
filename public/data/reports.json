@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-08-19 07:49 KST",
-  "total": 46,
+  "updated_at": "2026-08-20 07:49 KST",
+  "total": 47,
   "reports": [
+    {
+      "date": "2026-08-20",
+      "title": "[8.19] 이란, 호르무즈 개방 불가. 미국 트럼프 대통령도 이란과의 대화 없다고 강조 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,708.0",
+          "change": "+0.21%"
+        },
+        "kospi": {
+          "value": "6,471.17",
+          "change": "-5.80%"
+        },
+        "kosdaq": {
+          "value": "824.46",
+          "change": "-1.17%"
+        },
+        "usd_krw": {
+          "value": "1,388.5",
+          "change": "-1.78%"
+        },
+        "wti": {
+          "value": "84.26",
+          "change": "-0.80%"
+        },
+        "gold": {
+          "value": "4,575.6",
+          "change": "+4.80%"
+        },
+        "vix": {
+          "value": "14.89",
+          "change": "-6.00%"
+        },
+        "dxy": {
+          "value": "98.77",
+          "change": "-0.89%"
+        },
+        "us10y": {
+          "value": "4.653",
+          "change": "-1.13%"
+        },
+        "eurusd": {
+          "value": "1.1681",
+          "change": "+0.88%"
+        },
+        "usdjpy": {
+          "value": "158.12",
+          "change": "-0.90%"
+        },
+        "jpy_krw": {
+          "value": "879.4",
+          "change": "-0.68%"
+        }
+      }
+    },
     {
       "date": "2026-08-19",
       "title": "[8.18] 미국 트럼프, 對이란 종전 합의 서두르지 않을 방침. 종전에는 이란 항복이 필요 등",
