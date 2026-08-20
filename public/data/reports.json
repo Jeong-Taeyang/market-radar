@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-08-20 07:49 KST",
-  "total": 47,
+  "updated_at": "2026-08-21 07:53 KST",
+  "total": 48,
   "reports": [
+    {
+      "date": "2026-08-21",
+      "title": "[8.20] 美 재무부, 장기 국채 바이백(buybacks) 상한을 최소 40억 달러로 2배 가량 확대 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,641.2",
+          "change": "-0.87%"
+        },
+        "kospi": {
+          "value": "6,852.58",
+          "change": "+5.89%"
+        },
+        "kosdaq": {
+          "value": "840.89",
+          "change": "+1.99%"
+        },
+        "usd_krw": {
+          "value": "1,393.2",
+          "change": "+0.27%"
+        },
+        "wti": {
+          "value": "86.31",
+          "change": "+0.56%"
+        },
+        "gold": {
+          "value": "4,578.6",
+          "change": "+1.99%"
+        },
+        "vix": {
+          "value": "16.01",
+          "change": "+7.52%"
+        },
+        "dxy": {
+          "value": "98.84",
+          "change": "+0.01%"
+        },
+        "us10y": {
+          "value": "4.696",
+          "change": "+0.92%"
+        },
+        "eurusd": {
+          "value": "1.1686",
+          "change": "+0.11%"
+        },
+        "usdjpy": {
+          "value": "158.95",
+          "change": "+0.43%"
+        },
+        "jpy_krw": {
+          "value": "877.2",
+          "change": "-0.26%"
+        }
+      }
+    },
     {
       "date": "2026-08-20",
       "title": "[8.19] 이란, 호르무즈 개방 불가. 미국 트럼프 대통령도 이란과의 대화 없다고 강조 등",
