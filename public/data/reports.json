@@ -1,7 +1,66 @@
 {
-  "updated_at": "2026-08-21 07:53 KST",
-  "total": 48,
+  "updated_at": "2026-08-22 07:49 KST",
+  "total": 49,
   "reports": [
+    {
+      "date": "2026-08-22",
+      "title": "[8.22] 주요국 8월 PMI 예비치, 민간부문 경제활동 개선 시사",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,674.4",
+          "change": "+0.43%"
+        },
+        "kospi": {
+          "value": "6,912.95",
+          "change": "+0.88%"
+        },
+        "kosdaq": {
+          "value": "801.94",
+          "change": "-4.63%"
+        },
+        "usd_krw": {
+          "value": "1,386.0",
+          "change": "-0.35%"
+        },
+        "wti": {
+          "value": "86.64",
+          "change": "-1.35%"
+        },
+        "gold": {
+          "value": "4,661.6",
+          "change": "+3.22%"
+        },
+        "vix": {
+          "value": "15.13",
+          "change": "-5.50%"
+        },
+        "dxy": {
+          "value": "98.84",
+          "change": "-0.06%",
+          "suspect": true
+        },
+        "us10y": {
+          "value": "4.738",
+          "change": "+0.89%"
+        },
+        "eurusd": {
+          "value": "1.1678",
+          "change": "-0.08%"
+        },
+        "usdjpy": {
+          "value": "158.86",
+          "change": "-0.01%"
+        },
+        "jpy_krw": {
+          "value": "872.7",
+          "change": "-0.53%"
+        }
+      }
+    },
     {
       "date": "2026-08-21",
       "title": "[8.20] 美 재무부, 장기 국채 바이백(buybacks) 상한을 최소 40억 달러로 2배 가량 확대 등",
