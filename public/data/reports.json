@@ -1,7 +1,70 @@
 {
-  "updated_at": "2026-08-22 07:49 KST",
-  "total": 49,
+  "updated_at": "2026-08-24 07:46 KST",
+  "total": 50,
   "reports": [
+    {
+      "date": "2026-08-24",
+      "title": "주간 이슈(8.24) : 잭슨홀 미팅, 중동 상황, 미국 PCE, 엔비디아, 금통위회의에 주목",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,674.4",
+          "change": "+0.43%",
+          "suspect": true
+        },
+        "kospi": {
+          "value": "6,912.95",
+          "change": "+0.88%",
+          "suspect": true
+        },
+        "kosdaq": {
+          "value": "801.94",
+          "change": "-4.63%",
+          "suspect": true
+        },
+        "usd_krw": {
+          "value": "1,385.9",
+          "change": "-0.35%"
+        },
+        "wti": {
+          "value": "86.38",
+          "change": "-0.78%"
+        },
+        "gold": {
+          "value": "4,671.3",
+          "change": "+1.02%"
+        },
+        "vix": {
+          "value": "15.13",
+          "change": "-5.50%",
+          "suspect": true
+        },
+        "dxy": {
+          "value": "98.86",
+          "change": "+0.06%"
+        },
+        "us10y": {
+          "value": "4.738",
+          "change": "+0.89%",
+          "suspect": true
+        },
+        "eurusd": {
+          "value": "1.1680",
+          "change": "-0.07%"
+        },
+        "usdjpy": {
+          "value": "158.96",
+          "change": "+0.05%"
+        },
+        "jpy_krw": {
+          "value": "872.8",
+          "change": "-0.53%"
+        }
+      }
+    },
     {
       "date": "2026-08-22",
       "title": "[8.22] 주요국 8월 PMI 예비치, 민간부문 경제활동 개선 시사",
