@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-08-24 07:46 KST",
-  "total": 50,
+  "updated_at": "2026-08-25 07:52 KST",
+  "total": 51,
   "reports": [
+    {
+      "date": "2026-08-25",
+      "title": "[8.24] 미국 트럼프, 이란은 ‘올바른 합의’ 준비 부족. 캐나다에는 협상 결렬로 50% 관세 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,652.9",
+          "change": "-0.28%"
+        },
+        "kospi": {
+          "value": "6,696.96",
+          "change": "-3.12%"
+        },
+        "kosdaq": {
+          "value": "813.33",
+          "change": "+1.42%"
+        },
+        "usd_krw": {
+          "value": "1,381.7",
+          "change": "-0.24%"
+        },
+        "wti": {
+          "value": "85.09",
+          "change": "-2.26%"
+        },
+        "gold": {
+          "value": "4,717.1",
+          "change": "+2.01%"
+        },
+        "vix": {
+          "value": "15.85",
+          "change": "+4.76%"
+        },
+        "dxy": {
+          "value": "98.98",
+          "change": "+0.19%"
+        },
+        "us10y": {
+          "value": "4.704",
+          "change": "-0.72%"
+        },
+        "eurusd": {
+          "value": "1.1669",
+          "change": "-0.11%"
+        },
+        "usdjpy": {
+          "value": "159.09",
+          "change": "+0.12%"
+        },
+        "jpy_krw": {
+          "value": "869.7",
+          "change": "-0.33%"
+        }
+      }
+    },
     {
       "date": "2026-08-24",
       "title": "주간 이슈(8.24) : 잭슨홀 미팅, 중동 상황, 미국 PCE, 엔비디아, 금통위회의에 주목",
