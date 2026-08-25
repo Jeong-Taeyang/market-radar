@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-08-25 07:52 KST",
-  "total": 51,
+  "updated_at": "2026-08-26 07:53 KST",
+  "total": 52,
   "reports": [
+    {
+      "date": "2026-08-26",
+      "title": "[8.25] 미국, 對이란 경제적 고립 제재 강화. 재무부의 대규모 장기 국채 매입도 예상 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,677.3",
+          "change": "+0.32%"
+        },
+        "kospi": {
+          "value": "6,742.74",
+          "change": "+0.68%"
+        },
+        "kosdaq": {
+          "value": "827.15",
+          "change": "+1.70%"
+        },
+        "usd_krw": {
+          "value": "1,382.0",
+          "change": "+0.09%"
+        },
+        "wti": {
+          "value": "80.97",
+          "change": "-4.75%"
+        },
+        "gold": {
+          "value": "4,726.5",
+          "change": "+1.85%"
+        },
+        "vix": {
+          "value": "15.45",
+          "change": "-2.52%"
+        },
+        "dxy": {
+          "value": "98.90",
+          "change": "-0.10%"
+        },
+        "us10y": {
+          "value": "4.639",
+          "change": "-1.38%"
+        },
+        "eurusd": {
+          "value": "1.1680",
+          "change": "+0.10%"
+        },
+        "usdjpy": {
+          "value": "159.19",
+          "change": "+0.03%"
+        },
+        "jpy_krw": {
+          "value": "868.9",
+          "change": "-0.09%"
+        }
+      }
+    },
     {
       "date": "2026-08-25",
       "title": "[8.24] 미국 트럼프, 이란은 ‘올바른 합의’ 준비 부족. 캐나다에는 협상 결렬로 50% 관세 등",
