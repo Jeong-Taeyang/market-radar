@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-08-27 12:26 KST",
-  "total": 53,
+  "updated_at": "2026-08-28 15:14 KST",
+  "total": 54,
   "reports": [
+    {
+      "date": "2026-08-28",
+      "title": "[8.28] 미국 백악관, 이란에 경제 압박으로 대응. 여타국과의 무역도 강경 기조 유지 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,731.0",
+          "change": "+0.72%"
+        },
+        "kospi": {
+          "value": "6,796.48",
+          "change": "-1.68%"
+        },
+        "kosdaq": {
+          "value": "837.50",
+          "change": "-0.02%"
+        },
+        "usd_krw": {
+          "value": "1,372.3",
+          "change": "-0.81%"
+        },
+        "wti": {
+          "value": "83.18",
+          "change": "-0.42%"
+        },
+        "gold": {
+          "value": "4,626.8",
+          "change": "+0.37%"
+        },
+        "vix": {
+          "value": "14.51",
+          "change": "-4.60%"
+        },
+        "dxy": {
+          "value": "99.18",
+          "change": "+0.02%"
+        },
+        "us10y": {
+          "value": "4.672",
+          "change": "+0.17%"
+        },
+        "eurusd": {
+          "value": "1.1650",
+          "change": "-0.05%"
+        },
+        "usdjpy": {
+          "value": "159.52",
+          "change": "+0.17%"
+        },
+        "jpy_krw": {
+          "value": "860.5",
+          "change": "-0.76%"
+        }
+      }
+    },
     {
       "date": "2026-08-27",
       "title": "[8.27] 미국 7월 PCE 물가 상승률, 예상치 상회. Nvidia는 향후 높은 매출 증가율 기대 등",
