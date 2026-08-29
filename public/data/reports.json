@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-08-28 15:14 KST",
-  "total": 54,
+  "updated_at": "2026-08-29 12:47 KST",
+  "total": 55,
   "reports": [
+    {
+      "date": "2026-08-29",
+      "title": "[8.29] 워시 연준의장, 물가 상승률이 충분히 둔화하지 않으면 추가 대응 필요 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,711.8",
+          "change": "-0.25%"
+        },
+        "kospi": {
+          "value": "6,788.88",
+          "change": "-1.79%"
+        },
+        "kosdaq": {
+          "value": "838.41",
+          "change": "+0.09%"
+        },
+        "usd_krw": {
+          "value": "1,371.5",
+          "change": "-0.65%"
+        },
+        "wti": {
+          "value": "83.44",
+          "change": "-0.11%"
+        },
+        "gold": {
+          "value": "4,504.1",
+          "change": "-2.29%"
+        },
+        "vix": {
+          "value": "14.43",
+          "change": "-0.55%"
+        },
+        "dxy": {
+          "value": "99.68",
+          "change": "+0.52%"
+        },
+        "us10y": {
+          "value": "4.720",
+          "change": "+1.03%"
+        },
+        "eurusd": {
+          "value": "1.1587",
+          "change": "-0.59%"
+        },
+        "usdjpy": {
+          "value": "160.04",
+          "change": "+0.45%"
+        },
+        "jpy_krw": {
+          "value": "862.5",
+          "change": "-0.54%"
+        }
+      }
+    },
     {
       "date": "2026-08-28",
       "title": "[8.28] 미국 백악관, 이란에 경제 압박으로 대응. 여타국과의 무역도 강경 기조 유지 등",
