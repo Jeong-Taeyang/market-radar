@@ -1,7 +1,68 @@
 {
-  "updated_at": "2026-08-29 12:47 KST",
-  "total": 55,
+  "updated_at": "2026-08-31 09:43 KST",
+  "total": 56,
   "reports": [
+    {
+      "date": "2026-08-31",
+      "title": "[8.31] 미국 8월 고용, 전월비 증가 예상. 다만 9월 금리인상 관련 확정적 판단 경계 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,711.8",
+          "change": "-0.25%",
+          "suspect": true
+        },
+        "kospi": {
+          "value": "6,681.82",
+          "change": "-1.58%"
+        },
+        "kosdaq": {
+          "value": "818.93",
+          "change": "-2.32%"
+        },
+        "usd_krw": {
+          "value": "1,378.8",
+          "change": "-0.12%"
+        },
+        "wti": {
+          "value": "84.36",
+          "change": "+1.15%"
+        },
+        "gold": {
+          "value": "4,512.6",
+          "change": "+0.77%"
+        },
+        "vix": {
+          "value": "14.43",
+          "change": "-0.55%",
+          "suspect": true
+        },
+        "dxy": {
+          "value": "99.65",
+          "change": "-0.05%"
+        },
+        "us10y": {
+          "value": "4.720",
+          "change": "+1.03%",
+          "suspect": true
+        },
+        "eurusd": {
+          "value": "1.1596",
+          "change": "-0.52%"
+        },
+        "usdjpy": {
+          "value": "160.02",
+          "change": "+0.44%"
+        },
+        "jpy_krw": {
+          "value": "861.7",
+          "change": "-0.09%"
+        }
+      }
+    },
     {
       "date": "2026-08-29",
       "title": "[8.29] 워시 연준의장, 물가 상승률이 충분히 둔화하지 않으면 추가 대응 필요 등",
