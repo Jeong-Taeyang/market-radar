@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-08-31 09:43 KST",
-  "total": 56,
+  "updated_at": "2026-09-01 10:21 KST",
+  "total": 57,
   "reports": [
+    {
+      "date": "2026-09-01",
+      "title": "[9.1] 미국, 이란과 무력 충돌 재개. 재무장관은 국채금리·엔화 환율 관련 자신감 피력 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,686.1",
+          "change": "-0.33%"
+        },
+        "kospi": {
+          "value": "6,848.01",
+          "change": "+0.41%"
+        },
+        "kosdaq": {
+          "value": "824.62",
+          "change": "-1.16%"
+        },
+        "usd_krw": {
+          "value": "1,371.0",
+          "change": "-0.45%"
+        },
+        "wti": {
+          "value": "86.54",
+          "change": "+3.76%"
+        },
+        "gold": {
+          "value": "4,495.1",
+          "change": "+0.38%"
+        },
+        "vix": {
+          "value": "14.92",
+          "change": "+3.40%"
+        },
+        "dxy": {
+          "value": "99.44",
+          "change": "-0.26%"
+        },
+        "us10y": {
+          "value": "4.758",
+          "change": "+0.81%"
+        },
+        "eurusd": {
+          "value": "1.1617",
+          "change": "+0.24%"
+        },
+        "usdjpy": {
+          "value": "159.82",
+          "change": "-0.19%"
+        },
+        "jpy_krw": {
+          "value": "857.9",
+          "change": "+0.09%"
+        }
+      }
+    },
     {
       "date": "2026-08-31",
       "title": "[8.31] 미국 8월 고용, 전월비 증가 예상. 다만 9월 금리인상 관련 확정적 판단 경계 등",
