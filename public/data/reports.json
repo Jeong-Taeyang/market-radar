@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-09-01 10:21 KST",
-  "total": 57,
+  "updated_at": "2026-09-02 09:23 KST",
+  "total": 58,
   "reports": [
+    {
+      "date": "2026-09-02",
+      "title": "[9.2] 미국과 이란, 무력공방 지속. 美 재무장관은 對이란 제재·일본 통화정책 지지 강조 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,631.5",
+          "change": "-0.71%"
+        },
+        "kospi": {
+          "value": "6,663.73",
+          "change": "-2.52%"
+        },
+        "kosdaq": {
+          "value": "812.28",
+          "change": "-1.09%"
+        },
+        "usd_krw": {
+          "value": "1,370.6",
+          "change": "+0.29%"
+        },
+        "wti": {
+          "value": "91.07",
+          "change": "+6.19%"
+        },
+        "gold": {
+          "value": "4,365.8",
+          "change": "-1.47%"
+        },
+        "vix": {
+          "value": "16.34",
+          "change": "+9.52%"
+        },
+        "dxy": {
+          "value": "99.70",
+          "change": "+0.27%"
+        },
+        "us10y": {
+          "value": "4.796",
+          "change": "+0.80%"
+        },
+        "eurusd": {
+          "value": "1.1592",
+          "change": "-0.22%"
+        },
+        "usdjpy": {
+          "value": "160.18",
+          "change": "+0.27%"
+        },
+        "jpy_krw": {
+          "value": "855.6",
+          "change": "-0.35%"
+        }
+      }
+    },
     {
       "date": "2026-09-01",
       "title": "[9.1] 미국, 이란과 무력 충돌 재개. 재무장관은 국채금리·엔화 환율 관련 자신감 피력 등",
