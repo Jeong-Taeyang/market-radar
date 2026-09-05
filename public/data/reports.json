@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-09-04 09:15 KST",
-  "total": 60,
+  "updated_at": "2026-09-05 09:14 KST",
+  "total": 61,
   "reports": [
+    {
+      "date": "2026-09-05",
+      "title": "[9.5] 미국 8월 비농업고용지수, 예상을 큰 폭 상회하며 급증 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,718.6",
+          "change": "-0.38%"
+        },
+        "kospi": {
+          "value": "6,687.21",
+          "change": "+1.64%"
+        },
+        "kosdaq": {
+          "value": "813.50",
+          "change": "+2.95%"
+        },
+        "usd_krw": {
+          "value": "1,346.0",
+          "change": "-0.69%"
+        },
+        "wti": {
+          "value": "91.22",
+          "change": "-0.09%"
+        },
+        "gold": {
+          "value": "4,477.2",
+          "change": "-0.32%"
+        },
+        "vix": {
+          "value": "14.53",
+          "change": "+1.47%"
+        },
+        "dxy": {
+          "value": "99.16",
+          "change": "+0.16%"
+        },
+        "us10y": {
+          "value": "4.784",
+          "change": "+0.46%"
+        },
+        "eurusd": {
+          "value": "1.1621",
+          "change": "-0.06%"
+        },
+        "usdjpy": {
+          "value": "156.22",
+          "change": "+0.36%"
+        },
+        "jpy_krw": {
+          "value": "862.2",
+          "change": "-0.91%"
+        }
+      }
+    },
     {
       "date": "2026-09-04",
       "title": "2026년 09월 04일 글로벌 시장 브리핑",
