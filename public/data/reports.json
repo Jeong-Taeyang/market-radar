@@ -1,7 +1,69 @@
 {
-  "updated_at": "2026-09-05 09:14 KST",
-  "total": 61,
+  "updated_at": "2026-09-07 09:08 KST",
+  "total": 62,
   "reports": [
+    {
+      "date": "2026-09-07",
+      "title": "[9.7] 미국과 이란, 무력충돌 지속. 美 8월 근원 소비자물가는 상승세 둔화 예상 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,718.6",
+          "change": "-0.38%",
+          "suspect": true
+        },
+        "kospi": {
+          "value": "6,910.26",
+          "change": "+3.34%"
+        },
+        "kosdaq": {
+          "value": "825.53",
+          "change": "+1.48%"
+        },
+        "usd_krw": {
+          "value": "1,345.7",
+          "change": "-0.72%"
+        },
+        "wti": {
+          "value": "91.48",
+          "change": "+0.00%"
+        },
+        "gold": {
+          "value": "4,476.6",
+          "change": "+1.06%"
+        },
+        "vix": {
+          "value": "14.53",
+          "change": "+1.47%",
+          "suspect": true
+        },
+        "dxy": {
+          "value": "99.14",
+          "change": "-0.02%"
+        },
+        "us10y": {
+          "value": "4.784",
+          "change": "+0.46%",
+          "suspect": true
+        },
+        "eurusd": {
+          "value": "1.1617",
+          "change": "-0.10%"
+        },
+        "usdjpy": {
+          "value": "156.22",
+          "change": "+0.36%",
+          "suspect": true
+        },
+        "jpy_krw": {
+          "value": "861.9",
+          "change": "-0.22%"
+        }
+      }
+    },
     {
       "date": "2026-09-05",
       "title": "[9.5] 미국 8월 비농업고용지수, 예상을 큰 폭 상회하며 급증 등",
