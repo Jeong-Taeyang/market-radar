@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-09-08 09:35 KST",
-  "total": 63,
+  "updated_at": "2026-09-09 09:25 KST",
+  "total": 64,
   "reports": [
+    {
+      "date": "2026-09-09",
+      "title": "2026년 09월 09일 글로벌 시장 브리핑",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,673.5",
+          "change": "-0.58%"
+        },
+        "kospi": {
+          "value": "7,027.27",
+          "change": "+1.05%"
+        },
+        "kosdaq": {
+          "value": "825.33",
+          "change": "+1.66%"
+        },
+        "usd_krw": {
+          "value": "1,340.1",
+          "change": "-0.26%"
+        },
+        "wti": {
+          "value": "94.40",
+          "change": "+3.19%"
+        },
+        "gold": {
+          "value": "4,395.5",
+          "change": "-0.77%"
+        },
+        "vix": {
+          "value": "15.72",
+          "change": "+2.75%"
+        },
+        "dxy": {
+          "value": "98.75",
+          "change": "-0.41%"
+        },
+        "us10y": {
+          "value": "4.806",
+          "change": "+0.46%"
+        },
+        "eurusd": {
+          "value": "1.1635",
+          "change": "+0.06%"
+        },
+        "usdjpy": {
+          "value": "153.35",
+          "change": "-0.33%"
+        },
+        "jpy_krw": {
+          "value": "873.8",
+          "change": "+0.11%"
+        }
+      }
+    },
     {
       "date": "2026-09-08",
       "title": "[9.8] 국제 유가, 6주 만에 최고치. 중동 긴장 지속되고 사우디 석유시설은 피격 등",
