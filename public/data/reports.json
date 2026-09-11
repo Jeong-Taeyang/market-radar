@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-09-10 09:24 KST",
-  "total": 65,
+  "updated_at": "2026-09-11 09:20 KST",
+  "total": 66,
   "reports": [
+    {
+      "date": "2026-09-11",
+      "title": "[9.11] 미국 국채금리 및 유가, 동반 급등. 9월 FOMC 앞두고 금리인상 가능성 증가 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,591.7",
+          "change": "-0.58%"
+        },
+        "kospi": {
+          "value": "6,845.92",
+          "change": "-2.67%"
+        },
+        "kosdaq": {
+          "value": "823.57",
+          "change": "-1.60%"
+        },
+        "usd_krw": {
+          "value": "1,347.0",
+          "change": "+0.58%"
+        },
+        "wti": {
+          "value": "102.95",
+          "change": "+7.18%"
+        },
+        "gold": {
+          "value": "4,360.3",
+          "change": "-1.26%"
+        },
+        "vix": {
+          "value": "17.84",
+          "change": "+8.38%"
+        },
+        "dxy": {
+          "value": "99.05",
+          "change": "+0.28%"
+        },
+        "us10y": {
+          "value": "4.944",
+          "change": "+2.21%"
+        },
+        "eurusd": {
+          "value": "1.1616",
+          "change": "-0.16%"
+        },
+        "usdjpy": {
+          "value": "154.43",
+          "change": "+0.56%"
+        },
+        "jpy_krw": {
+          "value": "872.6",
+          "change": "-0.29%"
+        }
+      }
+    },
     {
       "date": "2026-09-10",
       "title": "2026년 09월 10일 글로벌 시장 브리핑",
