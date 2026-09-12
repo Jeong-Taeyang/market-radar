@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-09-11 09:20 KST",
-  "total": 66,
+  "updated_at": "2026-09-12 09:26 KST",
+  "total": 67,
   "reports": [
+    {
+      "date": "2026-09-12",
+      "title": "[9.12] 미국, 근원 CPI 예상치 상회로 9월 금리인상 기대 확대",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,657.0",
+          "change": "+0.86%"
+        },
+        "kospi": {
+          "value": "6,909.91",
+          "change": "-1.76%"
+        },
+        "kosdaq": {
+          "value": "820.64",
+          "change": "-1.95%"
+        },
+        "usd_krw": {
+          "value": "1,341.1",
+          "change": "-0.53%"
+        },
+        "wti": {
+          "value": "99.99",
+          "change": "-2.43%"
+        },
+        "gold": {
+          "value": "4,390.0",
+          "change": "+0.58%"
+        },
+        "vix": {
+          "value": "15.84",
+          "change": "-11.21%"
+        },
+        "dxy": {
+          "value": "99.10",
+          "change": "+0.01%"
+        },
+        "us10y": {
+          "value": "4.975",
+          "change": "+0.63%"
+        },
+        "eurusd": {
+          "value": "1.1602",
+          "change": "-0.07%"
+        },
+        "usdjpy": {
+          "value": "153.55",
+          "change": "-0.60%"
+        },
+        "jpy_krw": {
+          "value": "874.7",
+          "change": "-0.05%"
+        }
+      }
+    },
     {
       "date": "2026-09-11",
       "title": "[9.11] 미국 국채금리 및 유가, 동반 급등. 9월 FOMC 앞두고 금리인상 가능성 증가 등",
