@@ -1,7 +1,68 @@
 {
-  "updated_at": "2026-09-12 09:26 KST",
-  "total": 67,
+  "updated_at": "2026-09-14 09:19 KST",
+  "total": 68,
   "reports": [
+    {
+      "date": "2026-09-14",
+      "title": "[9.14] 9월 FOMC, 금리인상 전망 많은 편. 일부 완화적 신호 발신 여부에 관심 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,657.0",
+          "change": "+0.86%",
+          "suspect": true
+        },
+        "kospi": {
+          "value": "6,684.02",
+          "change": "-3.27%"
+        },
+        "kosdaq": {
+          "value": "806.14",
+          "change": "-1.77%"
+        },
+        "usd_krw": {
+          "value": "1,344.9",
+          "change": "-0.24%"
+        },
+        "wti": {
+          "value": "102.42",
+          "change": "+2.37%"
+        },
+        "gold": {
+          "value": "4,386.5",
+          "change": "+0.46%"
+        },
+        "vix": {
+          "value": "15.84",
+          "change": "-11.21%",
+          "suspect": true
+        },
+        "dxy": {
+          "value": "99.11",
+          "change": "-0.01%"
+        },
+        "us10y": {
+          "value": "4.975",
+          "change": "+0.63%",
+          "suspect": true
+        },
+        "eurusd": {
+          "value": "1.1596",
+          "change": "-0.12%"
+        },
+        "usdjpy": {
+          "value": "153.48",
+          "change": "-0.65%"
+        },
+        "jpy_krw": {
+          "value": "876.7",
+          "change": "+0.33%"
+        }
+      }
+    },
     {
       "date": "2026-09-12",
       "title": "[9.12] 미국, 근원 CPI 예상치 상회로 9월 금리인상 기대 확대",
