@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-09-14 09:19 KST",
-  "total": 68,
+  "updated_at": "2026-09-15 09:46 KST",
+  "total": 69,
   "reports": [
+    {
+      "date": "2026-09-15",
+      "title": "[9.15] 미국 트럼프, AI 개발 속도 조절 주장 강하게 비판. 유가와 국채금리 상승은 지속 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,620.0",
+          "change": "-0.48%"
+        },
+        "kospi": {
+          "value": "6,697.81",
+          "change": "+0.20%"
+        },
+        "kosdaq": {
+          "value": "816.37",
+          "change": "+1.19%"
+        },
+        "usd_krw": {
+          "value": "1,347.9",
+          "change": "+0.25%"
+        },
+        "wti": {
+          "value": "102.75",
+          "change": "+2.70%"
+        },
+        "gold": {
+          "value": "4,324.9",
+          "change": "-1.91%"
+        },
+        "vix": {
+          "value": "17.10",
+          "change": "+7.95%"
+        },
+        "dxy": {
+          "value": "99.54",
+          "change": "+0.42%"
+        },
+        "us10y": {
+          "value": "4.961",
+          "change": "-0.28%"
+        },
+        "eurusd": {
+          "value": "1.1547",
+          "change": "-0.40%"
+        },
+        "usdjpy": {
+          "value": "154.58",
+          "change": "+0.75%"
+        },
+        "jpy_krw": {
+          "value": "872.1",
+          "change": "-0.23%"
+        }
+      }
+    },
     {
       "date": "2026-09-14",
       "title": "[9.14] 9월 FOMC, 금리인상 전망 많은 편. 일부 완화적 신호 발신 여부에 관심 등",
