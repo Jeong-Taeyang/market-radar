@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-09-15 09:46 KST",
-  "total": 69,
+  "updated_at": "2026-09-16 09:37 KST",
+  "total": 70,
   "reports": [
+    {
+      "date": "2026-09-16",
+      "title": "[9.16] 미국 10년물 국채수익률, ‘07년 이후 최고. 트럼프는 지속적인 AI 개발 의지 피력 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,585.7",
+          "change": "-0.45%"
+        },
+        "kospi": {
+          "value": "6,661.89",
+          "change": "+0.52%"
+        },
+        "kosdaq": {
+          "value": "806.83",
+          "change": "-0.69%"
+        },
+        "usd_krw": {
+          "value": "1,369.1",
+          "change": "+1.74%"
+        },
+        "wti": {
+          "value": "104.86",
+          "change": "+3.42%"
+        },
+        "gold": {
+          "value": "4,325.2",
+          "change": "-0.61%"
+        },
+        "vix": {
+          "value": "17.20",
+          "change": "+0.58%"
+        },
+        "dxy": {
+          "value": "99.67",
+          "change": "+0.21%"
+        },
+        "us10y": {
+          "value": "4.996",
+          "change": "+0.71%"
+        },
+        "eurusd": {
+          "value": "1.1539",
+          "change": "-0.08%"
+        },
+        "usdjpy": {
+          "value": "155.30",
+          "change": "+0.59%"
+        },
+        "jpy_krw": {
+          "value": "881.5",
+          "change": "+0.25%"
+        }
+      }
+    },
     {
       "date": "2026-09-15",
       "title": "[9.15] 미국 트럼프, AI 개발 속도 조절 주장 강하게 비판. 유가와 국채금리 상승은 지속 등",
