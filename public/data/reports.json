@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-09-17 09:45 KST",
-  "total": 71,
+  "updated_at": "2026-09-18 09:33 KST",
+  "total": 72,
   "reports": [
+    {
+      "date": "2026-09-18",
+      "title": "[9.18] 미국 트럼프, 대규모 이란 공격 여부 중대한 기로. 사우디는 원유 공급 확대 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,637.8",
+          "change": "+1.14%"
+        },
+        "kospi": {
+          "value": "6,869.28",
+          "change": "+2.29%"
+        },
+        "kosdaq": {
+          "value": "829.70",
+          "change": "+0.91%"
+        },
+        "usd_krw": {
+          "value": "1,381.9",
+          "change": "+0.38%"
+        },
+        "wti": {
+          "value": "100.81",
+          "change": "-1.58%"
+        },
+        "gold": {
+          "value": "4,390.9",
+          "change": "+0.08%"
+        },
+        "vix": {
+          "value": "15.44",
+          "change": "-12.82%"
+        },
+        "dxy": {
+          "value": "100.23",
+          "change": "-0.08%"
+        },
+        "us10y": {
+          "value": "4.947",
+          "change": "-1.18%"
+        },
+        "eurusd": {
+          "value": "1.1482",
+          "change": "+0.11%"
+        },
+        "usdjpy": {
+          "value": "156.20",
+          "change": "+0.12%"
+        },
+        "jpy_krw": {
+          "value": "885.2",
+          "change": "-0.10%"
+        }
+      }
+    },
     {
       "date": "2026-09-17",
       "title": "[9.17] 9월 FOMC, 0.25%p 인상. 점도표는 연내 1회의 추가 인상을 시사 등",
