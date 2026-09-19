@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-09-18 09:33 KST",
-  "total": 72,
+  "updated_at": "2026-09-19 09:28 KST",
+  "total": 73,
   "reports": [
+    {
+      "date": "2026-09-19",
+      "title": "[9.19] 미국 트럼프, 후티 반군과 대화 중. 파키스탄은 사우디 지원 의지 확인 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,650.5",
+          "change": "+0.17%"
+        },
+        "kospi": {
+          "value": "6,894.23",
+          "change": "+2.66%"
+        },
+        "kosdaq": {
+          "value": "827.12",
+          "change": "+0.60%"
+        },
+        "usd_krw": {
+          "value": "1,385.9",
+          "change": "+0.47%"
+        },
+        "wti": {
+          "value": "95.47",
+          "change": "-6.32%"
+        },
+        "gold": {
+          "value": "4,415.9",
+          "change": "+0.37%"
+        },
+        "vix": {
+          "value": "14.81",
+          "change": "-4.08%"
+        },
+        "dxy": {
+          "value": "100.21",
+          "change": "-0.00%"
+        },
+        "us10y": {
+          "value": "4.998",
+          "change": "+1.03%"
+        },
+        "eurusd": {
+          "value": "1.1489",
+          "change": "+0.11%"
+        },
+        "usdjpy": {
+          "value": "156.85",
+          "change": "+0.46%"
+        },
+        "jpy_krw": {
+          "value": "884.7",
+          "change": "-0.10%"
+        }
+      }
+    },
     {
       "date": "2026-09-18",
       "title": "[9.18] 미국 트럼프, 대규모 이란 공격 여부 중대한 기로. 사우디는 원유 공급 확대 등",
