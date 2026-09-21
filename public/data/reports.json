@@ -1,7 +1,68 @@
 {
-  "updated_at": "2026-09-19 09:28 KST",
-  "total": 73,
+  "updated_at": "2026-09-21 09:22 KST",
+  "total": 74,
   "reports": [
+    {
+      "date": "2026-09-21",
+      "title": "[9.21] 미국 트럼프, 對이란 대응 결정 단계. 이란은 봉쇄 해제 등 종전 조건 전달 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,650.5",
+          "change": "+0.17%",
+          "suspect": true
+        },
+        "kospi": {
+          "value": "6,949.86",
+          "change": "+0.81%"
+        },
+        "kosdaq": {
+          "value": "825.53",
+          "change": "-0.19%"
+        },
+        "usd_krw": {
+          "value": "1,385.2",
+          "change": "+0.41%"
+        },
+        "wti": {
+          "value": "95.77",
+          "change": "-4.52%"
+        },
+        "gold": {
+          "value": "4,404.0",
+          "change": "-0.47%"
+        },
+        "vix": {
+          "value": "14.81",
+          "change": "-4.08%",
+          "suspect": true
+        },
+        "dxy": {
+          "value": "100.28",
+          "change": "+0.06%"
+        },
+        "us10y": {
+          "value": "4.998",
+          "change": "+1.03%",
+          "suspect": true
+        },
+        "eurusd": {
+          "value": "1.1482",
+          "change": "+0.06%"
+        },
+        "usdjpy": {
+          "value": "156.96",
+          "change": "+0.53%"
+        },
+        "jpy_krw": {
+          "value": "883.0",
+          "change": "-0.15%"
+        }
+      }
+    },
     {
       "date": "2026-09-19",
       "title": "[9.19] 미국 트럼프, 후티 반군과 대화 중. 파키스탄은 사우디 지원 의지 확인 등",
