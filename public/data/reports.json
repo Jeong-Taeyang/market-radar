@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-09-21 09:22 KST",
-  "total": 74,
+  "updated_at": "2026-09-22 09:59 KST",
+  "total": 75,
   "reports": [
+    {
+      "date": "2026-09-22",
+      "title": "[9.22] 미국 트럼프, 이란 대통령과 대화 가능. 美中 고위급 협상은 안정적 관계 의지 표명 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,764.7",
+          "change": "+1.49%"
+        },
+        "kospi": {
+          "value": "7,135.95",
+          "change": "+1.83%"
+        },
+        "kosdaq": {
+          "value": "845.22",
+          "change": "+1.07%"
+        },
+        "usd_krw": {
+          "value": "1,360.8",
+          "change": "-1.74%"
+        },
+        "wti": {
+          "value": "92.68",
+          "change": "-7.60%"
+        },
+        "gold": {
+          "value": "4,393.0",
+          "change": "-0.72%"
+        },
+        "vix": {
+          "value": "14.87",
+          "change": "+0.41%"
+        },
+        "dxy": {
+          "value": "100.38",
+          "change": "+0.16%"
+        },
+        "us10y": {
+          "value": "4.963",
+          "change": "-0.70%"
+        },
+        "eurusd": {
+          "value": "1.1473",
+          "change": "-0.06%"
+        },
+        "usdjpy": {
+          "value": "157.35",
+          "change": "+0.19%"
+        },
+        "jpy_krw": {
+          "value": "865.0",
+          "change": "-0.99%"
+        }
+      }
+    },
     {
       "date": "2026-09-21",
       "title": "[9.21] 미국 트럼프, 對이란 대응 결정 단계. 이란은 봉쇄 해제 등 종전 조건 전달 등",
