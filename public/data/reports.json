@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-09-22 09:59 KST",
-  "total": 75,
+  "updated_at": "2026-09-23 09:48 KST",
+  "total": 76,
   "reports": [
+    {
+      "date": "2026-09-23",
+      "title": "[9.23] 미국 트럼프, 중간선거 이후 이란과 합의 가능. 유가는 2주 만에 최저 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,764.6",
+          "change": "-0.00%"
+        },
+        "kospi": {
+          "value": "7,104.79",
+          "change": "+1.24%"
+        },
+        "kosdaq": {
+          "value": "842.58",
+          "change": "+0.98%"
+        },
+        "usd_krw": {
+          "value": "1,348.6",
+          "change": "-1.83%"
+        },
+        "wti": {
+          "value": "90.06",
+          "change": "-5.97%"
+        },
+        "gold": {
+          "value": "4,395.7",
+          "change": "+0.27%"
+        },
+        "vix": {
+          "value": "14.21",
+          "change": "-4.44%"
+        },
+        "dxy": {
+          "value": "100.57",
+          "change": "+0.14%"
+        },
+        "us10y": {
+          "value": "4.968",
+          "change": "+0.10%"
+        },
+        "eurusd": {
+          "value": "1.1452",
+          "change": "-0.11%"
+        },
+        "usdjpy": {
+          "value": "157.50",
+          "change": "+0.08%"
+        },
+        "jpy_krw": {
+          "value": "856.3",
+          "change": "-0.54%"
+        }
+      }
+    },
     {
       "date": "2026-09-22",
       "title": "[9.22] 미국 트럼프, 이란 대통령과 대화 가능. 美中 고위급 협상은 안정적 관계 의지 표명 등",
