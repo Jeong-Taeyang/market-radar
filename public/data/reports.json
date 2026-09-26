@@ -1,7 +1,67 @@
 {
-  "updated_at": "2026-09-25 09:39 KST",
-  "total": 78,
+  "updated_at": "2026-09-26 09:44 KST",
+  "total": 79,
   "reports": [
+    {
+      "date": "2026-09-26",
+      "title": "[9.26] 미국 10년물 국채금리, 유가 하락 속 4영업일 만에 하락. 30년물은 추가 상승",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,743.4",
+          "change": "+0.51%"
+        },
+        "kospi": {
+          "value": "7,080.92",
+          "change": "+0.90%",
+          "suspect": true
+        },
+        "kosdaq": {
+          "value": "844.48",
+          "change": "+1.21%",
+          "suspect": true
+        },
+        "usd_krw": {
+          "value": "1,355.3",
+          "change": "-0.88%"
+        },
+        "wti": {
+          "value": "92.44",
+          "change": "-2.29%"
+        },
+        "gold": {
+          "value": "4,320.5",
+          "change": "+0.52%"
+        },
+        "vix": {
+          "value": "14.87",
+          "change": "-5.11%"
+        },
+        "dxy": {
+          "value": "101.04",
+          "change": "-0.25%"
+        },
+        "us10y": {
+          "value": "5.184",
+          "change": "+0.43%"
+        },
+        "eurusd": {
+          "value": "1.1392",
+          "change": "+0.15%"
+        },
+        "usdjpy": {
+          "value": "157.18",
+          "change": "-1.02%"
+        },
+        "jpy_krw": {
+          "value": "864.1",
+          "change": "+0.37%"
+        }
+      }
+    },
     {
       "date": "2026-09-25",
       "title": "2026년 09월 25일 글로벌 시장 브리핑",
