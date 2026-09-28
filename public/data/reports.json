@@ -1,7 +1,68 @@
 {
-  "updated_at": "2026-09-26 09:44 KST",
-  "total": 79,
+  "updated_at": "2026-09-28 09:59 KST",
+  "total": 80,
   "reports": [
+    {
+      "date": "2026-09-28",
+      "title": "[9.28] 미국 트럼프, 이란의 ‘7일 계획’ 거절했으나 금주 내 추가 회담 예상 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,743.4",
+          "change": "+0.51%",
+          "suspect": true
+        },
+        "kospi": {
+          "value": "6,976.68",
+          "change": "-1.47%"
+        },
+        "kosdaq": {
+          "value": "857.52",
+          "change": "+1.54%"
+        },
+        "usd_krw": {
+          "value": "1,357.3",
+          "change": "-0.74%"
+        },
+        "wti": {
+          "value": "93.05",
+          "change": "+0.69%"
+        },
+        "gold": {
+          "value": "4,267.7",
+          "change": "-1.24%"
+        },
+        "vix": {
+          "value": "14.87",
+          "change": "-5.11%",
+          "suspect": true
+        },
+        "dxy": {
+          "value": "100.97",
+          "change": "-0.32%"
+        },
+        "us10y": {
+          "value": "5.184",
+          "change": "+0.43%",
+          "suspect": true
+        },
+        "eurusd": {
+          "value": "1.1388",
+          "change": "+0.12%"
+        },
+        "usdjpy": {
+          "value": "157.82",
+          "change": "-0.63%"
+        },
+        "jpy_krw": {
+          "value": "860.4",
+          "change": "-0.24%"
+        }
+      }
+    },
     {
       "date": "2026-09-26",
       "title": "[9.26] 미국 10년물 국채금리, 유가 하락 속 4영업일 만에 하락. 30년물은 추가 상승",
