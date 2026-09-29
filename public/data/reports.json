@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-09-28 09:59 KST",
-  "total": 80,
+  "updated_at": "2026-09-29 11:08 KST",
+  "total": 81,
   "reports": [
+    {
+      "date": "2026-09-29",
+      "title": "[9.29] 이란, 미국과의 추가 협상 계획 無. 미국 트럼프 대통령은 자국의 승리 전망 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,683.7",
+          "change": "-0.77%"
+        },
+        "kospi": {
+          "value": "6,860.58",
+          "change": "-0.42%"
+        },
+        "kosdaq": {
+          "value": "840.04",
+          "change": "-0.77%"
+        },
+        "usd_krw": {
+          "value": "1,358.4",
+          "change": "+0.29%"
+        },
+        "wti": {
+          "value": "93.61",
+          "change": "+1.09%"
+        },
+        "gold": {
+          "value": "4,166.9",
+          "change": "-0.04%"
+        },
+        "vix": {
+          "value": "16.07",
+          "change": "+8.07%"
+        },
+        "dxy": {
+          "value": "101.24",
+          "change": "+0.04%"
+        },
+        "us10y": {
+          "value": "5.240",
+          "change": "+1.08%"
+        },
+        "eurusd": {
+          "value": "1.1371",
+          "change": "-0.06%"
+        },
+        "usdjpy": {
+          "value": "157.46",
+          "change": "-0.00%"
+        },
+        "jpy_krw": {
+          "value": "863.4",
+          "change": "-0.06%"
+        }
+      }
+    },
     {
       "date": "2026-09-28",
       "title": "[9.28] 미국 트럼프, 이란의 ‘7일 계획’ 거절했으나 금주 내 추가 회담 예상 등",
