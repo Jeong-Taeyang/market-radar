@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-01",
+  "title": "[10.1] 미국 8월 근원 PCE 물가 상승률, 예상치 하회. 장기 국채금리는 상승 등",
+  "source_url": "https://www.kcif.or.kr/annual/reportView?rpt_no=37553&mn=001002",
+  "market_data": {
+    "sp500": {
+      "value": "7,651.5",
+      "change": "-0.25%"
+    },
+    "kospi": {
+      "value": "6,830.63",
+      "change": "-0.11%"
+    },
+    "kosdaq": {
+      "value": "872.72",
+      "change": "+1.96%"
+    },
+    "usd_krw": {
+      "value": "1,360.4",
+      "change": "+0.73%"
+    },
+    "wti": {
+      "value": "90.07",
+      "change": "+0.77%"
+    },
+    "gold": {
+      "value": "4,190.3",
+      "change": "+0.25%"
+    },
+    "vix": {
+      "value": "16.34",
+      "change": "+1.87%"
+    },
+    "dxy": {
+      "value": "101.48",
+      "change": "+0.11%"
+    },
+    "us10y": {
+      "value": "5.293",
+      "change": "+0.72%"
+    },
+    "eurusd": {
+      "value": "1.1339",
+      "change": "-0.01%"
+    },
+    "usdjpy": {
+      "value": "157.94",
+      "change": "+0.34%"
+    },
+    "jpy_krw": {
+      "value": "861.3",
+      "change": "-0.14%"
+    }
+  },
+  "synthesis": "⚠️ 종합 결론 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfaeEb9FTj5tCxbK9Bk5S'}",
+  "percentiles": {
+    "sp500": {
+      "rank": 88,
+      "desc": "상위권"
+    },
+    "kospi": {
+      "rank": 76,
+      "desc": "평균 범위"
+    },
+    "kosdaq": {
+      "rank": 35,
+      "desc": "평균 범위"
+    },
+    "usd_krw": {
+      "rank": 6,
+      "desc": "하위권"
+    },
+    "wti": {
+      "rank": 68,
+      "desc": "평균 범위"
+    },
+    "gold": {
+      "rank": 26,
+      "desc": "평균 범위"
+    },
+    "vix": {
+      "rank": 36,
+      "desc": "평균 범위"
+    },
+    "dxy": {
+      "rank": 99,
+      "desc": "상위권"
+    },
+    "us10y": {
+      "rank": 100,
+      "desc": "상위권"
+    },
+    "eurusd": {
+      "rank": 0,
+      "desc": "하위권"
+    },
+    "usdjpy": {
+      "rank": 56,
+      "desc": "평균 범위"
+    },
+    "jpy_krw": {
+      "rank": 3,
+      "desc": "하위권"
+    }
+  },
+  "bull": "⚠️ 분석 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfaeEXj812HYLtVAXhLo3'}",
+  "bear": "⚠️ 분석 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfaeEYzm8mvt43LNSRGkv'}",
+  "quant": "⚠️ 분석 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfaeEZhSJ2tRerxGTzgVF'}",
+  "buffett": "⚠️ 분석 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfaeEaJPyr3d1yYgBqzsT'}"
+}

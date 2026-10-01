@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-09-30 10:23 KST",
-  "total": 82,
+  "updated_at": "2026-10-01 10:23 KST",
+  "total": 83,
   "reports": [
+    {
+      "date": "2026-10-01",
+      "title": "[10.1] 미국 8월 근원 PCE 물가 상승률, 예상치 하회. 장기 국채금리는 상승 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,651.5",
+          "change": "-0.25%"
+        },
+        "kospi": {
+          "value": "6,830.63",
+          "change": "-0.11%"
+        },
+        "kosdaq": {
+          "value": "872.72",
+          "change": "+1.96%"
+        },
+        "usd_krw": {
+          "value": "1,360.4",
+          "change": "+0.73%"
+        },
+        "wti": {
+          "value": "90.07",
+          "change": "+0.77%"
+        },
+        "gold": {
+          "value": "4,190.3",
+          "change": "+0.25%"
+        },
+        "vix": {
+          "value": "16.34",
+          "change": "+1.87%"
+        },
+        "dxy": {
+          "value": "101.48",
+          "change": "+0.11%"
+        },
+        "us10y": {
+          "value": "5.293",
+          "change": "+0.72%"
+        },
+        "eurusd": {
+          "value": "1.1339",
+          "change": "-0.01%"
+        },
+        "usdjpy": {
+          "value": "157.94",
+          "change": "+0.34%"
+        },
+        "jpy_krw": {
+          "value": "861.3",
+          "change": "-0.14%"
+        }
+      }
+    },
     {
       "date": "2026-09-30",
       "title": "2026년 09월 30일 글로벌 시장 브리핑",
