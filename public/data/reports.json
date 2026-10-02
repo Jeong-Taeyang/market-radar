@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-10-01 10:23 KST",
-  "total": 83,
+  "updated_at": "2026-10-02 10:45 KST",
+  "total": 84,
   "reports": [
+    {
+      "date": "2026-10-02",
+      "title": "[10.2] 연준 제퍼슨 부의장, 금리인상 판단에 시간 필요. 미국은 이란에 추가 파병 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,666.5",
+          "change": "+0.19%"
+        },
+        "kospi": {
+          "value": "6,946.50",
+          "change": "-0.36%"
+        },
+        "kosdaq": {
+          "value": "894.47",
+          "change": "+0.02%"
+        },
+        "usd_krw": {
+          "value": "1,361.9",
+          "change": "+0.37%"
+        },
+        "wti": {
+          "value": "92.88",
+          "change": "+0.01%"
+        },
+        "gold": {
+          "value": "4,176.6",
+          "change": "-0.61%"
+        },
+        "vix": {
+          "value": "16.39",
+          "change": "+0.31%"
+        },
+        "dxy": {
+          "value": "102.13",
+          "change": "+0.03%"
+        },
+        "us10y": {
+          "value": "5.237",
+          "change": "-1.06%"
+        },
+        "eurusd": {
+          "value": "1.1238",
+          "change": "-0.78%"
+        },
+        "usdjpy": {
+          "value": "158.13",
+          "change": "+0.36%"
+        },
+        "jpy_krw": {
+          "value": "861.1",
+          "change": "+0.11%"
+        }
+      }
+    },
     {
       "date": "2026-10-01",
       "title": "[10.1] 미국 8월 근원 PCE 물가 상승률, 예상치 하회. 장기 국채금리는 상승 등",
