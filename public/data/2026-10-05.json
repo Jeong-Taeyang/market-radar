@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-05",
+  "title": "[10.5] 미국 트럼프, 클레이턴 국가정보국 국장을 AI 태스크포스 총괄 책임자로 지명",
+  "source_url": "https://www.kcif.or.kr/annual/reportView?rpt_no=37567&mn=001002",
+  "market_data": {
+    "sp500": {
+      "value": "7,722.7",
+      "change": "+0.73%",
+      "suspect": true
+    },
+    "kospi": {
+      "value": "7,003.74",
+      "change": "+0.46%",
+      "suspect": true
+    },
+    "kosdaq": {
+      "value": "893.29",
+      "change": "-0.11%",
+      "suspect": true
+    },
+    "usd_krw": {
+      "value": "1,341.6",
+      "change": "-1.40%"
+    },
+    "wti": {
+      "value": "90.51",
+      "change": "-0.66%"
+    },
+    "gold": {
+      "value": "4,183.6",
+      "change": "+0.51%"
+    },
+    "vix": {
+      "value": "15.31",
+      "change": "-6.59%",
+      "suspect": true
+    },
+    "dxy": {
+      "value": "101.97",
+      "change": "+0.04%"
+    },
+    "us10y": {
+      "value": "5.277",
+      "change": "+0.76%",
+      "suspect": true
+    },
+    "eurusd": {
+      "value": "1.1245",
+      "change": "-0.04%"
+    },
+    "usdjpy": {
+      "value": "157.68",
+      "change": "-0.16%"
+    },
+    "jpy_krw": {
+      "value": "850.6",
+      "change": "-1.11%"
+    }
+  },
+  "synthesis": "⚠️ 종합 결론 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfiC6dpFpTo1v7EqW1tsZ'}",
+  "percentiles": {
+    "usd_krw": {
+      "rank": 2,
+      "desc": "하위권"
+    },
+    "wti": {
+      "rank": 68,
+      "desc": "평균 범위"
+    },
+    "gold": {
+      "rank": 25,
+      "desc": "평균 범위"
+    },
+    "dxy": {
+      "rank": 99,
+      "desc": "상위권"
+    },
+    "eurusd": {
+      "rank": 0,
+      "desc": "하위권"
+    },
+    "usdjpy": {
+      "rank": 50,
+      "desc": "평균 범위"
+    },
+    "jpy_krw": {
+      "rank": 0,
+      "desc": "하위권"
+    }
+  },
+  "bull": "⚠️ 분석 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfiC6b2aPiUyPE2RvY8g2'}",
+  "bear": "⚠️ 분석 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfiC6c7KW7oQyNAN87nSp'}",
+  "quant": "⚠️ 분석 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfiC6ce4zRToR6XZQE5Ha'}",
+  "buffett": "⚠️ 분석 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfiC6dCJrM7vwv2ts2vU6'}"
+}
