@@ -1,7 +1,66 @@
 {
-  "updated_at": "2026-10-05 10:05 KST",
-  "total": 86,
+  "updated_at": "2026-10-06 11:22 KST",
+  "total": 87,
   "reports": [
+    {
+      "date": "2026-10-06",
+      "title": "2026년 10월 06일 글로벌 시장 브리핑",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,774.0",
+          "change": "+0.66%"
+        },
+        "kospi": {
+          "value": "6,966.85",
+          "change": "-0.53%"
+        },
+        "kosdaq": {
+          "value": "915.64",
+          "change": "+2.50%"
+        },
+        "usd_krw": {
+          "value": "1,343.0",
+          "change": "+0.03%"
+        },
+        "wti": {
+          "value": "89.61",
+          "change": "+0.20%"
+        },
+        "gold": {
+          "value": "4,155.7",
+          "change": "-0.03%"
+        },
+        "vix": {
+          "value": "15.52",
+          "change": "+1.37%"
+        },
+        "dxy": {
+          "value": "102.16",
+          "change": "-0.01%"
+        },
+        "us10y": {
+          "value": "5.311",
+          "change": "+0.64%"
+        },
+        "eurusd": {
+          "value": "1.1218",
+          "change": "-0.32%"
+        },
+        "usdjpy": {
+          "value": "157.94",
+          "change": "+0.13%"
+        },
+        "jpy_krw": {
+          "value": "850.6",
+          "change": "+0.10%",
+          "suspect": true
+        }
+      }
+    },
     {
       "date": "2026-10-05",
       "title": "[10.5] 미국 트럼프, 클레이턴 국가정보국 국장을 AI 태스크포스 총괄 책임자로 지명",
