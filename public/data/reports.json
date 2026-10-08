@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-10-07 10:42 KST",
-  "total": 88,
+  "updated_at": "2026-10-08 11:08 KST",
+  "total": 89,
   "reports": [
+    {
+      "date": "2026-10-08",
+      "title": "[10.8] FOMC 의사록, 연내 1회 금리인상 적절. 美 1년 인플레이션 기대는 3년래 최고 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,801.8",
+          "change": "-0.22%"
+        },
+        "kospi": {
+          "value": "6,771.99",
+          "change": "-0.47%"
+        },
+        "kosdaq": {
+          "value": "897.67",
+          "change": "-0.08%"
+        },
+        "usd_krw": {
+          "value": "1,337.2",
+          "change": "-0.19%"
+        },
+        "wti": {
+          "value": "89.58",
+          "change": "+1.47%"
+        },
+        "gold": {
+          "value": "4,157.4",
+          "change": "+0.40%"
+        },
+        "vix": {
+          "value": "15.08",
+          "change": "+0.47%"
+        },
+        "dxy": {
+          "value": "102.17",
+          "change": "-0.07%"
+        },
+        "us10y": {
+          "value": "5.277",
+          "change": "+0.15%"
+        },
+        "eurusd": {
+          "value": "1.1213",
+          "change": "-0.36%"
+        },
+        "usdjpy": {
+          "value": "157.78",
+          "change": "-0.33%"
+        },
+        "jpy_krw": {
+          "value": "847.7",
+          "change": "-0.12%"
+        }
+      }
+    },
     {
       "date": "2026-10-07",
       "title": "[10.7] 연준 주요 인사, 인플레이션 고려 시 금리 인상 필요. 美 주요 국채금리는 하락 등",
