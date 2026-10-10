@@ -1,7 +1,67 @@
 {
-  "updated_at": "2026-10-09 11:22 KST",
-  "total": 90,
+  "updated_at": "2026-10-10 10:51 KST",
+  "total": 91,
   "reports": [
+    {
+      "date": "2026-10-10",
+      "title": "2026년 10월 10일 글로벌 시장 브리핑",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,811.5",
+          "change": "+0.59%"
+        },
+        "kospi": {
+          "value": "6,625.93",
+          "change": "-2.62%",
+          "suspect": true
+        },
+        "kosdaq": {
+          "value": "892.27",
+          "change": "-0.69%",
+          "suspect": true
+        },
+        "usd_krw": {
+          "value": "1,340.0",
+          "change": "-0.22%"
+        },
+        "wti": {
+          "value": "91.66",
+          "change": "+0.19%"
+        },
+        "gold": {
+          "value": "4,220.3",
+          "change": "+1.52%"
+        },
+        "vix": {
+          "value": "14.84",
+          "change": "-3.70%"
+        },
+        "dxy": {
+          "value": "102.23",
+          "change": "+0.09%"
+        },
+        "us10y": {
+          "value": "5.244",
+          "change": "+0.25%"
+        },
+        "eurusd": {
+          "value": "1.1206",
+          "change": "-0.06%"
+        },
+        "usdjpy": {
+          "value": "158.25",
+          "change": "+0.12%"
+        },
+        "jpy_krw": {
+          "value": "847.9",
+          "change": "-0.09%"
+        }
+      }
+    },
     {
       "date": "2026-10-09",
       "title": "[10.9] 연준 주요 인사, 금리 인상 필요하나 인상 시기는 유연성 필요. 美 국채 금리 하락",
