@@ -1,7 +1,68 @@
 {
-  "updated_at": "2026-10-10 10:51 KST",
-  "total": 91,
+  "updated_at": "2026-10-12 10:28 KST",
+  "total": 92,
   "reports": [
+    {
+      "date": "2026-10-12",
+      "title": "[10.12] 미국 트럼프, 러-우 에너지 휴전 합의. 이란은 미국의 종전 제안 답변에 불만 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,811.5",
+          "change": "+0.59%",
+          "suspect": true
+        },
+        "kospi": {
+          "value": "6,443.18",
+          "change": "-2.76%"
+        },
+        "kosdaq": {
+          "value": "862.03",
+          "change": "-3.39%"
+        },
+        "usd_krw": {
+          "value": "1,335.5",
+          "change": "-0.56%"
+        },
+        "wti": {
+          "value": "90.10",
+          "change": "-1.91%"
+        },
+        "gold": {
+          "value": "4,227.3",
+          "change": "+0.26%"
+        },
+        "vix": {
+          "value": "14.84",
+          "change": "-3.70%",
+          "suspect": true
+        },
+        "dxy": {
+          "value": "102.12",
+          "change": "-0.09%"
+        },
+        "us10y": {
+          "value": "5.244",
+          "change": "+0.25%",
+          "suspect": true
+        },
+        "eurusd": {
+          "value": "1.1218",
+          "change": "+0.05%"
+        },
+        "usdjpy": {
+          "value": "158.16",
+          "change": "+0.06%"
+        },
+        "jpy_krw": {
+          "value": "843.9",
+          "change": "-0.54%"
+        }
+      }
+    },
     {
       "date": "2026-10-10",
       "title": "2026년 10월 10일 글로벌 시장 브리핑",
