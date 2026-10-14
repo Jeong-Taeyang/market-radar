@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-10-13 12:06 KST",
-  "total": 93,
+  "updated_at": "2026-10-14 10:19 KST",
+  "total": 94,
   "reports": [
+    {
+      "date": "2026-10-14",
+      "title": "2026년 10월 14일 글로벌 시장 브리핑",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,805.5",
+          "change": "-0.02%"
+        },
+        "kospi": {
+          "value": "6,087.06",
+          "change": "+0.86%"
+        },
+        "kosdaq": {
+          "value": "828.51",
+          "change": "-1.02%"
+        },
+        "usd_krw": {
+          "value": "1,340.2",
+          "change": "+0.45%"
+        },
+        "wti": {
+          "value": "95.26",
+          "change": "+1.62%"
+        },
+        "gold": {
+          "value": "4,179.3",
+          "change": "-0.27%"
+        },
+        "vix": {
+          "value": "15.27",
+          "change": "+0.39%"
+        },
+        "dxy": {
+          "value": "102.17",
+          "change": "-0.40%"
+        },
+        "us10y": {
+          "value": "5.217",
+          "change": "-0.44%"
+        },
+        "eurusd": {
+          "value": "1.1207",
+          "change": "+0.42%"
+        },
+        "usdjpy": {
+          "value": "158.49",
+          "change": "-0.02%"
+        },
+        "jpy_krw": {
+          "value": "845.5",
+          "change": "-0.28%"
+        }
+      }
+    },
     {
       "date": "2026-10-13",
       "title": "[10.13] 미국 클리블랜드 연은 총재, 추가 긴축 지지. 후티 반군은 사우디 공격 지속 등",
