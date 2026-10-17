@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-10-16 09:32 KST",
-  "total": 96,
+  "updated_at": "2026-10-17 09:39 KST",
+  "total": 97,
   "reports": [
+    {
+      "date": "2026-10-17",
+      "title": "[10.17] 美 기술주, AI 투자 수익성 우려 및 자금조달 부담으로 약세 심화",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,659.4",
+          "change": "-1.09%"
+        },
+        "kospi": {
+          "value": "5,668.05",
+          "change": "+2.05%"
+        },
+        "kosdaq": {
+          "value": "794.78",
+          "change": "+4.46%"
+        },
+        "usd_krw": {
+          "value": "1,334.2",
+          "change": "-0.50%"
+        },
+        "wti": {
+          "value": "99.04",
+          "change": "+1.09%"
+        },
+        "gold": {
+          "value": "4,186.7",
+          "change": "+0.40%"
+        },
+        "vix": {
+          "value": "19.99",
+          "change": "+21.45%"
+        },
+        "dxy": {
+          "value": "101.78",
+          "change": "-0.22%"
+        },
+        "us10y": {
+          "value": "5.098",
+          "change": "+0.18%"
+        },
+        "eurusd": {
+          "value": "1.1244",
+          "change": "+0.27%"
+        },
+        "usdjpy": {
+          "value": "157.99",
+          "change": "-0.10%"
+        },
+        "jpy_krw": {
+          "value": "846.4",
+          "change": "-0.33%"
+        }
+      }
+    },
     {
       "date": "2026-10-16",
       "title": "2026년 10월 16일 글로벌 시장 브리핑",
