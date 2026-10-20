@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-10-19 09:19 KST",
-  "total": 98,
+  "updated_at": "2026-10-20 10:08 KST",
+  "total": 99,
   "reports": [
+    {
+      "date": "2026-10-20",
+      "title": "[10.20] 미국, 중국 및 러시아와 정상회담 가능. 후티 반군의 사우디 공격은 지속 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,690.7",
+          "change": "+0.41%"
+        },
+        "kospi": {
+          "value": "5,558.69",
+          "change": "-3.63%"
+        },
+        "kosdaq": {
+          "value": "780.80",
+          "change": "-3.47%"
+        },
+        "usd_krw": {
+          "value": "1,327.1",
+          "change": "-0.48%"
+        },
+        "wti": {
+          "value": "98.46",
+          "change": "-2.91%"
+        },
+        "gold": {
+          "value": "4,150.1",
+          "change": "-0.74%"
+        },
+        "vix": {
+          "value": "18.44",
+          "change": "-7.75%"
+        },
+        "dxy": {
+          "value": "101.94",
+          "change": "+0.10%"
+        },
+        "us10y": {
+          "value": "5.136",
+          "change": "+0.75%"
+        },
+        "eurusd": {
+          "value": "1.1220",
+          "change": "-0.05%"
+        },
+        "usdjpy": {
+          "value": "158.54",
+          "change": "+0.47%"
+        },
+        "jpy_krw": {
+          "value": "837.5",
+          "change": "-0.47%"
+        }
+      }
+    },
     {
       "date": "2026-10-19",
       "title": "[10.19] 미국 트럼프, 對러 제재 및 관세 일부 유예. 이란에는 공격 재개 가능성 시사 등",
