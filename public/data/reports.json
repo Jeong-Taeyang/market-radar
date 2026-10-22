@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-10-21 09:43 KST",
+  "updated_at": "2026-10-22 09:46 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-10-22",
+      "title": "[10.22] 美 Meta의 3/4분기 실적, 예상치 상회. 이란은 호르무즈 통과 유조선 공격 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,757.2",
+          "change": "+0.58%"
+        },
+        "kospi": {
+          "value": "5,725.57",
+          "change": "-0.18%"
+        },
+        "kosdaq": {
+          "value": "789.52",
+          "change": "-0.41%"
+        },
+        "usd_krw": {
+          "value": "1,325.5",
+          "change": "+0.12%"
+        },
+        "wti": {
+          "value": "98.01",
+          "change": "-3.71%"
+        },
+        "gold": {
+          "value": "4,131.9",
+          "change": "-0.26%"
+        },
+        "vix": {
+          "value": "16.68",
+          "change": "-3.64%"
+        },
+        "dxy": {
+          "value": "101.70",
+          "change": "-0.03%"
+        },
+        "us10y": {
+          "value": "5.146",
+          "change": "+0.57%"
+        },
+        "eurusd": {
+          "value": "1.1237",
+          "change": "+0.09%"
+        },
+        "usdjpy": {
+          "value": "158.22",
+          "change": "-0.03%"
+        },
+        "jpy_krw": {
+          "value": "838.4",
+          "change": "-0.12%"
+        }
+      }
+    },
     {
       "date": "2026-10-21",
       "title": "[10.21] 일부 언론, 미국과 이란 평화 협정 체결 근접. 트럼프는 우크라이나에 합의 촉구 등",
@@ -5567,52 +5625,6 @@
         "usdjpy": {
           "value": "159.66",
           "change": "+0.24%"
-        }
-      }
-    },
-    {
-      "date": "2026-05-30",
-      "title": "주요뉴스",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,580.1",
-          "change": "+0.22%"
-        },
-        "kospi": {
-          "value": "8,476.15",
-          "change": "+3.55%"
-        },
-        "usd_krw": {
-          "value": "1,507.1",
-          "change": "+0.79%"
-        },
-        "wti": {
-          "value": "87.36",
-          "change": "-1.73%"
-        },
-        "gold": {
-          "value": "4,560.5",
-          "change": "+1.36%"
-        },
-        "vix": {
-          "value": "15.32",
-          "change": "-2.67%"
-        },
-        "dxy": {
-          "value": "98.91",
-          "change": "-0.11%"
-        },
-        "eurusd": {
-          "value": "1.1659",
-          "change": "+0.05%"
-        },
-        "usdjpy": {
-          "value": "159.26",
-          "change": "-0.01%"
         }
       }
     }
