@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-10-22 09:46 KST",
+  "updated_at": "2026-10-23 09:46 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-10-23",
+      "title": "[10.23] 미국, 중간선거 이후 이란 공격 계획. 나스닥지수는 AI 우려 등으로 큰 폭 하락 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,663.4",
+          "change": "-1.21%"
+        },
+        "kospi": {
+          "value": "5,376.80",
+          "change": "-2.84%"
+        },
+        "kosdaq": {
+          "value": "744.63",
+          "change": "-2.55%"
+        },
+        "usd_krw": {
+          "value": "1,321.5",
+          "change": "-0.31%"
+        },
+        "wti": {
+          "value": "99.17",
+          "change": "+2.08%"
+        },
+        "gold": {
+          "value": "4,034.4",
+          "change": "-2.79%"
+        },
+        "vix": {
+          "value": "19.03",
+          "change": "+14.09%"
+        },
+        "dxy": {
+          "value": "101.50",
+          "change": "-0.28%"
+        },
+        "us10y": {
+          "value": "4.953",
+          "change": "-3.75%"
+        },
+        "eurusd": {
+          "value": "1.1228",
+          "change": "-0.06%"
+        },
+        "usdjpy": {
+          "value": "156.25",
+          "change": "-1.19%"
+        },
+        "jpy_krw": {
+          "value": "846.0",
+          "change": "-0.09%"
+        }
+      }
+    },
     {
       "date": "2026-10-22",
       "title": "[10.22] 美 Meta의 3/4분기 실적, 예상치 상회. 이란은 호르무즈 통과 유조선 공격 등",
@@ -5575,56 +5633,6 @@
         "usdjpy": {
           "value": "159.72",
           "change": "+0.28%"
-        }
-      }
-    },
-    {
-      "date": "2026-06-01",
-      "title": "주간 이슈(6.1) : 미국-이란 합의 여부, 미국 고용지표, OECD 경제전망, 유로존 CPI에 주목",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,577.9",
-          "change": "-0.03%"
-        },
-        "kospi": {
-          "value": "8,788.38",
-          "change": "+3.68%"
-        },
-        "usd_krw": {
-          "value": "1,509.4",
-          "change": "+0.94%"
-        },
-        "wti": {
-          "value": "94.24",
-          "change": "+7.88%"
-        },
-        "gold": {
-          "value": "4,490.6",
-          "change": "-1.53%"
-        },
-        "vix": {
-          "value": "16.14",
-          "change": "+5.35%"
-        },
-        "dxy": {
-          "value": "99.28",
-          "change": "+0.38%"
-        },
-        "us10y": {
-          "value": "4.516",
-          "change": "+1.41%"
-        },
-        "eurusd": {
-          "value": "1.1621",
-          "change": "-0.27%"
-        },
-        "usdjpy": {
-          "value": "159.66",
-          "change": "+0.24%"
         }
       }
     }
