@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-10-23 09:46 KST",
+  "updated_at": "2026-10-24 09:53 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-10-24",
+      "title": "2026년 10월 24일 글로벌 시장 브리핑",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,623.7",
+          "change": "-0.52%"
+        },
+        "kospi": {
+          "value": "5,550.30",
+          "change": "+0.30%"
+        },
+        "kosdaq": {
+          "value": "751.69",
+          "change": "-1.62%"
+        },
+        "usd_krw": {
+          "value": "1,323.7",
+          "change": "-0.18%"
+        },
+        "wti": {
+          "value": "103.44",
+          "change": "+3.99%"
+        },
+        "gold": {
+          "value": "4,010.0",
+          "change": "-1.24%"
+        },
+        "vix": {
+          "value": "19.45",
+          "change": "+2.21%"
+        },
+        "dxy": {
+          "value": "101.75",
+          "change": "+0.14%"
+        },
+        "us10y": {
+          "value": "4.988",
+          "change": "+0.71%"
+        },
+        "eurusd": {
+          "value": "1.1204",
+          "change": "-0.15%"
+        },
+        "usdjpy": {
+          "value": "156.81",
+          "change": "+0.20%"
+        },
+        "jpy_krw": {
+          "value": "845.3",
+          "change": "-0.17%"
+        }
+      }
+    },
     {
       "date": "2026-10-23",
       "title": "[10.23] 미국, 중간선거 이후 이란 공격 계획. 나스닥지수는 AI 우려 등으로 큰 폭 하락 등",
@@ -5583,56 +5641,6 @@
         "usdjpy": {
           "value": "160.02",
           "change": "+0.03%"
-        }
-      }
-    },
-    {
-      "date": "2026-06-02",
-      "title": "중동 전쟁 및 국제유가 동향(6.1)",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,574.3",
-          "change": "-0.08%"
-        },
-        "kospi": {
-          "value": "업데이트 중",
-          "change": "—"
-        },
-        "usd_krw": {
-          "value": "1,512.2",
-          "change": "+1.13%"
-        },
-        "wti": {
-          "value": "94.36",
-          "change": "+8.01%"
-        },
-        "gold": {
-          "value": "4,485.3",
-          "change": "-1.65%"
-        },
-        "vix": {
-          "value": "16.06",
-          "change": "+4.83%"
-        },
-        "dxy": {
-          "value": "99.33",
-          "change": "+0.43%"
-        },
-        "us10y": {
-          "value": "4.510",
-          "change": "+1.28%"
-        },
-        "eurusd": {
-          "value": "1.1620",
-          "change": "-0.28%"
-        },
-        "usdjpy": {
-          "value": "159.72",
-          "change": "+0.28%"
         }
       }
     }
