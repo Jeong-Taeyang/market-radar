@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-10-26 09:31 KST",
+  "updated_at": "2026-10-27 10:33 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-10-27",
+      "title": "[10.27] 이란·사우디, 주요 현안 논의. Anthropic 상장 신청은 AI 산업 가늠할 시험대 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,676.8",
+          "change": "+0.70%"
+        },
+        "kospi": {
+          "value": "5,707.32",
+          "change": "+4.35%"
+        },
+        "kosdaq": {
+          "value": "759.38",
+          "change": "+4.42%"
+        },
+        "usd_krw": {
+          "value": "1,323.8",
+          "change": "+0.15%"
+        },
+        "wti": {
+          "value": "101.11",
+          "change": "-2.09%"
+        },
+        "gold": {
+          "value": "4,018.4",
+          "change": "+0.26%"
+        },
+        "vix": {
+          "value": "18.39",
+          "change": "-5.45%"
+        },
+        "dxy": {
+          "value": "102.08",
+          "change": "+0.12%"
+        },
+        "us10y": {
+          "value": "4.986",
+          "change": "-0.04%"
+        },
+        "eurusd": {
+          "value": "1.1176",
+          "change": "-0.37%"
+        },
+        "usdjpy": {
+          "value": "157.63",
+          "change": "+0.51%"
+        },
+        "jpy_krw": {
+          "value": "840.2",
+          "change": "-0.30%"
+        }
+      }
+    },
     {
       "date": "2026-10-26",
       "title": "2026년 10월 26일 글로벌 시장 브리핑",
@@ -5602,56 +5660,6 @@
         "usdjpy": {
           "value": "160.36",
           "change": "+0.11%"
-        }
-      }
-    },
-    {
-      "date": "2026-06-05",
-      "title": "[26.5월] 국제금융 INSIGHT",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,584.3",
-          "change": "+0.41%"
-        },
-        "kospi": {
-          "value": "8,801.49",
-          "change": "+0.15%"
-        },
-        "usd_krw": {
-          "value": "1,532.6",
-          "change": "+0.16%"
-        },
-        "wti": {
-          "value": "92.70",
-          "change": "-3.46%"
-        },
-        "gold": {
-          "value": "4,504.9",
-          "change": "+1.54%"
-        },
-        "vix": {
-          "value": "15.40",
-          "change": "-4.11%"
-        },
-        "dxy": {
-          "value": "99.43",
-          "change": "-0.10%"
-        },
-        "us10y": {
-          "value": "4.477",
-          "change": "-0.31%"
-        },
-        "eurusd": {
-          "value": "1.1616",
-          "change": "+0.05%"
-        },
-        "usdjpy": {
-          "value": "159.98",
-          "change": "+0.03%"
         }
       }
     }
