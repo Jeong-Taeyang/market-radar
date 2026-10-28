@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-10-27 10:33 KST",
+  "updated_at": "2026-10-28 10:31 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-10-28",
+      "title": "[10.28] 이란, 종전 조건 충족을 강조. 美 주요 투자은행은 Anthropic 우회 지원 참여 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,722.6",
+          "change": "+0.60%"
+        },
+        "kospi": {
+          "value": "5,954.31",
+          "change": "+5.60%"
+        },
+        "kosdaq": {
+          "value": "767.36",
+          "change": "+3.16%"
+        },
+        "usd_krw": {
+          "value": "1,335.3",
+          "change": "+0.79%"
+        },
+        "wti": {
+          "value": "100.85",
+          "change": "-0.89%"
+        },
+        "gold": {
+          "value": "4,073.5",
+          "change": "+0.87%"
+        },
+        "vix": {
+          "value": "17.52",
+          "change": "-4.73%"
+        },
+        "dxy": {
+          "value": "102.38",
+          "change": "+0.41%"
+        },
+        "us10y": {
+          "value": "4.993",
+          "change": "+0.14%"
+        },
+        "eurusd": {
+          "value": "1.1127",
+          "change": "-0.42%"
+        },
+        "usdjpy": {
+          "value": "157.89",
+          "change": "+0.23%"
+        },
+        "jpy_krw": {
+          "value": "846.2",
+          "change": "+0.63%"
+        }
+      }
+    },
     {
       "date": "2026-10-27",
       "title": "[10.27] 이란·사우디, 주요 현안 논의. Anthropic 상장 신청은 AI 산업 가늠할 시험대 등",
@@ -5610,56 +5668,6 @@
         "usdjpy": {
           "value": "160.53",
           "change": "+0.09%"
-        }
-      }
-    },
-    {
-      "date": "2026-06-10",
-      "title": "[6.9] 이란·이스라엘, 트럼프 요청대로 상호 공격 중단. 일부 불안 요인도 존재 등",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,386.6",
-          "change": "-0.26%"
-        },
-        "kospi": {
-          "value": "7,484.41",
-          "change": "-8.29%"
-        },
-        "usd_krw": {
-          "value": "1,527.2",
-          "change": "-0.11%"
-        },
-        "wti": {
-          "value": "88.81",
-          "change": "-2.73%"
-        },
-        "gold": {
-          "value": "4,278.1",
-          "change": "-1.33%"
-        },
-        "vix": {
-          "value": "19.87",
-          "change": "+5.02%"
-        },
-        "dxy": {
-          "value": "100.00",
-          "change": "-0.05%"
-        },
-        "us10y": {
-          "value": "4.528",
-          "change": "-0.53%"
-        },
-        "eurusd": {
-          "value": "1.1545",
-          "change": "+0.14%"
-        },
-        "usdjpy": {
-          "value": "160.36",
-          "change": "+0.11%"
         }
       }
     }
