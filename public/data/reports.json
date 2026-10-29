@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-10-28 10:31 KST",
+  "updated_at": "2026-10-29 10:53 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-10-29",
+      "title": "[10.29] 10월 FOMC, 금리 동결. 인플레이션 높지만 12월 추가 인상 여부는 미정 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,744.0",
+          "change": "+0.28%"
+        },
+        "kospi": {
+          "value": "5,850.19",
+          "change": "-2.70%"
+        },
+        "kosdaq": {
+          "value": "744.31",
+          "change": "-3.50%"
+        },
+        "usd_krw": {
+          "value": "1,331.7",
+          "change": "+0.37%"
+        },
+        "wti": {
+          "value": "102.11",
+          "change": "+2.21%"
+        },
+        "gold": {
+          "value": "4,066.1",
+          "change": "-0.21%"
+        },
+        "vix": {
+          "value": "16.91",
+          "change": "-3.48%"
+        },
+        "dxy": {
+          "value": "102.19",
+          "change": "+0.00%"
+        },
+        "us10y": {
+          "value": "5.045",
+          "change": "+1.04%"
+        },
+        "eurusd": {
+          "value": "1.1151",
+          "change": "+0.19%"
+        },
+        "usdjpy": {
+          "value": "157.70",
+          "change": "-0.19%"
+        },
+        "jpy_krw": {
+          "value": "844.1",
+          "change": "-0.84%"
+        }
+      }
+    },
     {
       "date": "2026-10-28",
       "title": "[10.28] 이란, 종전 조건 충족을 강조. 美 주요 투자은행은 Anthropic 우회 지원 참여 등",
@@ -5618,56 +5676,6 @@
         "usdjpy": {
           "value": "160.03",
           "change": "-0.31%"
-        }
-      }
-    },
-    {
-      "date": "2026-06-11",
-      "title": "중동 전쟁 및 국제유가 동향(6.10)",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,267.0",
-          "change": "-1.62%"
-        },
-        "kospi": {
-          "value": "8,096.93",
-          "change": "+8.18%"
-        },
-        "usd_krw": {
-          "value": "1,520.5",
-          "change": "-0.35%"
-        },
-        "wti": {
-          "value": "92.20",
-          "change": "+4.54%"
-        },
-        "gold": {
-          "value": "4,068.2",
-          "change": "-4.50%"
-        },
-        "vix": {
-          "value": "22.22",
-          "change": "+11.83%"
-        },
-        "dxy": {
-          "value": "100.08",
-          "change": "+0.17%"
-        },
-        "us10y": {
-          "value": "4.542",
-          "change": "+0.31%"
-        },
-        "eurusd": {
-          "value": "1.1534",
-          "change": "-0.01%"
-        },
-        "usdjpy": {
-          "value": "160.53",
-          "change": "+0.09%"
         }
       }
     }
