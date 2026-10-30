@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-10-29 10:53 KST",
+  "updated_at": "2026-10-30 11:04 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-10-30",
+      "title": "[10.30] 미국 9월 PCE 물가, 상승세 지속. 3/4분기 GDP 증가율은 1년래 최고 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,720.4",
+          "change": "-0.30%"
+        },
+        "kospi": {
+          "value": "5,621.10",
+          "change": "-5.33%"
+        },
+        "kosdaq": {
+          "value": "720.47",
+          "change": "-4.35%"
+        },
+        "usd_krw": {
+          "value": "1,337.3",
+          "change": "-0.23%"
+        },
+        "wti": {
+          "value": "104.91",
+          "change": "+2.07%"
+        },
+        "gold": {
+          "value": "4,010.6",
+          "change": "-1.01%"
+        },
+        "vix": {
+          "value": "17.20",
+          "change": "+1.71%"
+        },
+        "dxy": {
+          "value": "101.74",
+          "change": "-0.30%"
+        },
+        "us10y": {
+          "value": "4.989",
+          "change": "-1.11%"
+        },
+        "eurusd": {
+          "value": "1.1198",
+          "change": "+0.38%"
+        },
+        "usdjpy": {
+          "value": "157.48",
+          "change": "-0.22%"
+        },
+        "jpy_krw": {
+          "value": "849.7",
+          "change": "-0.03%"
+        }
+      }
+    },
     {
       "date": "2026-10-29",
       "title": "[10.29] 10월 FOMC, 금리 동결. 인플레이션 높지만 12월 추가 인상 여부는 미정 등",
@@ -5626,56 +5684,6 @@
         "usdjpy": {
           "value": "160.32",
           "change": "+0.23%"
-        }
-      }
-    },
-    {
-      "date": "2026-06-12",
-      "title": "[6.11] 미국 트럼프, 對이란 보복 공습 단행. 추가 공격도 가능하다며 경고 등",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,394.3",
-          "change": "+1.75%"
-        },
-        "kospi": {
-          "value": "7,730.82",
-          "change": "-4.52%"
-        },
-        "usd_krw": {
-          "value": "1,516.0",
-          "change": "-0.59%"
-        },
-        "wti": {
-          "value": "85.82",
-          "change": "-4.68%"
-        },
-        "gold": {
-          "value": "4,228.9",
-          "change": "+2.94%"
-        },
-        "vix": {
-          "value": "19.44",
-          "change": "-12.51%"
-        },
-        "dxy": {
-          "value": "99.68",
-          "change": "-0.28%"
-        },
-        "us10y": {
-          "value": "4.463",
-          "change": "-1.74%"
-        },
-        "eurusd": {
-          "value": "1.1578",
-          "change": "+0.37%"
-        },
-        "usdjpy": {
-          "value": "160.03",
-          "change": "-0.31%"
         }
       }
     }
