@@ -1,7 +1,68 @@
 {
-  "updated_at": "2026-10-31 10:43 KST",
+  "updated_at": "2026-11-02 10:40 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-11-02",
+      "title": "[11. 2] 이란, 광범위한 對美 보복 준비. 파키스탄은 신중하게 美-이란 협상 타결 기대 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,580.1",
+          "change": "-1.82%",
+          "suspect": true
+        },
+        "kospi": {
+          "value": "5,791.30",
+          "change": "+1.06%"
+        },
+        "kosdaq": {
+          "value": "729.55",
+          "change": "+0.71%"
+        },
+        "usd_krw": {
+          "value": "1,338.1",
+          "change": "+0.01%"
+        },
+        "wti": {
+          "value": "101.59",
+          "change": "-2.43%"
+        },
+        "gold": {
+          "value": "3,916.6",
+          "change": "+0.45%"
+        },
+        "vix": {
+          "value": "19.42",
+          "change": "+12.91%",
+          "suspect": true
+        },
+        "dxy": {
+          "value": "101.92",
+          "change": "+0.04%"
+        },
+        "us10y": {
+          "value": "4.929",
+          "change": "-1.20%",
+          "suspect": true
+        },
+        "eurusd": {
+          "value": "1.1173",
+          "change": "-0.09%"
+        },
+        "usdjpy": {
+          "value": "157.79",
+          "change": "-0.01%"
+        },
+        "jpy_krw": {
+          "value": "848.3",
+          "change": "+0.05%"
+        }
+      }
+    },
     {
       "date": "2026-10-31",
       "title": "2026년 10월 31일 글로벌 시장 브리핑",
@@ -5642,56 +5703,6 @@
         "usdjpy": {
           "value": "161.34",
           "change": "+0.46%"
-        }
-      }
-    },
-    {
-      "date": "2026-06-17",
-      "title": "[6.16] 미국과 이란, 종전 양해각서에 서명. 60일 동안 호르무즈 해협 통행료 없이 개방 등",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,511.4",
-          "change": "-0.57%"
-        },
-        "kospi": {
-          "value": "8,545.98",
-          "change": "+5.20%"
-        },
-        "usd_krw": {
-          "value": "1,512.9",
-          "change": "-0.03%"
-        },
-        "wti": {
-          "value": "75.98",
-          "change": "-5.91%"
-        },
-        "gold": {
-          "value": "4,351.2",
-          "change": "+0.54%"
-        },
-        "vix": {
-          "value": "16.41",
-          "change": "+1.30%"
-        },
-        "dxy": {
-          "value": "99.54",
-          "change": "-0.09%"
-        },
-        "us10y": {
-          "value": "4.428",
-          "change": "-1.31%"
-        },
-        "eurusd": {
-          "value": "1.1614",
-          "change": "+0.17%"
-        },
-        "usdjpy": {
-          "value": "160.41",
-          "change": "+0.11%"
         }
       }
     }
