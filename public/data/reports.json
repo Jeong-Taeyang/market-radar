@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-11-04 11:30 KST",
+  "updated_at": "2026-11-05 11:39 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-11-05",
+      "title": "[11.5] 미국 민주당, 상하원 모두 압승. 대치 정국 속 트럼프 주요 정책 동력 약화 예상 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,688.6",
+          "change": "+1.58%"
+        },
+        "kospi": {
+          "value": "5,505.50",
+          "change": "-3.14%"
+        },
+        "kosdaq": {
+          "value": "692.27",
+          "change": "-3.17%"
+        },
+        "usd_krw": {
+          "value": "1,343.7",
+          "change": "+0.06%"
+        },
+        "wti": {
+          "value": "87.42",
+          "change": "-0.79%"
+        },
+        "gold": {
+          "value": "4,135.5",
+          "change": "+1.53%"
+        },
+        "vix": {
+          "value": "16.61",
+          "change": "-20.26%"
+        },
+        "dxy": {
+          "value": "101.31",
+          "change": "-0.19%"
+        },
+        "us10y": {
+          "value": "4.894",
+          "change": "-1.17%"
+        },
+        "eurusd": {
+          "value": "1.1256",
+          "change": "+0.44%"
+        },
+        "usdjpy": {
+          "value": "157.98",
+          "change": "-0.31%"
+        },
+        "jpy_krw": {
+          "value": "850.5",
+          "change": "+0.36%"
+        }
+      }
+    },
     {
       "date": "2026-11-04",
       "title": "[11.4] 미국, 중간선거에서 민주당 하원 승리 예상. 이란과는 이견 존재하지만 협상 진전 등",
@@ -5669,56 +5727,6 @@
         "usdjpy": {
           "value": "161.76",
           "change": "+0.00%"
-        }
-      }
-    },
-    {
-      "date": "2026-06-25",
-      "title": "[6.24] 미국과 이란, 이견 불구 호르무즈 통과 선박 증가. 美 증시는 기술주 우려 증폭 등",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,358.2",
-          "change": "-0.10%"
-        },
-        "kospi": {
-          "value": "8,203.84",
-          "change": "-9.99%"
-        },
-        "usd_krw": {
-          "value": "1,539.6",
-          "change": "+0.29%"
-        },
-        "wti": {
-          "value": "69.85",
-          "change": "-4.59%"
-        },
-        "gold": {
-          "value": "4,016.8",
-          "change": "-2.74%"
-        },
-        "vix": {
-          "value": "18.63",
-          "change": "-4.41%"
-        },
-        "dxy": {
-          "value": "101.58",
-          "change": "+0.17%"
-        },
-        "us10y": {
-          "value": "4.402",
-          "change": "-1.10%"
-        },
-        "eurusd": {
-          "value": "1.1360",
-          "change": "-0.17%"
-        },
-        "usdjpy": {
-          "value": "161.74",
-          "change": "+0.09%"
         }
       }
     }
