@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-11-06 11:40 KST",
+  "updated_at": "2026-11-07 11:07 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-11-07",
+      "title": "[11.7] 미국 10월 비농업고용지수, 예상을 상회하며 견조하게 증가 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,376.9",
+          "change": "+0.31%"
+        },
+        "kospi": {
+          "value": "5,059.69",
+          "change": "-6.02%"
+        },
+        "kosdaq": {
+          "value": "644.27",
+          "change": "-5.03%"
+        },
+        "usd_krw": {
+          "value": "1,356.3",
+          "change": "+1.21%"
+        },
+        "wti": {
+          "value": "90.34",
+          "change": "-0.20%"
+        },
+        "gold": {
+          "value": "4,079.5",
+          "change": "-0.83%"
+        },
+        "vix": {
+          "value": "25.64",
+          "change": "-9.01%"
+        },
+        "dxy": {
+          "value": "102.28",
+          "change": "+0.72%"
+        },
+        "us10y": {
+          "value": "4.859",
+          "change": "+0.45%"
+        },
+        "eurusd": {
+          "value": "1.1228",
+          "change": "-0.06%"
+        },
+        "usdjpy": {
+          "value": "157.50",
+          "change": "-0.54%"
+        },
+        "jpy_krw": {
+          "value": "860.5",
+          "change": "-0.01%"
+        }
+      }
+    },
     {
       "date": "2026-11-06",
       "title": "2026년 11월 06일 글로벌 시장 브리핑",
@@ -5686,56 +5744,6 @@
         "usdjpy": {
           "value": "162.61",
           "change": "+0.42%"
-        }
-      }
-    },
-    {
-      "date": "2026-06-30",
-      "title": "[6.29] 미국과 이란, 서로에 대한 공격 중단 합의. 분쟁 해결을 위한 대화도 예정 등",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,440.4",
-          "change": "+1.18%"
-        },
-        "kospi": {
-          "value": "8,411.21",
-          "change": "-5.81%"
-        },
-        "usd_krw": {
-          "value": "1,542.0",
-          "change": "+0.44%"
-        },
-        "wti": {
-          "value": "70.39",
-          "change": "+1.68%"
-        },
-        "gold": {
-          "value": "4,034.0",
-          "change": "-1.10%"
-        },
-        "vix": {
-          "value": "17.65",
-          "change": "-4.13%"
-        },
-        "dxy": {
-          "value": "101.11",
-          "change": "-0.25%"
-        },
-        "us10y": {
-          "value": "4.374",
-          "change": "+0.05%"
-        },
-        "eurusd": {
-          "value": "1.1427",
-          "change": "+0.37%"
-        },
-        "usdjpy": {
-          "value": "161.92",
-          "change": "+0.08%"
         }
       }
     }
