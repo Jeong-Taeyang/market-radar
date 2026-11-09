@@ -1,7 +1,68 @@
 {
-  "updated_at": "2026-11-07 11:07 KST",
+  "updated_at": "2026-11-09 10:48 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-11-09",
+      "title": "[11.9]  미국 백악관과 민주당, 데이터센터 정책 충돌. 10월 소비자물가는 상승 둔화 예상 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,376.9",
+          "change": "+0.31%",
+          "suspect": true
+        },
+        "kospi": {
+          "value": "5,134.76",
+          "change": "+1.48%"
+        },
+        "kosdaq": {
+          "value": "645.13",
+          "change": "+0.13%"
+        },
+        "usd_krw": {
+          "value": "1,360.6",
+          "change": "+0.31%"
+        },
+        "wti": {
+          "value": "90.46",
+          "change": "-0.41%"
+        },
+        "gold": {
+          "value": "4,116.3",
+          "change": "+1.02%"
+        },
+        "vix": {
+          "value": "25.64",
+          "change": "-9.01%",
+          "suspect": true
+        },
+        "dxy": {
+          "value": "102.16",
+          "change": "-0.13%"
+        },
+        "us10y": {
+          "value": "4.859",
+          "change": "+0.45%",
+          "suspect": true
+        },
+        "eurusd": {
+          "value": "1.1153",
+          "change": "-0.67%"
+        },
+        "usdjpy": {
+          "value": "158.22",
+          "change": "+0.46%"
+        },
+        "jpy_krw": {
+          "value": "860.1",
+          "change": "-0.07%"
+        }
+      }
+    },
     {
       "date": "2026-11-07",
       "title": "[11.7] 미국 10월 비농업고용지수, 예상을 상회하며 견조하게 증가 등",
@@ -5694,56 +5755,6 @@
         "usdjpy": {
           "value": "162.54",
           "change": "-0.05%"
-        }
-      }
-    },
-    {
-      "date": "2026-07-01",
-      "title": "[6.30]  미국 트럼프, 이란과 회담 개최 예정. 이란은 참석 부인하고 호르무즈 통제 강조 등",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,499.4",
-          "change": "+0.79%"
-        },
-        "kospi": {
-          "value": "8,394.65",
-          "change": "-0.20%"
-        },
-        "usd_krw": {
-          "value": "1,545.7",
-          "change": "+0.26%"
-        },
-        "wti": {
-          "value": "69.95",
-          "change": "-1.13%"
-        },
-        "gold": {
-          "value": "4,027.9",
-          "change": "+0.14%"
-        },
-        "vix": {
-          "value": "16.45",
-          "change": "-6.80%"
-        },
-        "dxy": {
-          "value": "101.17",
-          "change": "+0.06%"
-        },
-        "us10y": {
-          "value": "4.418",
-          "change": "+1.05%"
-        },
-        "eurusd": {
-          "value": "1.1425",
-          "change": "+0.02%"
-        },
-        "usdjpy": {
-          "value": "162.61",
-          "change": "+0.42%"
         }
       }
     }
