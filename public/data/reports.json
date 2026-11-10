@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-11-09 10:48 KST",
+  "updated_at": "2026-11-10 13:14 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-11-10",
+      "title": "[11.10] 미국과 이란, 외교적 해결 기대 증가. 美 주가는 기술주 중심 큰 폭 상승 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,549.9",
+          "change": "+2.35%"
+        },
+        "kospi": {
+          "value": "5,181.99",
+          "change": "+3.25%"
+        },
+        "kosdaq": {
+          "value": "655.55",
+          "change": "+2.59%"
+        },
+        "usd_krw": {
+          "value": "1,344.1",
+          "change": "-1.36%"
+        },
+        "wti": {
+          "value": "85.91",
+          "change": "-1.08%"
+        },
+        "gold": {
+          "value": "4,119.2",
+          "change": "+0.11%"
+        },
+        "vix": {
+          "value": "19.92",
+          "change": "-22.31%"
+        },
+        "dxy": {
+          "value": "101.67",
+          "change": "+0.02%"
+        },
+        "us10y": {
+          "value": "4.864",
+          "change": "+0.10%"
+        },
+        "eurusd": {
+          "value": "1.1226",
+          "change": "+0.70%"
+        },
+        "usdjpy": {
+          "value": "157.95",
+          "change": "-0.22%"
+        },
+        "jpy_krw": {
+          "value": "851.2",
+          "change": "+0.18%"
+        }
+      }
+    },
     {
       "date": "2026-11-09",
       "title": "[11.9]  미국 백악관과 민주당, 데이터센터 정책 충돌. 10월 소비자물가는 상승 둔화 예상 등",
@@ -5705,56 +5763,6 @@
         "usdjpy": {
           "value": "162.07",
           "change": "+0.38%"
-        }
-      }
-    },
-    {
-      "date": "2026-07-02",
-      "title": "[7.1] 이란, 양해각서 이행 내용 평가 후 대화 여부 결정. 호르무즈 통항량은 증가 등",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,483.2",
-          "change": "-0.22%"
-        },
-        "kospi": {
-          "value": "8,476.48",
-          "change": "+0.97%"
-        },
-        "usd_krw": {
-          "value": "1,552.6",
-          "change": "+0.26%"
-        },
-        "wti": {
-          "value": "68.02",
-          "change": "-2.13%"
-        },
-        "gold": {
-          "value": "4,049.0",
-          "change": "+0.65%"
-        },
-        "vix": {
-          "value": "16.59",
-          "change": "+0.85%"
-        },
-        "dxy": {
-          "value": "101.41",
-          "change": "+0.22%"
-        },
-        "us10y": {
-          "value": "4.475",
-          "change": "+2.36%"
-        },
-        "eurusd": {
-          "value": "1.1382",
-          "change": "-0.28%"
-        },
-        "usdjpy": {
-          "value": "162.54",
-          "change": "-0.05%"
         }
       }
     }
