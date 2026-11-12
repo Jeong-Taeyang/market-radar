@@ -1,0 +1,110 @@
+{
+  "date": "2026-11-12",
+  "title": "[11.12] 미국 증시, AI 우려 완화. 주요 관련 기업은 양호한 실적 및 투자 수요 확인 등",
+  "source_url": "https://www.kcif.or.kr/annual/reportView?rpt_no=37704&mn=001002",
+  "market_data": {
+    "sp500": {
+      "value": "7,619.4",
+      "change": "+1.31%"
+    },
+    "kospi": {
+      "value": "5,430.31",
+      "change": "+1.02%"
+    },
+    "kosdaq": {
+      "value": "701.43",
+      "change": "-0.52%"
+    },
+    "usd_krw": {
+      "value": "1,332.1",
+      "change": "-0.73%"
+    },
+    "wti": {
+      "value": "85.64",
+      "change": "-1.03%"
+    },
+    "gold": {
+      "value": "3,984.2",
+      "change": "-0.41%"
+    },
+    "vix": {
+      "value": "17.49",
+      "change": "-10.12%"
+    },
+    "dxy": {
+      "value": "103.05",
+      "change": "+0.14%"
+    },
+    "us10y": {
+      "value": "4.998",
+      "change": "+0.30%"
+    },
+    "eurusd": {
+      "value": "1.1079",
+      "change": "-0.80%"
+    },
+    "usdjpy": {
+      "value": "159.76",
+      "change": "+0.67%"
+    },
+    "jpy_krw": {
+      "value": "833.9",
+      "change": "-0.39%"
+    }
+  },
+  "synthesis": "⚠️ 종합 결론 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CgxJTJXCwpEJ9rpW7zNBC'}",
+  "percentiles": {
+    "sp500": {
+      "rank": 76,
+      "desc": "평균 범위"
+    },
+    "kospi": {
+      "rank": 34,
+      "desc": "평균 범위"
+    },
+    "kosdaq": {
+      "rank": 4,
+      "desc": "하위권"
+    },
+    "usd_krw": {
+      "rank": 3,
+      "desc": "하위권"
+    },
+    "wti": {
+      "rank": 47,
+      "desc": "평균 범위"
+    },
+    "gold": {
+      "rank": 2,
+      "desc": "하위권"
+    },
+    "vix": {
+      "rank": 57,
+      "desc": "평균 범위"
+    },
+    "dxy": {
+      "rank": 100,
+      "desc": "상위권"
+    },
+    "us10y": {
+      "rank": 91,
+      "desc": "상위권"
+    },
+    "eurusd": {
+      "rank": 0,
+      "desc": "하위권"
+    },
+    "usdjpy": {
+      "rank": 86,
+      "desc": "상위권"
+    },
+    "jpy_krw": {
+      "rank": 0,
+      "desc": "하위권"
+    }
+  },
+  "bull": "⚠️ 분석 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CgxJTGPDcNeKDpU1HF5o7'}",
+  "bear": "⚠️ 분석 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CgxJTH7d2FKKA1QqstU3j'}",
+  "quant": "⚠️ 분석 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CgxJTHXgVPyLuynw19Chp'}",
+  "buffett": "⚠️ 분석 생성 실패: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CgxJTJ1D3hzN3gVVPagfz'}"
+}
