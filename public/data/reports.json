@@ -1,7 +1,69 @@
 {
-  "updated_at": "2026-11-14 11:33 KST",
+  "updated_at": "2026-11-16 11:17 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-11-16",
+      "title": "[11.16] 미국 Nvidia 실적과 Anthropic 상장. 향후 AI 투자 가늠할 시험대로 작용할 전망 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,561.7",
+          "change": "-0.40%",
+          "suspect": true
+        },
+        "kospi": {
+          "value": "5,168.18",
+          "change": "-2.31%"
+        },
+        "kosdaq": {
+          "value": "674.62",
+          "change": "-3.58%"
+        },
+        "usd_krw": {
+          "value": "1,334.4",
+          "change": "+0.05%"
+        },
+        "wti": {
+          "value": "88.16",
+          "change": "-0.45%"
+        },
+        "gold": {
+          "value": "3,880.8",
+          "change": "-0.14%"
+        },
+        "vix": {
+          "value": "19.30",
+          "change": "+3.21%",
+          "suspect": true
+        },
+        "dxy": {
+          "value": "103.41",
+          "change": "-0.00%",
+          "suspect": true
+        },
+        "us10y": {
+          "value": "5.154",
+          "change": "+1.00%",
+          "suspect": true
+        },
+        "eurusd": {
+          "value": "1.1025",
+          "change": "-0.22%"
+        },
+        "usdjpy": {
+          "value": "159.77",
+          "change": "-0.07%"
+        },
+        "jpy_krw": {
+          "value": "835.5",
+          "change": "-0.29%"
+        }
+      }
+    },
     {
       "date": "2026-11-14",
       "title": "[11.14] 미 10월 PPI, 예상치 하회했으나 상승세는 유지. 연준 인사들은 추가 긴축 시사",
@@ -5745,56 +5807,6 @@
         "usdjpy": {
           "value": "162.52",
           "change": "+0.09%"
-        }
-      }
-    },
-    {
-      "date": "2026-07-16",
-      "title": "[7.15] 미국 6월 소비자물가 상승률, 예상치 하회. 연준 워시 의장은 물가안정 강조 등",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,572.4",
-          "change": "+0.38%"
-        },
-        "kospi": {
-          "value": "6,856.83",
-          "change": "+0.73%"
-        },
-        "usd_krw": {
-          "value": "1,486.7",
-          "change": "-0.08%"
-        },
-        "wti": {
-          "value": "80.26",
-          "change": "+1.16%"
-        },
-        "gold": {
-          "value": "4,068.5",
-          "change": "+0.18%"
-        },
-        "vix": {
-          "value": "15.67",
-          "change": "-5.03%"
-        },
-        "dxy": {
-          "value": "100.50",
-          "change": "-0.44%"
-        },
-        "us10y": {
-          "value": "4.545",
-          "change": "-0.87%"
-        },
-        "eurusd": {
-          "value": "1.1471",
-          "change": "+0.40%"
-        },
-        "usdjpy": {
-          "value": "162.09",
-          "change": "-0.06%"
         }
       }
     }
