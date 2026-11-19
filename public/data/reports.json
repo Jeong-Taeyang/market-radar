@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-11-18 12:46 KST",
+  "updated_at": "2026-11-19 12:43 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-11-19",
+      "title": "[11.19] FOMC 의사록, 추가 금리인상 의견 다수. 연준 월러 이사는 0.50%p 인상 주장 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,323.6",
+          "change": "-0.23%"
+        },
+        "kospi": {
+          "value": "5,045.15",
+          "change": "-0.44%"
+        },
+        "kosdaq": {
+          "value": "659.28",
+          "change": "-0.53%"
+        },
+        "usd_krw": {
+          "value": "1,330.5",
+          "change": "-0.19%"
+        },
+        "wti": {
+          "value": "81.82",
+          "change": "-1.73%"
+        },
+        "gold": {
+          "value": "3,713.7",
+          "change": "-0.75%"
+        },
+        "vix": {
+          "value": "24.56",
+          "change": "-3.53%"
+        },
+        "dxy": {
+          "value": "103.94",
+          "change": "+0.08%"
+        },
+        "us10y": {
+          "value": "5.066",
+          "change": "-0.73%"
+        },
+        "eurusd": {
+          "value": "1.0960",
+          "change": "-0.30%"
+        },
+        "usdjpy": {
+          "value": "159.55",
+          "change": "+0.03%"
+        },
+        "jpy_krw": {
+          "value": "834.4",
+          "change": "-0.36%"
+        }
+      }
+    },
     {
       "date": "2026-11-18",
       "title": "[11.18] Nvidia 3/4분기 실적 및 향후 전망, 예상치 상회. 10월 소매판매는 대체로 양호 등",
@@ -5773,56 +5831,6 @@
         "usdjpy": {
           "value": "163.85",
           "change": "+0.47%"
-        }
-      }
-    },
-    {
-      "date": "2026-07-22",
-      "title": "[7.21] 미국 트럼프, 이란에 보복 경고. 이란은 미국과의 외교적 접촉 진행 등",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,509.2",
-          "change": "+0.89%"
-        },
-        "kospi": {
-          "value": "6,516.27",
-          "change": "-4.46%"
-        },
-        "usd_krw": {
-          "value": "1,480.6",
-          "change": "+0.38%"
-        },
-        "wti": {
-          "value": "84.61",
-          "change": "+1.66%"
-        },
-        "gold": {
-          "value": "4,084.9",
-          "change": "+1.86%"
-        },
-        "vix": {
-          "value": "17.05",
-          "change": "-8.58%"
-        },
-        "dxy": {
-          "value": "101.19",
-          "change": "+0.20%"
-        },
-        "us10y": {
-          "value": "4.628",
-          "change": "+0.65%"
-        },
-        "eurusd": {
-          "value": "1.1404",
-          "change": "-0.13%"
-        },
-        "usdjpy": {
-          "value": "163.18",
-          "change": "+0.43%"
         }
       }
     }
