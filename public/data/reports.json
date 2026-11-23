@@ -1,7 +1,68 @@
 {
-  "updated_at": "2026-11-21 12:19 KST",
+  "updated_at": "2026-11-23 11:56 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-11-23",
+      "title": "[11.23] 미국 10월 근원 PCE 물가, 소폭 상승 예상. 증시 향방에 대한 관심도 증가 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "6,910.4",
+          "change": "-3.70%",
+          "suspect": true
+        },
+        "kospi": {
+          "value": "4,602.83",
+          "change": "-5.49%"
+        },
+        "kosdaq": {
+          "value": "621.70",
+          "change": "-3.71%"
+        },
+        "usd_krw": {
+          "value": "1,347.3",
+          "change": "+0.94%"
+        },
+        "wti": {
+          "value": "82.90",
+          "change": "-1.29%"
+        },
+        "gold": {
+          "value": "3,582.0",
+          "change": "+1.89%"
+        },
+        "vix": {
+          "value": "35.89",
+          "change": "+26.20%",
+          "suspect": true
+        },
+        "dxy": {
+          "value": "103.72",
+          "change": "-0.08%"
+        },
+        "us10y": {
+          "value": "4.912",
+          "change": "-2.77%",
+          "suspect": true
+        },
+        "eurusd": {
+          "value": "1.0987",
+          "change": "+0.15%"
+        },
+        "usdjpy": {
+          "value": "158.91",
+          "change": "-0.50%"
+        },
+        "jpy_krw": {
+          "value": "848.2",
+          "change": "-0.01%"
+        }
+      }
+    },
     {
       "date": "2026-11-21",
       "title": "[11.21] 美 주가, AI 관련 우려가 지속되며 급락 등",
@@ -5797,56 +5858,6 @@
         "usdjpy": {
           "value": "163.43",
           "change": "-0.26%"
-        }
-      }
-    },
-    {
-      "date": "2026-07-28",
-      "title": "[7.27] 미국과 이란, 상호 간 공격 일시 중단. 외교적 해결 가능 여부는 불투명 등",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,413.2",
-          "change": "+0.02%"
-        },
-        "kospi": {
-          "value": "6,690.62",
-          "change": "-5.72%"
-        },
-        "usd_krw": {
-          "value": "1,464.9",
-          "change": "+0.47%"
-        },
-        "wti": {
-          "value": "81.95",
-          "change": "-8.24%"
-        },
-        "gold": {
-          "value": "4,077.7",
-          "change": "+0.25%"
-        },
-        "vix": {
-          "value": "18.67",
-          "change": "+0.48%"
-        },
-        "dxy": {
-          "value": "101.51",
-          "change": "+0.04%"
-        },
-        "us10y": {
-          "value": "4.641",
-          "change": "-0.81%"
-        },
-        "eurusd": {
-          "value": "1.1373",
-          "change": "-0.20%"
-        },
-        "usdjpy": {
-          "value": "163.74",
-          "change": "+0.08%"
         }
       }
     }
