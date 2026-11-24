@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-11-23 11:56 KST",
+  "updated_at": "2026-11-24 15:12 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-11-24",
+      "title": "[11.24] 젠슨 황, Nvidia CEO로 전격 복귀. 美 주가는 반도체 중심으로 급등 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,237.2",
+          "change": "+4.73%"
+        },
+        "kospi": {
+          "value": "5,017.76",
+          "change": "+6.57%"
+        },
+        "kosdaq": {
+          "value": "665.78",
+          "change": "+4.77%"
+        },
+        "usd_krw": {
+          "value": "1,342.3",
+          "change": "-0.15%"
+        },
+        "wti": {
+          "value": "79.70",
+          "change": "-0.59%"
+        },
+        "gold": {
+          "value": "3,625.8",
+          "change": "-0.70%"
+        },
+        "vix": {
+          "value": "26.62",
+          "change": "-25.83%"
+        },
+        "dxy": {
+          "value": "104.31",
+          "change": "-0.01%"
+        },
+        "us10y": {
+          "value": "4.918",
+          "change": "+0.12%"
+        },
+        "eurusd": {
+          "value": "1.0912",
+          "change": "-0.54%"
+        },
+        "usdjpy": {
+          "value": "159.18",
+          "change": "+0.15%"
+        },
+        "jpy_krw": {
+          "value": "843.7",
+          "change": "-0.08%"
+        }
+      }
+    },
     {
       "date": "2026-11-23",
       "title": "[11.23] 미국 10월 근원 PCE 물가, 소폭 상승 예상. 증시 향방에 대한 관심도 증가 등",
@@ -5808,56 +5866,6 @@
         "usdjpy": {
           "value": "159.71",
           "change": "-2.20%"
-        }
-      }
-    },
-    {
-      "date": "2026-07-30",
-      "title": "[7.29] 미국 트럼프, 이란과의 핵협상 순조롭게 진행. 결렬 시 이란 기반시설 공격 등",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,316.1",
-          "change": "-1.52%"
-        },
-        "kospi": {
-          "value": "6,023.66",
-          "change": "-10.84%"
-        },
-        "usd_krw": {
-          "value": "1,443.8",
-          "change": "-0.64%"
-        },
-        "wti": {
-          "value": "84.25",
-          "change": "+6.30%"
-        },
-        "gold": {
-          "value": "4,132.2",
-          "change": "+2.38%"
-        },
-        "vix": {
-          "value": "20.66",
-          "change": "+13.45%"
-        },
-        "dxy": {
-          "value": "100.80",
-          "change": "-0.57%"
-        },
-        "us10y": {
-          "value": "4.622",
-          "change": "+0.39%"
-        },
-        "eurusd": {
-          "value": "1.1471",
-          "change": "+0.74%"
-        },
-        "usdjpy": {
-          "value": "163.43",
-          "change": "-0.26%"
         }
       }
     }
