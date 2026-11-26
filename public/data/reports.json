@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-11-25 13:57 KST",
+  "updated_at": "2026-11-26 13:14 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-11-26",
+      "title": "[11.26] 미국, 과잉생산 관세는 기존 무역합의 범위 내. 10월 PCE 물가는 오름세 강화 등",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,182.8",
+          "change": "-0.25%"
+        },
+        "kospi": {
+          "value": "4,763.62",
+          "change": "+1.41%"
+        },
+        "kosdaq": {
+          "value": "664.66",
+          "change": "+2.15%"
+        },
+        "usd_krw": {
+          "value": "1,342.9",
+          "change": "+0.02%"
+        },
+        "wti": {
+          "value": "84.35",
+          "change": "+0.80%"
+        },
+        "gold": {
+          "value": "3,604.5",
+          "change": "+1.94%"
+        },
+        "vix": {
+          "value": "28.29",
+          "change": "+7.32%"
+        },
+        "dxy": {
+          "value": "103.82",
+          "change": "+0.14%"
+        },
+        "us10y": {
+          "value": "4.848",
+          "change": "-1.14%"
+        },
+        "eurusd": {
+          "value": "1.0964",
+          "change": "+0.01%"
+        },
+        "usdjpy": {
+          "value": "159.13",
+          "change": "-0.08%"
+        },
+        "jpy_krw": {
+          "value": "843.8",
+          "change": "-0.19%"
+        }
+      }
+    },
     {
       "date": "2026-11-25",
       "title": "[11.25] 미국, ‘과잉생산 관세’ 발표 예정. 기존에 합의한 관세 수준 넘지 않을 가능성 등",
@@ -5824,56 +5882,6 @@
         "jpy_krw": {
           "value": "915.2",
           "change": "+2.48%"
-        }
-      }
-    },
-    {
-      "date": "2026-08-01",
-      "title": "[8.1] 연준 금리인상 소수의견 위원 3인, 고물가 고착화 방지 위한 조기 인상 촉구",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,489.7",
-          "change": "+0.70%"
-        },
-        "kospi": {
-          "value": "6,595.45",
-          "change": "+17.91%"
-        },
-        "usd_krw": {
-          "value": "1,436.6",
-          "change": "+1.13%"
-        },
-        "wti": {
-          "value": "84.67",
-          "change": "+1.29%"
-        },
-        "gold": {
-          "value": "4,107.0",
-          "change": "+0.17%"
-        },
-        "vix": {
-          "value": "15.99",
-          "change": "-6.44%"
-        },
-        "dxy": {
-          "value": "99.80",
-          "change": "-0.21%"
-        },
-        "us10y": {
-          "value": "4.745",
-          "change": "+1.76%"
-        },
-        "eurusd": {
-          "value": "1.1527",
-          "change": "+0.03%"
-        },
-        "usdjpy": {
-          "value": "157.40",
-          "change": "-1.74%"
         }
       }
     }
