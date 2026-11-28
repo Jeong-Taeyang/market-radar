@@ -1,7 +1,65 @@
 {
-  "updated_at": "2026-11-27 13:22 KST",
+  "updated_at": "2026-11-28 13:03 KST",
   "total": 100,
   "reports": [
+    {
+      "date": "2026-11-28",
+      "title": "[11.28] S&P, 프랑스 국가신용등급(A+) 전망 ‘부정적’으로 하향",
+      "has_bull": true,
+      "has_bear": true,
+      "has_quant": true,
+      "has_buffett": true,
+      "market_data": {
+        "sp500": {
+          "value": "7,297.5",
+          "change": "+1.60%"
+        },
+        "kospi": {
+          "value": "4,915.68",
+          "change": "+4.34%"
+        },
+        "kosdaq": {
+          "value": "708.99",
+          "change": "+8.13%"
+        },
+        "usd_krw": {
+          "value": "1,333.9",
+          "change": "-0.72%"
+        },
+        "wti": {
+          "value": "83.08",
+          "change": "-0.72%"
+        },
+        "gold": {
+          "value": "3,668.5",
+          "change": "+3.75%"
+        },
+        "vix": {
+          "value": "23.81",
+          "change": "-11.16%"
+        },
+        "dxy": {
+          "value": "104.01",
+          "change": "+0.33%"
+        },
+        "us10y": {
+          "value": "4.936",
+          "change": "+1.82%"
+        },
+        "eurusd": {
+          "value": "1.0972",
+          "change": "+0.02%"
+        },
+        "usdjpy": {
+          "value": "159.28",
+          "change": "+0.04%"
+        },
+        "jpy_krw": {
+          "value": "837.5",
+          "change": "-0.75%"
+        }
+      }
+    },
     {
       "date": "2026-11-27",
       "title": "[11.27] 중국과 EU, 美 과잉생산 관세에 반발. 호르무즈 유조선 통행량은 증가 등",
@@ -5821,64 +5879,6 @@
         "jpy_krw": {
           "value": "907.0",
           "change": "-0.01%"
-        }
-      }
-    },
-    {
-      "date": "2026-08-04",
-      "title": "2026년 08월 04일 글로벌 시장 브리핑",
-      "has_bull": true,
-      "has_bear": true,
-      "has_quant": true,
-      "has_buffett": true,
-      "market_data": {
-        "sp500": {
-          "value": "7,600.5",
-          "change": "+1.48%"
-        },
-        "kospi": {
-          "value": "6,257.45",
-          "change": "+0.00%"
-        },
-        "kosdaq": {
-          "value": "737.35",
-          "change": "+0.00%"
-        },
-        "usd_krw": {
-          "value": "1,429.1",
-          "change": "-0.46%"
-        },
-        "wti": {
-          "value": "79.93",
-          "change": "-5.60%"
-        },
-        "gold": {
-          "value": "4,108.4",
-          "change": "+1.46%"
-        },
-        "vix": {
-          "value": "15.86",
-          "change": "-0.81%"
-        },
-        "dxy": {
-          "value": "99.99",
-          "change": "+0.19%"
-        },
-        "us10y": {
-          "value": "4.686",
-          "change": "-1.24%"
-        },
-        "eurusd": {
-          "value": "1.1513",
-          "change": "-0.27%"
-        },
-        "usdjpy": {
-          "value": "157.42",
-          "change": "-0.10%"
-        },
-        "jpy_krw": {
-          "value": "909.2",
-          "change": "-0.04%"
         }
       }
     }
